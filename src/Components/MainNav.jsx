@@ -25,8 +25,8 @@ const MainNav = () => {
   };
 
   const navItems = [
-    { path: '/farmerTemplate', icon: 'fa-cloud-sun', label: 'Dashboard' },
-    { path: '/WeatherTemplate', icon: 'fa-cloud-sun', label: 'Weather & Climate' },
+    { path: '/', icon: 'fa-cloud-sun', label: 'Dashboard' },
+    { path: '/Locationweather', icon: 'fa-cloud-sun', label: 'Weather & Climate' },
     { path: '/Croprecommendation', icon: 'fa-robot', label: 'AI Crop Recommendation' },
     { path: '/knowledgehub', icon: 'fa-book', label: 'Knowledge Hub' },
     { path: '/government-schemes', icon: 'fa-seedling', label: 'Government Schemes' },

@@ -4,6 +4,7 @@ import { WiDaySunny } from "react-icons/wi";
 import { GiPlantSeed } from "react-icons/gi";
 import { HiOutlineBookOpen } from "react-icons/hi";
 import { FaLandmark, FaRobot, FaVolumeUp } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const Dashboard = () => {
   const services = [
@@ -12,7 +13,7 @@ const Dashboard = () => {
       title: "Weather Forecast",
       description:
         "Get accurate weather predictions for your region to plan farming activities effectively.",
-      link: "/WeatherTemplate",
+      link: "/Locationweather",
     },
     {
       icon: <GiPlantSeed size={50} color="#2E7D32" />,
@@ -49,14 +50,19 @@ const Dashboard = () => {
     speechSynthesis.speak(utterance);
   };
 
+  const location = useLocation();
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <>
       {/* HERO */}
       <section className="hero-section text-center text-white py-5">
         <h1 className="fw-bold">Welcome to AgriConnect Farmer Dashboard</h1>
         <p className="lead mt-3">
-          Your one-stop platform for modern farming solutions, market access, and
-          agricultural knowledge. Empowering farmers across India with
+          Your one-stop platform for modern farming solutions, market access,
+          and agricultural knowledge. Empowering farmers across India with
           technology and information.
         </p>
       </section>
@@ -68,24 +74,31 @@ const Dashboard = () => {
         <div className="row g-4">
           {services.map((service, index) => (
             <div className="col-md-4" key={index}>
-              <div className="service-card p-4 text-center h-100 position-relative">
-                <button
-                  className="speaker-btn"
-                  onClick={() =>
-                    speak(`${service.title}. ${service.description}`)
-                  }
+              <Link
+                to={service.link}
+                className="text-decoration-none text-dark"
+              >
+                <div
+                  className={`service-card p-4 text-center h-100 position-relative 
+      ${isActive(service.link) ? "active-card" : ""}`}
                 >
-                  <FaVolumeUp />
-                </button>
+                  <button
+                    className="speaker-btn"
+                    onClick={(e) => {
+                      e.stopPropagation(); // 🔥 IMPORTANT
+                      speak(`${service.title}. ${service.description}`);
+                    }}
+                  >
+                    <FaVolumeUp />
+                  </button>
 
-                <div className="icon-circle mb-3">{service.icon}</div>
+                  <div className="icon-circle mb-3">{service.icon}</div>
 
-                <Link to={service.link} className="text-decoration-none">
                   <h5 className="service-title">{service.title}</h5>
-                </Link>
 
-                <p className="text-muted">{service.description}</p>
-              </div>
+                  <p className="text-muted">{service.description}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>
@@ -146,6 +159,12 @@ const Dashboard = () => {
           justify-content: center;
           cursor: pointer;
         }
+          .active-card {
+  border: 2px solid #FFA62B;
+  box-shadow: 0 0 0 3px rgba(255, 166, 43, 0.3);
+  transform: translateY(-4px);
+}
+
 
         .speaker-btn:hover {
           background: #f2f2f2;
