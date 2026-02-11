@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import {BrowserRouter as Router,Routes,Route,Navigate,} from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Header from "./Components/Header.jsx";
 import MainNav from "./Components/MainNav.jsx";
@@ -17,6 +12,12 @@ import FAQ from "./Components/FAQ.jsx";
 import Newsletter from "./Components/Newsletter.jsx";
 import Footer from "./Components/Footer.jsx";
 import Locationweather from "./Pages/Locationweather.jsx";
+import CropRecommendation from "./Pages/CropRecommendation.jsx";
+import KnowledgeHub from "./Pages/KnowledgeHub.jsx";
+import GovernmentSchemes from "./Pages/GovernmentSchemes.jsx";
+import VirtualAssistant from "./Pages/VirtualAssistant.jsx";
+import Partners from "./Components/Partners.jsx";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -42,6 +43,7 @@ function App() {
               <Dashboard />
               <FarmingCalculators />
               <FAQ />
+              <Partners />
               <Newsletter />
             </>
           }
@@ -49,6 +51,10 @@ function App() {
 
         {/* WEATHER PAGE */}
         <Route path="/Locationweather" element={<Locationweather />} />
+         <Route path="/Croprecommendation" element={<CropRecommendation />} />
+         <Route path="/knowledgehub" element={<KnowledgeHub />} />
+         <Route path="/GovernmentSchemes" element={<GovernmentSchemes/>} />
+         <Route path="/VirtualAssistant" element={<VirtualAssistant />} />
       </Routes>
 
       <Footer />

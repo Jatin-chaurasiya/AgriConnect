@@ -29,8 +29,8 @@ const MainNav = () => {
     { path: '/Locationweather', icon: 'fa-cloud-sun', label: 'Weather & Climate' },
     { path: '/Croprecommendation', icon: 'fa-robot', label: 'AI Crop Recommendation' },
     { path: '/knowledgehub', icon: 'fa-book', label: 'Knowledge Hub' },
-    { path: '/government-schemes', icon: 'fa-seedling', label: 'Government Schemes' },
-    { path: '/Chat', icon: 'fa-seedling', label: 'Virtual Assistant' }
+    { path: '/GovernmentSchemes', icon: 'fa-seedling', label: 'Government Schemes' },
+    { path: '/VirtualAssistant', icon: 'fa-seedling', label: 'Virtual Assistant' }
   ];
 
   return (

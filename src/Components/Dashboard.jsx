@@ -34,14 +34,14 @@ const Dashboard = () => {
       title: "Government Schemes",
       description:
         "Stay updated on subsidies, loans, and government programs for farmers.",
-      link: "/government-schemes",
+      link: "/GovernmentSchemes",
     },
     {
       icon: <FaRobot size={45} color="#2E7D32" />,
       title: "Virtual Assistant",
       description:
         "Get instant answers to your farming questions with our AI-powered assistant.",
-      link: "/Chat",
+      link: "/VirtualAssistant",
     },
   ];
 
