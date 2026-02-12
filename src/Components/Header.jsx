@@ -71,13 +71,13 @@ const Header = ({ user, onLogout }) => {
               /* If user is NOT logged in */
               <div>
                 <Link 
-                  to="/login"
+                  to="/LoginPage"
                   className="btn btn-warning btn-sm me-2 shadow-sm fw-semibold login-btn"
                 >
                   Login
                 </Link>
                 <Link 
-                  to="/register"
+                  to="/RegisterPage"
                   className="btn btn-warning btn-sm shadow-sm fw-semibold register-btn"
                 >
                   Register
