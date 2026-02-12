@@ -1,23 +1,29 @@
 import React from 'react';
+import image1 from '../assets/images/improvewheatyeild.jpg';
+import image2 from '../assets/images/smart-irrigation.webp';
+import image3 from '../assets/images/organicmethod.avif';
+import video1 from '../assets/images/soilhealth.jpg';
+import video2 from '../assets/images/pestmgnt.webp';
+import video3 from '../assets/images/croprotation.webp';
 
 const KnowledgeHub = () => {
   const articles = [
     {
-      image: '/images/improvewheatyeild.jpg',
+      image: image1,
       tag: 'Crop Tips',
       title: 'Improving Wheat Yield',
       description: 'Simple methods to boost wheat production for small and large farms.',
       link: 'https://www.nature.com/articles/s41598-023-44879-w'
     },
     {
-      image: '/images/smart-irrigation.webp',
+      image: image2,
       tag: 'Irrigation',
       title: 'Smart Irrigation Techniques',
       description: 'Learn modern irrigation methods that save water and increase productivity.',
       link: 'https://www.sciencedirect.com/science/article/abs/pii/S0168169925011147'
     },
     {
-      image: '/images/organicmethod.avif',
+      image:image3,
       tag: 'Organic Farming',
       title: 'Transitioning to Organic Methods',
       description: "A beginner's guide to implementing organic farming practices.",
@@ -27,21 +33,21 @@ const KnowledgeHub = () => {
 
   const videos = [
     {
-      thumbnail: '/images/soilhealth.jpg',
+      thumbnail: video1,
       duration: '12:30',
       title: 'Soil Health Basics',
       description: 'Understanding soil types and nutrients for better crop growth.',
       link: 'https://youtu.be/x3L1IAwUZK0?feature=shared'
     },
     {
-      thumbnail: '/images/pestmgnt.webp',
+      thumbnail: video2,
       duration: '15:00',
       title: 'Pest Management Tips',
       description: 'Effective ways to manage pests without harming crops or soil.',
       link: 'https://youtu.be/Uo05345F1C8?feature=shared'
     },
     {
-      thumbnail: '/images/croprotation.webp',
+      thumbnail: video3,
       duration: '18:45',
       title: 'Crop Rotation Strategies',
       description: 'Maximize soil health and yield with effective crop rotation techniques.',

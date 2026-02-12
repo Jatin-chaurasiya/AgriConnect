@@ -12,11 +12,13 @@ import FAQ from "./Components/FAQ.jsx";
 import Newsletter from "./Components/Newsletter.jsx";
 import Footer from "./Components/Footer.jsx";
 import Locationweather from "./Pages/Locationweather.jsx";
-import CropRecommendation from "./Pages/CropRecommendation.jsx";
+import CropRecommendation from "./Pages/Croprecommendation.jsx";
 import KnowledgeHub from "./Pages/KnowledgeHub.jsx";
 import GovernmentSchemes from "./Pages/GovernmentSchemes.jsx";
 import VirtualAssistant from "./Pages/VirtualAssistant.jsx";
 import Partners from "./Components/Partners.jsx";
+import ChatWidget from "./Components/ChatWidget";
+
 
 
 function App() {
@@ -56,7 +58,7 @@ function App() {
          <Route path="/GovernmentSchemes" element={<GovernmentSchemes/>} />
          <Route path="/VirtualAssistant" element={<VirtualAssistant />} />
       </Routes>
-
+      <ChatWidget />
       <Footer />
 
       <ToastContainer position="top-right" autoClose={3000} />
