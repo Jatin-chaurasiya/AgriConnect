@@ -23,7 +23,7 @@ const ProtectedRoute = ({ user, children }) => {
     }
   }, [user, navigate]);
 
-  return children;   // 👈 IMPORTANT (page visible rahega)
+  return children;  
 };
 
 export default ProtectedRoute;
