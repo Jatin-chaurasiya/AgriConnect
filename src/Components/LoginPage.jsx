@@ -2,9 +2,9 @@ import React from "react";
 import { useLogin } from "../Hooks/useLogin";
 import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const LoginPage = ({ setUser }) => {
   const { state, handleChange, handleSubmit } =
-    useLogin();
+  useLogin(setUser);
 
   const { email, password, loading, error } =
     state;

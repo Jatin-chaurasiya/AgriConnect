@@ -1,91 +1,111 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Header = ({ user, onLogout }) => {
-  const [userLanguage, setUserLanguage] = useState('en');
+const Header = ({ user, setUser }) => {
+  const [userLanguage, setUserLanguage] = useState("en");
+  const navigate = useNavigate();
 
   const handleLanguageChange = (lang) => {
     setUserLanguage(lang);
-    // You can add language change logic here (i18n, etc.)
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    setUser(null);
+    navigate("/LoginPage");
   };
 
   return (
     <>
-      <div 
-        className="language-bar py-2 shadow-sm animate__animated animate__fadeInDown"
-        style={{ backgroundColor: '#1B2D12' }}
+      <div
+        className="language-bar py-2 shadow-sm"
+        style={{ backgroundColor: "#1B2D12" }}
       >
         <div className="container d-flex justify-content-between align-items-center">
-          
-          {/* Logo / Branding */}
-          <div className="d-flex align-items-center">
-            <i className="fas fa-leaf me-2" style={{ color: '#fbc02d', fontSize: '1.4rem' }}></i>
-            <span className="fw-bold fs-5 text-white">AgriConnect</span>
+
+          {/* Logo */}
+          <div
+            className="d-flex align-items-center"
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate("/")}
+          >
+            <i
+              className="fas fa-leaf me-2"
+              style={{ color: "#fbc02d", fontSize: "1.4rem" }}
+            ></i>
+            <span className="fw-bold fs-5 text-white">
+              AgriConnect
+            </span>
           </div>
 
-          {/* Language Options */}
+          {/* Language */}
           <div className="d-flex align-items-center">
-            <div 
-              className={`language-option px-3 py-1 me-2 rounded ${userLanguage === 'en' ? 'active' : ''}`}
-              onClick={() => handleLanguageChange('en')}
-            >
-              <i className="fas fa-language me-1"></i> English
-            </div>
-            <div 
-              className={`language-option px-3 py-1 me-2 rounded ${userLanguage === 'hi' ? 'active' : ''}`}
-              onClick={() => handleLanguageChange('hi')}
-            >
-              <i className="fas fa-language me-1"></i> Hindi
-            </div>
-            <div 
-              className={`language-option px-3 py-1 me-2 rounded ${userLanguage === 'ta' ? 'active' : ''}`}
-              onClick={() => handleLanguageChange('ta')}
-            >
-              <i className="fas fa-language me-1"></i> Tamil
-            </div>
-            <div 
-              className={`language-option px-3 py-1 rounded ${userLanguage === 'te' ? 'active' : ''}`}
-              onClick={() => handleLanguageChange('te')}
-            >
-              <i className="fas fa-language me-1"></i> Telugu
-            </div>
+            {["en", "hi", "ta", "te"].map((lang) => (
+              <div
+                key={lang}
+                className={`language-option px-3 py-1 me-2 rounded ${
+                  userLanguage === lang ? "active" : ""
+                }`}
+                onClick={() => handleLanguageChange(lang)}
+              >
+                <i className="fas fa-language me-1"></i>
+                {lang.toUpperCase()}
+              </div>
+            ))}
           </div>
 
-          {/* Auth / Profile Section */}
+          {/* Auth Section */}
           <div className="d-flex align-items-center">
-            {/* If user is logged in */}
             {user ? (
               <div className="d-flex align-items-center">
-                <Link to="/profile" className="d-flex align-items-center text-decoration-none">
-                  <i className="fas fa-user-circle me-2 text-white" style={{ fontSize: '1.4rem' }}></i>
-                  <span className="text-white fw-semibold">{user.username}</span>
+
+                {/* Profile Section */}
+                <Link
+                  to="/profile"
+                  className="d-flex align-items-center text-decoration-none"
+                >
+                  <img
+                    src={
+                      user.profileImage ||
+                      "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                    }
+                    alt="Profile"
+                    className="rounded-circle me-2"
+                    width="40"
+                    height="40"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <span className="text-white fw-semibold">
+                    {user.username}
+                  </span>
                 </Link>
-                <button 
-                  onClick={onLogout}
+
+                <button
+                  onClick={handleLogout}
                   className="btn btn-danger btn-sm ms-3 shadow-sm fw-semibold"
                 >
                   Logout
                 </button>
               </div>
             ) : (
-              /* If user is NOT logged in */
               <div>
-                <Link 
+                <Link
                   to="/LoginPage"
-                  className="btn btn-warning btn-sm me-2 shadow-sm fw-semibold login-btn"
+                  className="btn btn-warning btn-sm me-2 shadow-sm fw-semibold"
                 >
                   Login
                 </Link>
-                <Link 
+                <Link
                   to="/RegisterPage"
-                  className="btn btn-warning btn-sm shadow-sm fw-semibold register-btn"
+                  className="btn btn-warning btn-sm shadow-sm fw-semibold"
                 >
                   Register
                 </Link>
               </div>
             )}
           </div>
-
         </div>
       </div>
 
@@ -101,7 +121,6 @@ const Header = ({ user, onLogout }) => {
           background-color: #2D5016;
           color: #fbc02d !important;
           transform: translateY(-2px);
-          box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
         }
 
         .language-option.active {

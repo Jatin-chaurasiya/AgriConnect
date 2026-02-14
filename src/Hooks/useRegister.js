@@ -1,6 +1,7 @@
 import { useReducer, useCallback } from "react";
 import { registerReducer, initialState } from "../reducers/registerReducer";
 import uploadProfileImage from "../Util/uploadProfileImage";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
 
 export const useRegister = () => {
   const [state, dispatch] = useReducer(
@@ -12,7 +13,7 @@ export const useRegister = () => {
     const { name, value, files } = e.target;
 
     if (name === "profileImage") {
-      const file = files[0];
+      const file = files?.[0];
 
       if (file) {
         dispatch({
@@ -42,6 +43,7 @@ export const useRegister = () => {
       try {
         let imageUrl = null;
 
+        // Upload image to Cloudinary first
         if (state.profileImage) {
           imageUrl = await uploadProfileImage(
             state.profileImage
@@ -53,12 +55,12 @@ export const useRegister = () => {
           email: state.email,
           password: state.password,
           language: state.language,
-          serviceProvider: state.serviceProvider,
-          profileImage: imageUrl,
+          role: state.serviceProvider === "Yes" ? "SERVICE_PROVIDER" : "USER",
+          profileImageUrl: imageUrl,
         };
 
         const response = await fetch(
-          "http://localhost:8080/doRegister",
+          `${BASE_URL}${API_ENDPOINTS.REGISTER}`,
           {
             method: "POST",
             headers: {
@@ -68,8 +70,12 @@ export const useRegister = () => {
           }
         );
 
-        if (!response.ok)
-          throw new Error("Registration failed");
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(
+            errorData?.message || "Registration failed"
+          );
+        }
 
         const data = await response.json();
         console.log("Register success:", data);
@@ -77,9 +83,10 @@ export const useRegister = () => {
         dispatch({ type: "RESET" });
 
       } catch (err) {
+        console.error(err);
         dispatch({
           type: "SET_ERROR",
-          payload: "Registration failed. Try again.",
+          payload: err.message || "Registration failed. Try again.",
         });
       } finally {
         dispatch({

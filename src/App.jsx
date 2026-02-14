@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -28,25 +28,27 @@ import CropRecommendation from "./Pages/Croprecommendation.jsx";
 import KnowledgeHub from "./Pages/KnowledgeHub.jsx";
 import GovernmentSchemes from "./Pages/GovernmentSchemes.jsx";
 import VirtualAssistant from "./Pages/VirtualAssistant.jsx";
+import ProfilePage from "./Components/ProfilePage.jsx";
 
 function App() {
-
-  // 🔐 Login state
   const [user, setUser] = useState(null);
 
-  const handleLogout = () => {
-    setUser(null);
-  };
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   return (
     <Router>
 
-      <Header user={user} onLogout={handleLogout} />
+      <Header user={user} setUser={setUser} />
       <MainNav />
 
       <Routes>
 
-        {/* ✅ Public Home */}
+        {/* Home */}
         <Route
           path="/"
           element={
@@ -62,14 +64,32 @@ function App() {
           }
         />
 
-        {/* ✅ Public Pages */}
-        <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/RegisterPage" element={<RegisterPage />} />
+        {/* Public */}
+        <Route
+          path="/LoginPage"
+          element={<LoginPage setUser={setUser} />}
+        />
+
+        <Route
+          path="/RegisterPage"
+          element={<RegisterPage />}
+        />
+
         <Route path="/Locationweather" element={<Locationweather />} />
         <Route path="/knowledgehub" element={<KnowledgeHub />} />
         <Route path="/VirtualAssistant" element={<VirtualAssistant />} />
 
-        {/* 🔐 Protected Pages */}
+        {/* Profile */}
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfilePage userData={user} />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Protected */}
         <Route
           path="/Croprecommendation"
           element={
@@ -90,9 +110,7 @@ function App() {
 
       </Routes>
 
-      {/* Chat always visible */}
       <ChatWidget />
-
       <Footer />
 
       <ToastContainer position="top-right" autoClose={3000} />

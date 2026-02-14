@@ -1,11 +1,15 @@
 import { useReducer, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginReducer, initialState } from "../reducers/loginReducer";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
 
-export const useLogin = () => {
+export const useLogin = (setUser) => {
   const [state, dispatch] = useReducer(
     loginReducer,
     initialState
   );
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     dispatch({
@@ -24,7 +28,7 @@ export const useLogin = () => {
 
       try {
         const response = await fetch(
-          "http://localhost:8080/doLogin",
+          `${BASE_URL}${API_ENDPOINTS.LOGIN}`,
           {
             method: "POST",
             headers: {
@@ -37,18 +41,38 @@ export const useLogin = () => {
           }
         );
 
-        if (!response.ok)
-          throw new Error("Invalid credentials");
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(
+            errorData?.message || "Invalid credentials"
+          );
+        }
 
         const data = await response.json();
 
-        // 🔹 You handle token / redirect here
-        console.log("Login success:", data);
+        // 🔥 Save token
+        localStorage.setItem("token", data.token);
+
+        // 🔥 Save user info
+        const user = {
+          username: data.username,
+          role: data.role,
+        };
+
+        localStorage.setItem("user", JSON.stringify(user));
+
+        // 🔥 Update global state
+        if (setUser) {
+          setUser(user);
+        }
+
+        // 🔥 Redirect to profile
+        navigate("/profile");
 
       } catch (err) {
         dispatch({
           type: "SET_ERROR",
-          payload: "Invalid email or password",
+          payload: err.message || "Invalid email or password",
         });
       } finally {
         dispatch({
@@ -57,7 +81,7 @@ export const useLogin = () => {
         });
       }
     },
-    [state.email, state.password]
+    [state.email, state.password, navigate, setUser]
   );
 
   return {
