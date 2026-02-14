@@ -4,6 +4,8 @@ export const initialState = {
   password: "",
   language: "en",
   serviceProvider: "",
+  profileImage: null,
+  previewImage: null,
   loading: false,
   error: null,
 };
@@ -14,6 +16,13 @@ export const registerReducer = (state, action) => {
       return {
         ...state,
         [action.field]: action.value,
+      };
+
+    case "SET_IMAGE":
+      return {
+        ...state,
+        profileImage: action.payload.file,
+        previewImage: action.payload.preview,
       };
 
     case "SET_LOADING":
@@ -29,3 +38,4 @@ export const registerReducer = (state, action) => {
       return state;
   }
 };
+

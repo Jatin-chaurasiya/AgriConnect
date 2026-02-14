@@ -2,7 +2,6 @@ import React from "react";
 import { useRegister } from "../Hooks/useRegister";
 import { useNavigate } from "react-router-dom";
 
-
 const RegisterPage = () => {
   const { state, handleChange, handleSubmit } = useRegister();
   const navigate = useNavigate();
@@ -29,6 +28,36 @@ const RegisterPage = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
+            {/* Profile Photo */}
+            <div className="mb-3 text-center">
+              <label className="form-label fw-semibold d-block">
+                <i className="bi bi-image-fill me-2 text-success"></i>
+                Profile Photo
+              </label>
+
+              <div className="profile-preview mb-2">
+                {state.previewImage ? (
+                  <img
+                    src={state.previewImage}
+                    alt="Preview"
+                    className="profile-img"
+                  />
+                ) : (
+                  <div className="profile-placeholder">
+                    <i className="bi bi-person-circle fs-1 text-muted"></i>
+                  </div>
+                )}
+              </div>
+
+              <input
+                type="file"
+                name="profileImage"
+                accept="image/*"
+                onChange={handleChange}
+                className="form-control shadow-sm"
+              />
+            </div>
+
             {/* Username */}
             <div className="mb-3">
               <label className="form-label fw-semibold">
@@ -212,6 +241,30 @@ const RegisterPage = () => {
           font-weight: 600;
           cursor: pointer;
         }
+          .profile-preview {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #2e7d32;
+}
+
+.profile-placeholder {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+}
+
       `}</style>
     </>
   );
