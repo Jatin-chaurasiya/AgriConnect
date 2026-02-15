@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AppContext } from "../Context/AppContext";
 
-const ProtectedRoute = ({ user, children }) => {
-  const isAuthenticated =
-    user || localStorage.getItem("token");
+const ProtectedRoute = ({ children }) => {
+
+  const { user } = useContext(AppContext);
+
+  const isAuthenticated = user || localStorage.getItem("token");
 
   useEffect(() => {
     if (!isAuthenticated) {

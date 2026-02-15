@@ -1,9 +1,13 @@
-import { useReducer, useCallback } from "react";
+import { useReducer, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginReducer, initialState } from "../reducers/loginReducer";
 import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
+import { AppContext } from "../Context/AppContext";
 
-export const useLogin = (setUser) => {
+export const useLogin = () => {
+
+  const { setUser } = useContext(AppContext);
+
   const [state, dispatch] = useReducer(
     loginReducer,
     initialState
@@ -11,6 +15,7 @@ export const useLogin = (setUser) => {
 
   const navigate = useNavigate();
 
+  // ✅ DEFINE handleChange
   const handleChange = (e) => {
     dispatch({
       type: "UPDATE_FIELD",
@@ -50,23 +55,14 @@ export const useLogin = (setUser) => {
 
         const data = await response.json();
 
-        // 🔥 Save token
         localStorage.setItem("token", data.token);
 
-        // 🔥 Save user info
         const user = {
           username: data.username,
           role: data.role,
         };
 
-        localStorage.setItem("user", JSON.stringify(user));
-
-        // 🔥 Update global state
-        if (setUser) {
-          setUser(user);
-        }
-
-        // 🔥 Redirect to profile
+        setUser(user);
         navigate("/profile");
 
       } catch (err) {
@@ -86,8 +82,7 @@ export const useLogin = (setUser) => {
 
   return {
     state,
-    handleChange,
+    handleChange,  // ✅ now valid
     handleSubmit,
-    dispatch,
   };
 };

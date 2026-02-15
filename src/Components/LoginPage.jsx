@@ -2,33 +2,22 @@ import React from "react";
 import { useLogin } from "../Hooks/useLogin";
 import { useNavigate } from "react-router-dom";
 
-const LoginPage = ({ setUser }) => {
-  const { state, handleChange, handleSubmit } =
-  useLogin(setUser);
-
-  const { email, password, loading, error } =
-    state;
+const LoginPage = () => {
+  const { state, handleChange, handleSubmit } = useLogin();
+  const { email, password, loading, error } = state;
   const navigate = useNavigate();
 
   return (
     <>
       <div className="login-container">
         <div className="card login-card p-4">
-
-          {/* Title */}
           <div className="text-center mb-4">
             <i className="bi bi-person-circle fs-1 text-success"></i>
-            <h3 className="fw-bold mt-2 text-agri">
-              AgriConnect Login
-            </h3>
-            <p className="text-muted">
-              Welcome back! Please login to continue
-            </p>
+            <h3 className="fw-bold mt-2 text-agri">AgriConnect Login</h3>
+            <p className="text-muted">Welcome back! Please login to continue</p>
           </div>
 
           <form onSubmit={handleSubmit}>
-
-            {/* Email */}
             <div className="mb-3">
               <label className="form-label fw-semibold">
                 <i className="bi bi-envelope-fill me-2 text-success"></i>
@@ -37,7 +26,7 @@ const LoginPage = ({ setUser }) => {
               <input
                 type="email"
                 name="email"
-                value={email}
+                value={email ?? ""}
                 onChange={handleChange}
                 className="form-control shadow-sm"
                 placeholder="Enter your email"
@@ -45,7 +34,6 @@ const LoginPage = ({ setUser }) => {
               />
             </div>
 
-            {/* Password */}
             <div className="mb-3">
               <label className="form-label fw-semibold">
                 <i className="bi bi-lock-fill me-2 text-success"></i>
@@ -54,7 +42,7 @@ const LoginPage = ({ setUser }) => {
               <input
                 type="password"
                 name="password"
-                value={password}
+                value={password ?? ""}
                 onChange={handleChange}
                 className="form-control shadow-sm"
                 placeholder="Enter your password"
@@ -62,14 +50,8 @@ const LoginPage = ({ setUser }) => {
               />
             </div>
 
-            {/* Error */}
-            {error && (
-              <div className="alert alert-danger py-2">
-                {error}
-              </div>
-            )}
+            {error && <div className="alert alert-danger py-2">{error}</div>}
 
-            {/* Buttons */}
             <div className="d-flex gap-2">
               <button
                 type="submit"
@@ -92,15 +74,15 @@ const LoginPage = ({ setUser }) => {
               <button
                 type="button"
                 className="btn btn-back w-100 shadow-sm"
+                onClick={() => navigate("/")}
               >
                 <i className="bi bi-arrow-left-circle me-2"></i>
                 Back
               </button>
             </div>
 
-            {/* Register */}
-           <p className="mt-3 text-center">
-              Already have an account?
+            <p className="mt-3 text-center">
+              Don't have an account?
               <span
                 className="register-link ms-1"
                 onClick={() => navigate("/RegisterPage")}
@@ -112,7 +94,7 @@ const LoginPage = ({ setUser }) => {
         </div>
       </div>
 
-      {/* Styles */}
+      {/* styles same as before */}
       <style>{`
         .login-container {
           height: 100vh;

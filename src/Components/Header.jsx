@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../Context/AppContext";
 
-const Header = ({ user, setUser }) => {
+const Header = () => {
+
+  const { user, clearUser } = useContext(AppContext);
   const [userLanguage, setUserLanguage] = useState("en");
   const navigate = useNavigate();
 
@@ -10,10 +13,7 @@ const Header = ({ user, setUser }) => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-
-    setUser(null);
+    clearUser();   
     navigate("/LoginPage");
   };
 
@@ -61,7 +61,7 @@ const Header = ({ user, setUser }) => {
             {user ? (
               <div className="d-flex align-items-center">
 
-                {/* Profile Section */}
+                {/* Profile */}
                 <Link
                   to="/profile"
                   className="d-flex align-items-center text-decoration-none"

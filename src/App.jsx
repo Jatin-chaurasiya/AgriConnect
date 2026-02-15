@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -31,19 +31,11 @@ import VirtualAssistant from "./Pages/VirtualAssistant.jsx";
 import ProfilePage from "./Components/ProfilePage.jsx";
 
 function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
-
   return (
     <Router>
 
-      <Header user={user} setUser={setUser} />
+      {/* Global Layout */}
+      <Header />
       <MainNav />
 
       <Routes>
@@ -64,36 +56,27 @@ function App() {
           }
         />
 
-        {/* Public */}
-        <Route
-          path="/LoginPage"
-          element={<LoginPage setUser={setUser} />}
-        />
-
-        <Route
-          path="/RegisterPage"
-          element={<RegisterPage />}
-        />
-
+        {/* Public Routes */}
+        <Route path="/LoginPage" element={<LoginPage />} />
+        <Route path="/RegisterPage" element={<RegisterPage />} />
         <Route path="/Locationweather" element={<Locationweather />} />
         <Route path="/knowledgehub" element={<KnowledgeHub />} />
         <Route path="/VirtualAssistant" element={<VirtualAssistant />} />
 
-        {/* Profile */}
+        {/* Protected Routes */}
         <Route
           path="/profile"
           element={
-            <ProtectedRoute user={user}>
-              <ProfilePage userData={user} />
+            <ProtectedRoute>
+              <ProfilePage />
             </ProtectedRoute>
           }
         />
 
-        {/* Protected */}
         <Route
           path="/Croprecommendation"
           element={
-            <ProtectedRoute user={user}>
+            <ProtectedRoute>
               <CropRecommendation />
             </ProtectedRoute>
           }
@@ -102,7 +85,7 @@ function App() {
         <Route
           path="/GovernmentSchemes"
           element={
-            <ProtectedRoute user={user}>
+            <ProtectedRoute>
               <GovernmentSchemes />
             </ProtectedRoute>
           }
@@ -110,6 +93,7 @@ function App() {
 
       </Routes>
 
+      {/* Global Components */}
       <ChatWidget />
       <Footer />
 
