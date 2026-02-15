@@ -28,6 +28,7 @@ export const AppContextProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
+
   return (
     <AppContext.Provider value={{ user, setUser, clearUser }}>
       {children}

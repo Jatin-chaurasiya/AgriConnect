@@ -42,7 +42,7 @@ const Header = () => {
 
           {/* Language */}
           <div className="d-flex align-items-center">
-            {["en", "hi", "ta", "te"].map((lang) => (
+            {["English", "Hindi", "Tamil", "Punjabi"].map((lang) => (
               <div
                 key={lang}
                 className={`language-option px-3 py-1 me-2 rounded ${
@@ -68,7 +68,7 @@ const Header = () => {
                 >
                   <img
                     src={
-                      user.profileImage ||
+                      user?.profileImageUrl ||
                       "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                     }
                     alt="Profile"

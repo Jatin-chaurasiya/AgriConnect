@@ -1,14 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
 
-const ProfilePage = ({ userData }) => {
+const ProfilePage = () => {
   const [mode, setMode] = useState("view");
+  const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState(null);
 
   const [editModel, setEditModel] = useState({
-    username: userData?.username || "",
-    serviceProvider: userData?.serviceProvider || "No",
-    language: userData?.language || "",
+    username: "",
+    language: "",
+    profileImageUrl: "",
   });
 
+  // 🔐 Axios instance with token
+  const api = axios.create({
+    baseURL: BASE_URL,
+  });
+
+  api.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  });
+
+  // 🔥 Fetch Profile
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await api.get(API_ENDPOINTS.PROFILE);
+
+        setUserData(response.data);
+
+        setEditModel({
+          username: response.data.username,
+          language: response.data.language,
+          profileImageUrl: response.data.profileImageUrl,
+        });
+      } catch (error) {
+        console.error("Profile fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  // 📝 Handle Input Change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditModel((prev) => ({
@@ -17,26 +58,57 @@ const ProfilePage = ({ userData }) => {
     }));
   };
 
-  const handleUpdate = (e) => {
+  // ☁️ Upload Image to Cloudinary
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "your_upload_preset"); // replace
+
+    try {
+      const res = await fetch(API_ENDPOINTS.UPLOAD_IMAGES, {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      setEditModel((prev) => ({
+        ...prev,
+        profileImageUrl: data.secure_url,
+      }));
+    } catch (error) {
+      console.error("Image upload error:", error);
+    }
+  };
+
+  // 🔄 Update Profile
+  const handleUpdate = async (e) => {
     e.preventDefault();
 
-    // TODO: call API here
-    console.log("Updated Data:", editModel);
+    try {
+      const response = await api.put(API_ENDPOINTS.PROFILE, editModel);
 
-    setMode("view");
+      setUserData(response.data);
+      setMode("view");
+    } catch (error) {
+      console.error("Update error:", error);
+    }
   };
+
+  if (loading) return <p className="text-center mt-5">Loading...</p>;
 
   return (
     <div className="container py-5">
       <div className="card shadow p-4">
 
-        {/* VIEW MODE */}
         {mode === "view" && (
           <>
             <div className="text-center">
               <img
                 src={
-                  userData?.profileImage ||
+                  userData?.profileImageUrl ||
                   "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                 }
                 className="rounded-circle mb-3"
@@ -49,38 +121,45 @@ const ProfilePage = ({ userData }) => {
 
             <hr />
 
-            <p>
-              <strong>Email:</strong> {userData?.email}
-            </p>
+            <p><strong>Email:</strong> {userData?.email}</p>
+            <p><strong>Language:</strong> {userData?.language}</p>
+            <p><strong>Role:</strong> {userData?.role}</p>
 
-            <p>
-              <strong>Service Provide:</strong>{" "}
-              {userData?.serviceProvider}
-            </p>
-
-            <p>
-              <strong>Language:</strong> {userData?.language}
-            </p>
-
-            <div className="mt-3">
-              <button
-                className="btn btn-primary"
-                onClick={() => setMode("edit")}
-              >
-                Edit Profile
-              </button>
-            </div>
+            <button
+              className="btn btn-primary"
+              onClick={() => setMode("edit")}
+            >
+              Edit Profile
+            </button>
           </>
         )}
 
-        {/* EDIT MODE */}
         {mode === "edit" && (
           <>
             <h3 className="mb-3">Edit Profile</h3>
 
             <form onSubmit={handleUpdate}>
+
+              <div className="mb-3 text-center">
+                <img
+                  src={
+                    editModel.profileImageUrl ||
+                    "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                  }
+                  className="rounded-circle mb-2"
+                  width="120"
+                  height="120"
+                  alt="Preview"
+                />
+                <input
+                  type="file"
+                  className="form-control mt-2"
+                  onChange={handleImageUpload}
+                />
+              </div>
+
               <div className="mb-3">
-                <label className="form-label">Name</label>
+                <label>Name</label>
                 <input
                   type="text"
                   name="username"
@@ -92,23 +171,7 @@ const ProfilePage = ({ userData }) => {
               </div>
 
               <div className="mb-3">
-                <label className="form-label">
-                  Service Provide
-                </label>
-                <select
-                  name="serviceProvider"
-                  value={editModel.serviceProvider}
-                  onChange={handleChange}
-                  className="form-control"
-                  required
-                >
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label">Language</label>
+                <label>Language</label>
                 <input
                   type="text"
                   name="language"
@@ -119,10 +182,7 @@ const ProfilePage = ({ userData }) => {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="btn btn-success me-2"
-              >
+              <button type="submit" className="btn btn-success me-2">
                 Update
               </button>
 
