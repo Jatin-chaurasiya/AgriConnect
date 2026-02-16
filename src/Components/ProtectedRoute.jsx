@@ -7,7 +7,10 @@ const ProtectedRoute = ({ children }) => {
 
   const { user } = useContext(AppContext);
 
-  const isAuthenticated = user || localStorage.getItem("token");
+  const isAuthenticated = !!user;
+
+  console.log("Header user:", user);
+
 
   useEffect(() => {
     if (!isAuthenticated) {
