@@ -16,19 +16,16 @@ const Footer = () => {
             {/* Quick Links */}
             <div className="footer-section">
               <h3>Quick Links</h3>
-              <Link to="/weather">
+              <Link to="/Locationweather">
                 <i className="fas fa-chevron-right"></i> Weather Forecast
               </Link>
-              <Link to="/crop-recommendation">
+              <Link to="/Croprecommendation">
                 <i className="fas fa-chevron-right"></i> Crop Recommendation
               </Link>
-              <Link to="/marketplace">
-                <i className="fas fa-chevron-right"></i> Marketplace
-              </Link>
-              <Link to="/government-schemes">
+              <Link to="/GovernmentSchemes">
                 <i className="fas fa-chevron-right"></i> Government Schemes
               </Link>
-              <Link to="/knowledge-hub">
+              <Link to="/knowledgehub">
                 <i className="fas fa-chevron-right"></i> Knowledge Hub
               </Link>
             </div>
