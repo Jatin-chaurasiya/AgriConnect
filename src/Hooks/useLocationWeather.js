@@ -2,33 +2,25 @@ import { useReducer, useEffect, useCallback } from "react";
 import { weatherReducer, initialState } from "../reducers/weatherReducer";
 import statesDataList from "../data/statesData";
 import { toast } from "react-toastify";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndPoints";
 
 export const useLocationWeather = () => {
-  const [state, dispatch] = useReducer(
-    weatherReducer,
-    initialState
-  );
+  const [state, dispatch] = useReducer(weatherReducer, initialState);
 
   useEffect(() => {
-    dispatch({
-      type: "SET_STATES",
-      payload: statesDataList,
-    });
+    dispatch({ type: "SET_STATES", payload: statesDataList });
   }, []);
 
   const handleStateChange = useCallback(
     (stateName) => {
-      const stateObj = state.statesData.find(
-        (s) => s.name === stateName
-      );
-
+      const stateObj = state.statesData.find((s) => s.name === stateName);
       dispatch({
         type: "SET_STATE",
         payload: stateName,
         cities: stateObj?.cities || [],
       });
     },
-    [state.statesData]
+    [state.statesData],
   );
 
   const fetchWeather = useCallback(
@@ -46,35 +38,26 @@ export const useLocationWeather = () => {
       const params = new URLSearchParams({
         state: state.selectedState,
         city: state.selectedCity,
-        village: state.village,
+        ...(state.village.trim() && { village: state.village.trim() }),
       });
 
       try {
         const res = await fetch(
-          `/api/weather?${params.toString()}`
+          `${BASE_URL}${API_ENDPOINTS.WEATHER}?${params.toString()}`,
         );
-        const data = await res.json();
 
-        dispatch({
-          type: "SET_WEATHER",
-          payload: data,
-        });
+        if (!res.ok) throw new Error("API Error");
+
+        const data = await res.json();
+        dispatch({ type: "SET_WEATHER", payload: data });
       } catch (err) {
         toast.error("Failed to fetch weather.");
       } finally {
-        dispatch({
-          type: "SET_LOADING",
-          payload: false,
-        });
+        dispatch({ type: "SET_LOADING", payload: false });
       }
     },
-    [state.selectedState, state.selectedCity, state.village]
+    [state.selectedState, state.selectedCity, state.village],
   );
 
-  return {
-    state,
-    dispatch,
-    handleStateChange,
-    fetchWeather,
-  };
+  return { state, dispatch, handleStateChange, fetchWeather };
 };
