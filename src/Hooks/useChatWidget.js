@@ -1,17 +1,14 @@
 import { useReducer, useRef, useCallback } from "react";
 import { chatWidgetReducer, initialState } from "../reducers/chatWidgetReducer";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
 
 export const useChatWidget = () => {
-  const [state, dispatch] = useReducer(
-    chatWidgetReducer,
-    initialState
-  );
-
+  const [state, dispatch] = useReducer(chatWidgetReducer, initialState);
   const controllerRef = useRef(null);
 
   const sendMessage = useCallback(async () => {
     const msg = state.input.trim();
-    if (!msg) return;
+    if (!msg || state.loading) return;
 
     dispatch({
       type: "ADD_MESSAGE",
@@ -33,19 +30,20 @@ export const useChatWidget = () => {
     controllerRef.current = new AbortController();
 
     try {
-      const response = await fetch(
-        `/chat?message=${encodeURIComponent(msg)}`,
-        { signal: controllerRef.current.signal }
-      );
+      const response = await fetch(`${BASE_URL}${API_ENDPOINTS.CHATWIDGET}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: msg }),
+        signal: controllerRef.current.signal,
+      });
 
-      if (!response.ok)
-        throw new Error(response.statusText);
+      if (!response.ok) throw new Error(response.statusText);
 
-      const reply = await response.text();
+      const data = await response.json();
 
       dispatch({
         type: "UPDATE_LAST",
-        payload: reply,
+        payload: data.reply,
       });
     } catch (err) {
       dispatch({
@@ -53,12 +51,9 @@ export const useChatWidget = () => {
         payload: "⚠️ Error or timeout. Try again!",
       });
     } finally {
-      dispatch({
-        type: "SET_LOADING",
-        payload: false,
-      });
+      dispatch({ type: "SET_LOADING", payload: false });
     }
-  }, [state.input]);
+  }, [state.input, state.loading, dispatch]);
 
   return { state, dispatch, sendMessage };
 };

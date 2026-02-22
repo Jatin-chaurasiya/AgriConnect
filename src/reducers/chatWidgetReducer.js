@@ -28,9 +28,14 @@ export const chatWidgetReducer = (state, action) => {
       return { ...state, loading: action.payload };
 
     case "UPDATE_LAST":
-      const updated = [...state.messages];
-      updated[updated.length - 1].text = action.payload;
-      return { ...state, messages: updated };
+      return {
+        ...state,
+        messages: state.messages.map((msg, index) =>
+          index === state.messages.length - 1
+            ? { ...msg, text: action.payload }
+            : msg,
+        ),
+      };
 
     default:
       return state;
