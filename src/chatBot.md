@@ -59,7 +59,6 @@ Actual JSON banta hai:
 
 List<Map<String, String>> messages = new ArrayList<>();
 ```
-```
 Groq API ko messages ek LIST mein chahiye
 List mein 2 messages honge:
     1. System Message  → AI ka role/character
@@ -80,7 +79,6 @@ Map<String, String> systemMsg = new HashMap<>();
 systemMsg.put("role", "system");
 systemMsg.put("content", "You are AgriConnect AI Assistant...");
 messages.add(systemMsg);
-```
 ```
 role: "system" → Yeh AI ka CHARACTER set karta hai
                  Ek baar set karo → poori conversation follow karega
@@ -295,3 +293,4 @@ POSTMAN
 │  @PostMapping     → POST request handle     │
 │  @RequestBody     → JSON → DTO convert      │
 │  ResponseEntity   → Status + Body wrap      │ -->
+
