@@ -8,6 +8,7 @@ export const API_ENDPOINTS = {
     PROFILE: "/profile/me",
     WEATHER: "/weather",
     CHATWIDGET: "/chat/send",
+    SCHEMES: "/schemes",
 
     UPLOAD_IMAGES: `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
 }

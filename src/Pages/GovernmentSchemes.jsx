@@ -59,9 +59,9 @@ const GovernmentSchemes = () => {
                   onChange={handleFilterChange}
                 >
                   <option value="">All Types</option>
-                  <option value="subsidy">Subsidy</option>
-                  <option value="loan">Loan</option>
-                  <option value="insurance">Insurance</option>
+                  <option value="SUBSIDY">Subsidy</option>
+                  <option value="LOAN">Loan</option>
+                  <option value="INSURANCE">Insurance</option>
                 </select>
               </div>
 
@@ -73,8 +73,10 @@ const GovernmentSchemes = () => {
                   onChange={handleFilterChange}
                 >
                   <option value="">All States</option>
-                  <option value="maharashtra">Maharashtra</option>
-                  <option value="punjab">Punjab</option>
+                  <option value="UP">Uttar Pradesh</option>
+                  <option value="MH">Maharashtra</option>
+                  <option value="MP">Madhya Pradesh</option>
+                  <option value="RJ">Rajasthan</option>
                 </select>
               </div>
 
@@ -86,8 +88,8 @@ const GovernmentSchemes = () => {
                   onChange={handleFilterChange}
                 >
                   <option value="">All Categories</option>
-                  <option value="small">Small Farmer</option>
-                  <option value="marginal">Marginal Farmer</option>
+                  <option value="SMALL_FARMER">Small Farmer</option>
+                  <option value="MARGINAL_FARMER">Marginal Farmer</option>
                 </select>
               </div>
             </div>
