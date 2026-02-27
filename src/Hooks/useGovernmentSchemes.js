@@ -1,24 +1,28 @@
-import { useReducer, useEffect, useCallback } from "react";
+import { useReducer, useCallback } from "react";
 import { schemesReducer, initialState } from "../reducers/schemesReducer";
 import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndPoints";
 
 export const useGovernmentSchemes = () => {
   const [state, dispatch] = useReducer(schemesReducer, initialState);
 
-  // Initial fetch - sab schemes
-  useEffect(() => {
-    fetchSchemes({});
-  }, []);
-
-  const fetchSchemes = async (filters) => {
+  const fetchSchemes = async (filters = {}) => {
     try {
       const params = new URLSearchParams();
 
-      if (filters.schemeType) params.append("type", filters.schemeType);
-      if (filters.state) params.append("state", filters.state);
-      if (filters.category) params.append("category", filters.category);
+      if (filters.schemeType && filters.schemeType !== "SELECT")
+        params.append("type", filters.schemeType);
 
-      const url = `${BASE_URL}${API_ENDPOINTS.SCHEMES}?${params.toString()}`;
+      if (filters.state && filters.state !== "SELECT")
+        params.append("state", filters.state);
+
+      if (filters.category && filters.category !== "SELECT")
+        params.append("category", filters.category);
+
+      const url =
+        params.toString().length > 0
+          ? `${BASE_URL}${API_ENDPOINTS.SCHEMES}?${params.toString()}`
+          : `${BASE_URL}${API_ENDPOINTS.SCHEMES}`; // no filter = all data
+
       const res = await fetch(url);
       const data = await res.json();
 

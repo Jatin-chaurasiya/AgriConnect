@@ -13,10 +13,12 @@ const GovernmentSchemes = () => {
     });
   };
 
+  const hasSchemes =
+    state.filteredSchemes && state.filteredSchemes.length > 0;
+
   return (
     <>
-      {/* SAME HERO SECTION */}
-      {/* Hero Section */}
+      {/* HERO */}
       <section
         className="hero-section d-flex align-items-center text-center"
         style={{
@@ -32,16 +34,15 @@ const GovernmentSchemes = () => {
 
           <p
             className="lead text-white mx-auto"
-            style={{ maxWidth: "850x", opacity: 0.9 }}
+            style={{ maxWidth: "850px", opacity: 0.9 }}
           >
             Discover and apply for various government initiatives designed to
-            support and empower farmers across India. Find subsidies, financial
-            assistance, and development programs tailored to your needs.
+            support and empower farmers across India.
           </p>
         </div>
       </section>
 
-      {/* FILTER SECTION (SAME DESIGN) */}
+      {/* FILTER SECTION */}
       <section className="py-4">
         <div className="container">
           <form
@@ -51,6 +52,7 @@ const GovernmentSchemes = () => {
             }}
           >
             <div className="row g-3">
+              {/* Scheme Type */}
               <div className="col-md-4">
                 <select
                   className="form-select"
@@ -58,6 +60,9 @@ const GovernmentSchemes = () => {
                   value={state.filters.schemeType}
                   onChange={handleFilterChange}
                 >
+                  <option value="SELECT" disabled>
+                    Select Type
+                  </option>
                   <option value="">All Types</option>
                   <option value="SUBSIDY">Subsidy</option>
                   <option value="LOAN">Loan</option>
@@ -65,6 +70,7 @@ const GovernmentSchemes = () => {
                 </select>
               </div>
 
+              {/* State */}
               <div className="col-md-4">
                 <select
                   className="form-select"
@@ -72,6 +78,9 @@ const GovernmentSchemes = () => {
                   value={state.filters.state}
                   onChange={handleFilterChange}
                 >
+                  <option value="SELECT" disabled>
+                    Select State
+                  </option>
                   <option value="">All States</option>
                   <option value="UP">Uttar Pradesh</option>
                   <option value="MH">Maharashtra</option>
@@ -80,6 +89,7 @@ const GovernmentSchemes = () => {
                 </select>
               </div>
 
+              {/* Category */}
               <div className="col-md-4">
                 <select
                   className="form-select"
@@ -87,6 +97,9 @@ const GovernmentSchemes = () => {
                   value={state.filters.category}
                   onChange={handleFilterChange}
                 >
+                  <option value="SELECT" disabled>
+                    Select Category
+                  </option>
                   <option value="">All Categories</option>
                   <option value="SMALL_FARMER">Small Farmer</option>
                   <option value="MARGINAL_FARMER">Marginal Farmer</option>
@@ -95,7 +108,10 @@ const GovernmentSchemes = () => {
             </div>
 
             <div className="mt-4 d-flex gap-2">
-              <button className="btn-agri-primary">Apply Filters</button>
+              <button type="submit" className="btn-agri-primary">
+                Apply Filters
+              </button>
+
               <button
                 type="button"
                 className="btn-agri-outline"
@@ -108,14 +124,27 @@ const GovernmentSchemes = () => {
         </div>
       </section>
 
-      {/* SCHEMES GRID */}
+      {/* SCHEMES SECTION */}
       <section className="py-5">
         <div className="container">
-          <SchemesGrid filteredSchemes={state.filteredSchemes} />
+          {!hasSchemes ? (
+            <div className="text-center py-5">
+              <div style={{ fontSize: "40px", color: "#adb5bd" }}>📄</div>
+
+              <h5 className="mt-3 mb-2">No Scheme Available</h5>
+
+              <p style={{ color: "#6c757d", fontSize: "14px" }}>
+                Please select filters and click{" "}
+                <strong>Apply Filters</strong> to view schemes.
+              </p>
+            </div>
+          ) : (
+            <SchemesGrid filteredSchemes={state.filteredSchemes} />
+          )}
         </div>
       </section>
 
-      {/* SAME CSS KEPT EXACTLY */}
+      {/* CSS */}
       <style>{`
         .btn-agri-primary {
           background-color: #2D5016;

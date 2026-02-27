@@ -1,8 +1,8 @@
 export const initialState = {
   filters: {
-    schemeType: "",
-    state: "",
-    category: "",
+    schemeType: "SELECT",
+    state: "SELECT",
+    category: "SELECT",
   },
   schemes: [],
   filteredSchemes: [],
@@ -26,17 +26,16 @@ export const schemesReducer = (state, action) => {
         },
       };
 
-    case "SET_FILTERED":
-      return {
-        ...state,
-        filteredSchemes: action.payload,
-      };
-
     case "RESET_FILTERS":
       return {
         ...state,
-        filters: { schemeType: "", state: "", category: "" },
-        filteredSchemes: state.schemes,
+        filters: {
+          schemeType: "SELECT",
+          state: "SELECT",
+          category: "SELECT",
+        },
+        schemes: [],
+        filteredSchemes: [],
       };
 
     default:
