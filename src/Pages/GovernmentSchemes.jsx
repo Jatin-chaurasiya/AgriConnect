@@ -1,9 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import SchemesGrid from "../Components/SchemesGrid";
 import { useGovernmentSchemes } from "../Hooks/useGovernmentSchemes";
 
 const GovernmentSchemes = () => {
-  const { state, dispatch, applyFilters } = useGovernmentSchemes();
+  const { state, dispatch, applyFilters, hasSearched, resetFilters } =
+    useGovernmentSchemes();
+  const [showValidation, setShowValidation] = useState(false);
 
   const handleFilterChange = (e) => {
     dispatch({
@@ -12,9 +15,19 @@ const GovernmentSchemes = () => {
       value: e.target.value,
     });
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const hasSchemes =
-    state.filteredSchemes && state.filteredSchemes.length > 0;
+    const result = applyFilters();
+
+    if (result?.error === "NO_FILTER") {
+      setShowValidation(true);
+    } else {
+      setShowValidation(false);
+    }
+  };
+
+  const hasSchemes = state.filteredSchemes && state.filteredSchemes.length > 0;
 
   return (
     <>
@@ -48,7 +61,14 @@ const GovernmentSchemes = () => {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              applyFilters();
+
+              const result = applyFilters();
+
+              if (result?.error === "NO_FILTER") {
+                setShowValidation(true);
+              } else {
+                setShowValidation(false);
+              }
             }}
           >
             <div className="row g-3">
@@ -115,35 +135,52 @@ const GovernmentSchemes = () => {
               <button
                 type="button"
                 className="btn-agri-outline"
-                onClick={() => dispatch({ type: "RESET_FILTERS" })}
+                onClick={resetFilters}
               >
                 Reset
               </button>
             </div>
+            {showValidation && (
+              <p className="text-danger mt-2">
+                Please select at least one filter before applying.
+              </p>
+            )}
           </form>
         </div>
       </section>
 
-      {/* SCHEMES SECTION */}
       <section className="py-5">
         <div className="container">
-          {!hasSchemes ? (
+          {!state.filteredSchemes || state.filteredSchemes.length === 0 ? (
             <div className="text-center py-5">
               <div style={{ fontSize: "40px", color: "#adb5bd" }}>📄</div>
 
-              <h5 className="mt-3 mb-2">No Scheme Available</h5>
+              {!hasSearched ? (
+                <>
+                  <h5 className="mt-3 mb-2">No Scheme Available</h5>
 
-              <p style={{ color: "#6c757d", fontSize: "14px" }}>
-                Please select filters and click{" "}
-                <strong>Apply Filters</strong> to view schemes.
-              </p>
+                  <p style={{ color: "#6c757d", fontSize: "14px" }}>
+                    Please select filters and click{" "}
+                    <strong>Apply Filters</strong> to view schemes.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h5 className="mt-3 mb-2 text-danger">
+                    NO SCHEME AVAILABLE ON THIS FILTER
+                  </h5>
+
+                  <p style={{ color: "#6c757d", fontSize: "14px" }}>
+                    Try changing filters and search again.
+                  </p>
+                </>
+              )}
             </div>
           ) : (
             <SchemesGrid filteredSchemes={state.filteredSchemes} />
           )}
         </div>
       </section>
-
       {/* CSS */}
       <style>{`
         .btn-agri-primary {

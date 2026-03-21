@@ -46,12 +46,14 @@ const SchemesGrid = ({ filteredSchemes }) => {
                     </p>
 
                     <div className="d-flex gap-2 mt-auto">
-                      <Link
-                        to={`/apply-scheme/${scheme.id}`}
+                      <a
+                        href={scheme.applyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="btn btn-agri-primary flex-fill"
                       >
                         Apply Now
-                      </Link>
+                      </a>
                       <Link
                         to={`/scheme-details/${scheme.id}`}
                         className="btn btn-agri-outline flex-fill"
