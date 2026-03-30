@@ -55,7 +55,7 @@ const SchemesGrid = ({ filteredSchemes }) => {
                         Apply Now
                       </a>
                       <Link
-                        to={`/scheme-details/${scheme.id}`}
+                        to={`${scheme.id}`}
                         className="btn btn-agri-outline flex-fill"
                       >
                         Details

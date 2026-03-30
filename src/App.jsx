@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -29,17 +25,16 @@ import KnowledgeHub from "./Pages/KnowledgeHub.jsx";
 import GovernmentSchemes from "./Pages/GovernmentSchemes.jsx";
 import VirtualAssistant from "./Pages/VirtualAssistant.jsx";
 import ProfilePage from "./Components/ProfilePage.jsx";
+import SchemeDetailsModal from "./Components/SchemeDetailsModal.jsx";
 
 function App() {
   return (
     <Router>
-
       {/* Global Layout */}
       <Header />
       <MainNav />
 
       <Routes>
-
         {/* Home */}
         <Route
           path="/"
@@ -89,8 +84,9 @@ function App() {
               <GovernmentSchemes />
             </ProtectedRoute>
           }
-        />
-
+        >
+          <Route path=":id" element={<SchemeDetailsModal />} />
+        </Route>
       </Routes>
 
       {/* Global Components */}
@@ -98,7 +94,6 @@ function App() {
       <Footer />
 
       <ToastContainer position="top-right" autoClose={3000} />
-
     </Router>
   );
 }
