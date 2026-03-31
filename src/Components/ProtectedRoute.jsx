@@ -1,28 +1,26 @@
 import React, { useEffect, useContext } from "react";
-import { Navigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../Context/AppContext";
+import AuthModal from "./AuthModal";
 
 const ProtectedRoute = ({ children }) => {
-
   const { user } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const isAuthenticated = !!user;
 
-  console.log("Header user:", user);
-
-
   useEffect(() => {
     if (!isAuthenticated) {
-      toast.warning("Please login first!", {
-        position: "top-center",
-        autoClose: 2000,
-      });
+      const timer = setTimeout(() => {
+        navigate("/LoginPage", { replace: true });
+      }, 2000);
+
+      return () => clearTimeout(timer);
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
 
   if (!isAuthenticated) {
-    return <Navigate to="/LoginPage" replace />;
+    return <AuthModal />;
   }
 
   return children;
