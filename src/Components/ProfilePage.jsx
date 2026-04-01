@@ -13,7 +13,6 @@ const ProfilePage = () => {
     profileImageUrl: "",
   });
 
-  // 🔐 Axios instance with token
   const api = axios.create({
     baseURL: BASE_URL,
   });

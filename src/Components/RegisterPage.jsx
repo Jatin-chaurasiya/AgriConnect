@@ -28,7 +28,6 @@ const RegisterPage = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            {/* Profile Photo */}
             <div className="mb-3 text-center">
               <label className="form-label fw-semibold d-block">
                 <i className="bi bi-image-fill me-2 text-success"></i>
