@@ -14,7 +14,6 @@ const MainNav = () => {
   }, []);
 
   const handleNavClick = () => {
-    // Save scroll position
     if (navRef.current) {
       sessionStorage.setItem('leafNavScroll', navRef.current.scrollLeft);
     }

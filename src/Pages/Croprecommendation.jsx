@@ -9,8 +9,11 @@ const CropRecommendation = () => {
     handleReset,
   } = useCropRecommendation();
 
-  const { formData, loading, recommendedCrop } =
-    state;
+  const {
+    formData,
+    loading,
+    recommendedCrop,
+  } = state;
 
   const handleChange = (e) => {
     dispatch({
@@ -22,44 +25,46 @@ const CropRecommendation = () => {
 
   return (
     <>
-      {/* SAME HERO SECTION */}
       <section
         className="hero-section"
         style={{ backgroundColor: "#2D5016" }}
       >
         <div className="container text-center">
-          <h1 className="display-4 fw-bold mb-3 text-white">
+          <h1 className="display-4 fw-bold text-white mb-3">
             AI-Powered Crop Recommendation
           </h1>
-          <p className="lead mb-4 text-white">
-            Get personalized crop suggestions based on your soil, climate, and farming conditions
+
+          <p className="lead text-white">
+            Get personalized crop suggestions
+            based on your soil and climate data.
           </p>
         </div>
       </section>
 
       <div className="container my-5">
         <div className="recommendation-form">
-          <h2 className="mb-4 text-center">
+          <h2 className="text-center mb-4">
             Tell Us About Your Farm
           </h2>
 
           <form onSubmit={handleSubmit}>
             <div className="row">
               {Object.keys(formData).map(
-                (field, index) => (
+                (field) => (
                   <div
-                    key={index}
+                    key={field}
                     className="col-md-4 mb-3"
                   >
                     <label className="form-label text-capitalize">
                       {field}
                     </label>
+
                     <input
                       type="number"
                       name={field}
-                      className="form-control"
                       value={formData[field]}
                       onChange={handleChange}
+                      className="form-control"
                       required
                     />
                   </div>
@@ -75,7 +80,7 @@ const CropRecommendation = () => {
               >
                 {loading
                   ? "Processing..."
-                  : "Get Crop Recommendations"}
+                  : "Get Crop Recommendation"}
               </button>
             </div>
           </form>
@@ -88,10 +93,13 @@ const CropRecommendation = () => {
             </h2>
 
             <div className="row justify-content-center">
-              <div className="col-md-4">
-                <div className="crop-card">
-                  <h4>{recommendedCrop}</h4>
-                  <span className="badge bg-success">
+              <div className="col-md-5">
+                <div className="crop-card text-center">
+                  <h3 className="mb-3">
+                    🌱 {recommendedCrop.toUpperCase()}
+                  </h3>
+
+                  <span className="badge bg-success fs-6">
                     Highly Suitable
                   </span>
                 </div>
@@ -110,7 +118,6 @@ const CropRecommendation = () => {
         )}
       </div>
 
-      {/* SAME CSS */}
       <style>{`
         .hero-section {
           padding: 60px 0;
@@ -120,22 +127,22 @@ const CropRecommendation = () => {
         .recommendation-form {
           background: #fff;
           padding: 30px;
-          border-radius: 10px;
+          border-radius: 12px;
           box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .crop-card {
           background: #fff;
-          padding: 25px;
-          border-radius: 10px;
+          padding: 30px;
+          border-radius: 12px;
           box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-          border-left: 4px solid #28a745;
+          border-left: 5px solid #28a745;
         }
 
         .result-section {
           background: #f8f9fa;
           padding: 40px 20px;
-          border-radius: 10px;
+          border-radius: 12px;
         }
       `}</style>
     </>

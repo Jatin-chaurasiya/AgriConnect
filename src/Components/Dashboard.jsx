@@ -85,7 +85,7 @@ const Dashboard = () => {
                   <button
                     className="speaker-btn"
                     onClick={(e) => {
-                      e.stopPropagation(); // 🔥 IMPORTANT
+                      e.stopPropagation(); 
                       speak(`${service.title}. ${service.description}`);
                     }}
                   >

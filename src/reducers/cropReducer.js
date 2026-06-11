@@ -24,10 +24,16 @@ export const cropReducer = (state, action) => {
       };
 
     case "SET_LOADING":
-      return { ...state, loading: action.payload };
+      return {
+        ...state,
+        loading: action.payload,
+      };
 
     case "SET_RESULT":
-      return { ...state, recommendedCrop: action.payload };
+      return {
+        ...state,
+        recommendedCrop: action.payload,
+      };
 
     case "RESET":
       return initialState;
