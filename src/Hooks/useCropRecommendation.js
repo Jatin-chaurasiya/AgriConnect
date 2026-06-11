@@ -1,6 +1,13 @@
 import { useReducer, useCallback } from "react";
-import { cropReducer, initialState } from "../reducers/cropReducer";
 import { toast } from "react-toastify";
+import {
+  cropReducer,
+  initialState,
+} from "../reducers/cropReducer";
+import {
+  BASE_URL,
+  API_ENDPOINTS,
+} from "../Util/apiEndPoints";
 
 export const useCropRecommendation = () => {
   const [state, dispatch] = useReducer(
@@ -24,11 +31,12 @@ export const useCropRecommendation = () => {
 
       try {
         const response = await fetch(
-          "https://croprecommendationapi-uvob.onrender.com/predict",
+          `${BASE_URL}${API_ENDPOINTS.CROP_RECOMMENDATION}`,
           {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+              "Content-Type":
+                "application/json",
             },
             body: JSON.stringify({
               nitrogen: Number(
@@ -46,7 +54,9 @@ export const useCropRecommendation = () => {
               humidity: Number(
                 state.formData.humidity
               ),
-              ph: Number(state.formData.ph),
+              ph: Number(
+                state.formData.ph
+              ),
               rainfall: Number(
                 state.formData.rainfall
               ),
@@ -62,19 +72,19 @@ export const useCropRecommendation = () => {
 
         const res = await response.json();
 
-        const crop =
-          res?.data?.crop || res?.crop;
-
         dispatch({
           type: "SET_RESULT",
-          payload: crop,
+          payload: res.crop,
         });
 
         toast.success(
           "Crop recommendation generated successfully!"
         );
       } catch (error) {
-        console.error(error);
+        console.error(
+          "Crop API Error:",
+          error
+        );
 
         toast.error(
           error.message ||
@@ -91,7 +101,9 @@ export const useCropRecommendation = () => {
   );
 
   const handleReset = () => {
-    dispatch({ type: "RESET" });
+    dispatch({
+      type: "RESET",
+    });
   };
 
   return {
