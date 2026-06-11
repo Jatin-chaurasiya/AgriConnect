@@ -8,7 +8,7 @@ import Header from "./Components/Header.jsx";
 import MainNav from "./Components/MainNav.jsx";
 import ImageCarousel from "./Components/ImageCarousel.jsx";
 import InfoBar from "./Components/InfoBar.jsx";
-import Dashboard from "./Components/dashboard.jsx";
+import Dashboard from "./Components/Dashboard.jsx";
 import FarmingCalculators from "./Components/FarmingCalculators.jsx";
 import FAQ from "./Components/FAQ.jsx";
 import Newsletter from "./Components/Newsletter.jsx";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndPoints";
 
 const ProfilePage = () => {
   const [mode, setMode] = useState("view");

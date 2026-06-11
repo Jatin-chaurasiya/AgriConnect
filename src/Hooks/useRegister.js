@@ -1,7 +1,7 @@
 import { useReducer, useCallback } from "react";
 import { registerReducer, initialState } from "../reducers/registerReducer";
 import uploadProfileImage from "../Util/uploadProfileImage";
-import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndPoints";
 
 export const useRegister = () => {
   const [state, dispatch] = useReducer(

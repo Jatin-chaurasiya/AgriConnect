@@ -1,7 +1,7 @@
 import { useReducer, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginReducer, initialState } from "../reducers/loginReducer";
-import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndPoints";
 import { AppContext } from "../Context/AppContext";
 
 export const useLogin = () => {

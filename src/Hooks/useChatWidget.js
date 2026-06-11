@@ -1,6 +1,6 @@
 import { useReducer, useRef, useCallback } from "react";
 import { chatWidgetReducer, initialState } from "../reducers/chatWidgetReducer";
-import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndpoints";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndPoints";
 
 export const useChatWidget = () => {
   const [state, dispatch] = useReducer(chatWidgetReducer, initialState);
