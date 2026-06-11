@@ -71,9 +71,7 @@ function App() {
         <Route
           path="/Croprecommendation"
           element={
-            <ProtectedRoute>
               <CropRecommendation />
-            </ProtectedRoute>
           }
         />
 
