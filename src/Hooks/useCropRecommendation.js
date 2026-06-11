@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from "react";
+import { useReducer, useCallback, useState } from "react";
 import { cropReducer, initialState } from "../reducers/cropReducer";
 import { toast } from "react-toastify";
 
@@ -7,6 +7,7 @@ export const useCropRecommendation = () => {
     cropReducer,
     initialState
   );
+  const [result, setResult] = useState(null);
 
   const handleSubmit = useCallback(
     async (e) => {
@@ -16,27 +17,34 @@ export const useCropRecommendation = () => {
 
       try {
         const response = await fetch(
-          "http://localhost:8080/recommend",
+          "https://croprecommendationapi-uvob.onrender.com/predict",
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(state.formData),
+            body: JSON.stringify({
+          nitrogen: Number(data.nitrogen),
+          phosphorus: Number(data.phosphorus),
+          potassium: Number(data.potassium),
+          temperature: Number(data.temperature),
+          humidity: Number(data.humidity),
+          ph: Number(data.ph),
+          rainfall: Number(data.rainfall),
+        }),
           }
         );
 
         if (!response.ok)
           throw new Error("Server error");
 
-        const data = await response.json();
+        const res = await response.json();
 
         dispatch({
           type: "SET_RESULT",
           payload:
-            data.recommendedCrop ||
-            data.crop ||
-            data,
+            res?.data?.crop ||
+            res?.crop
         });
 
         toast.success(
