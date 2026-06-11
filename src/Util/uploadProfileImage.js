@@ -1,4 +1,4 @@
-import { API_ENDPOINTS } from "./apiEndpoints";
+import { API_ENDPOINTS } from "./apiEndPoints";
 
 const CLOUDINARY_UPLOAD_PRESET = "AgriConnect";
 
