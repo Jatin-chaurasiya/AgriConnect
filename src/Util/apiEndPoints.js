@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:8080/api/v1.0"
+export const BASE_URL = "https://agriconnect-backend-v2-production.up.railway.app/api/v1.0";
 
 const CLOUDINARY_CLOUD_NAME = "dgiigrvhu";
 
