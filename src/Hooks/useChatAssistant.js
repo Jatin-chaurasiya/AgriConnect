@@ -18,7 +18,6 @@ export const useChatAssistant = () => {
     dispatch({ type: "SET_INPUT", payload: "" });
     dispatch({ type: "SET_TYPING", payload: true });
 
-    // Add empty bot message
     dispatch({ type: "ADD_MESSAGE", payload: { text: "", sender: "bot" } });
 
     controllerRef.current = new AbortController();
@@ -42,7 +41,6 @@ export const useChatAssistant = () => {
     }
   }, [state.inputValue]);
 
-  // ------------------- Typing Effect -------------------
 
   const typeMessage = (text) => {
     let index = 0;
@@ -61,7 +59,6 @@ export const useChatAssistant = () => {
     }, 20);
   };
 
-  // ------------------- Stop Generation -------------------
 
   const stopGeneration = () => {
     if (typingIntervalRef.current) {
