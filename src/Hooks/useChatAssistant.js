@@ -1,5 +1,7 @@
 import { useReducer, useRef, useCallback, useEffect } from "react";
 import { chatReducer, initialState } from "../reducers/chatReducer";
+import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndPoints";
+
 
 export const useChatAssistant = () => {
   const [state, dispatch] = useReducer(chatReducer, initialState);
@@ -7,7 +9,6 @@ export const useChatAssistant = () => {
   const controllerRef = useRef(null);
   const typingIntervalRef = useRef(null);
 
-  // ------------------- Send Message -------------------
 
   const sendMessage = useCallback(async () => {
     const msg = state.inputValue.trim();
@@ -24,9 +25,9 @@ export const useChatAssistant = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/chat?message=${encodeURIComponent(msg)}`,
-        { signal: controllerRef.current.signal }
-      );
+  `${BASE_URL}${API_ENDPOINTS.CHATWIDGET}?message=${encodeURIComponent(msg)}`,
+  { signal: controllerRef.current.signal }
+);
 
       const reply = await response.text();
 
