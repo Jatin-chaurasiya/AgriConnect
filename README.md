@@ -1,16 +1,164 @@
-# React + Vite
+# 🌾 AgriConnect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AgriConnect is a full-stack agriculture support platform designed to help farmers access weather forecasts, crop recommendations, government schemes, and AI-powered agricultural assistance from a single platform.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Deploy Url:** https://agri-connect-89.netlify.app/
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🌦 Weather Forecast
 
-## Expanding the ESLint configuration
+* Real-time weather information
+* Location-based weather updates
+* Farming-friendly weather insights
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🌱 Crop Recommendation
+
+* AI-assisted crop recommendations
+* Suggests suitable crops based on environmental conditions
+* Helps farmers make informed cultivation decisions
+
+### 🤖 AI Virtual Assistant
+
+* Powered by Groq LLM
+* Answers agriculture-related questions
+* Provides guidance and farming assistance
+
+### 📢 Government Schemes
+
+* Browse agriculture-related government schemes
+* View scheme details and benefits
+* Search and filter available schemes
+
+### 👤 User Authentication
+
+* JWT-based authentication
+* Secure login and registration
+* BCrypt password encryption
+
+### 🖼 Profile Management
+
+* User profile management
+* Cloudinary image upload support
+* Role-based user access
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* React.js
+* Vite
+* Axios
+* Tailwind CSS
+
+### Backend
+
+* Spring Boot
+* Spring Security
+* Spring Data JPA
+* JWT Authentication
+* Maven
+
+### Database
+
+* MySQL
+
+### Cloud Services
+
+* Railway (Backend + Database)
+* Netlify (Frontend)
+* Cloudinary (Image Storage)
+
+### AI Integration
+
+* Groq API
+
+### Weather Integration
+
+* OpenWeather API
+
+---
+
+## Backend API Base URL
+
+```text
+https://your-backend-url/api/v1.0
+```
+
+---
+
+## Environment Variables
+
+### Backend
+
+```env
+JWT_SECRET=your_secret_key
+WEATHER_API=your_openweather_api_key
+GROQ_API_KEY=your_groq_api_key
+
+MYSQLHOST=your_host
+MYSQLPORT=3306
+MYSQLDATABASE=your_database
+MYSQLUSER=your_username
+MYSQLPASSWORD=your_password
+```
+
+---
+
+## Local Setup
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Jatin-chaurasiya/AgriConnect-Backend-V2.git
+cd AgriConnect
+```
+
+### Build Project
+
+```bash
+./mvnw clean install
+```
+
+### Run Application
+
+```bash
+./mvnw spring-boot:run
+```
+
+---
+
+## Security
+
+* JWT Authentication
+* BCrypt Password Hashing
+* Protected APIs
+* Secure Environment Variables
+
+---
+
+## Future Enhancements
+
+* Farmer Marketplace
+* Disease Detection using AI
+* Multi-language Support
+* Crop Price Prediction
+* Farm Management Dashboard
+
+---
+
+## Author
+
+**Jatin Chaurasiya**
+
+Engineering Student | Full Stack Developer
+
+---
+
+## License
+
+This project is intended for educational and portfolio purposes.
