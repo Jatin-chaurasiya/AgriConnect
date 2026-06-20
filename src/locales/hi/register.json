@@ -1,0 +1,33 @@
+{
+  "register": {
+    "title": "एग्रीकनेक्ट पंजीकरण",
+    "subtitle": "हमसे जुड़ें और एग्रीकनेक्ट के साथ आगे बढ़ें 🌱",
+
+    "profilePhoto": "प्रोफ़ाइल फोटो",
+
+    "username": "उपयोगकर्ता नाम",
+    "usernamePlaceholder": "अपना उपयोगकर्ता नाम दर्ज करें",
+
+    "email": "ईमेल",
+    "emailPlaceholder": "अपना ईमेल दर्ज करें",
+
+    "password": "पासवर्ड",
+    "passwordPlaceholder": "अपना पासवर्ड दर्ज करें",
+
+    "language": "भाषा",
+
+    "english": "अंग्रेज़ी",
+    "hindi": "हिन्दी",
+    "punjabi": "पंजाबी",
+
+    "serviceProvider": "क्या आप सेवा प्रदाता हैं?",
+    "yes": "हाँ",
+    "no": "नहीं",
+
+    "registerButton": "पंजीकरण करें",
+    "registering": "पंजीकरण हो रहा है...",
+
+    "alreadyAccount": "क्या आपका पहले से खाता है?",
+    "loginHere": "यहाँ लॉगिन करें"
+  }
+}

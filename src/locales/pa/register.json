@@ -1,0 +1,33 @@
+{
+  "register": {
+    "title": "ਐਗਰੀਕਨੈਕਟ ਰਜਿਸਟ੍ਰੇਸ਼ਨ",
+    "subtitle": "ਸਾਡੇ ਨਾਲ ਜੁੜੋ ਅਤੇ ਐਗਰੀਕਨੈਕਟ ਨਾਲ ਵਿਕਾਸ ਕਰੋ 🌱",
+
+    "profilePhoto": "ਪ੍ਰੋਫਾਈਲ ਫੋਟੋ",
+
+    "username": "ਯੂਜ਼ਰਨੇਮ",
+    "usernamePlaceholder": "ਆਪਣਾ ਯੂਜ਼ਰਨੇਮ ਦਰਜ ਕਰੋ",
+
+    "email": "ਈਮੇਲ",
+    "emailPlaceholder": "ਆਪਣਾ ਈਮੇਲ ਦਰਜ ਕਰੋ",
+
+    "password": "ਪਾਸਵਰਡ",
+    "passwordPlaceholder": "ਆਪਣਾ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ",
+
+    "language": "ਭਾਸ਼ਾ",
+
+    "english": "ਅੰਗਰੇਜ਼ੀ",
+    "hindi": "ਹਿੰਦੀ",
+    "punjabi": "ਪੰਜਾਬੀ",
+
+    "serviceProvider": "ਕੀ ਤੁਸੀਂ ਸੇਵਾ ਪ੍ਰਦਾਤਾ ਹੋ?",
+    "yes": "ਹਾਂ",
+    "no": "ਨਹੀਂ",
+
+    "registerButton": "ਰਜਿਸਟਰ ਕਰੋ",
+    "registering": "ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਹੋ ਰਿਹਾ ਹੈ...",
+
+    "alreadyAccount": "ਕੀ ਤੁਹਾਡਾ ਪਹਿਲਾਂ ਤੋਂ ਖਾਤਾ ਹੈ?",
+    "loginHere": "ਇੱਥੇ ਲੌਗਇਨ ਕਰੋ"
+  }
+}

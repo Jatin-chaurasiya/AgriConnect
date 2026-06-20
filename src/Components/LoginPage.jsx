@@ -1,11 +1,13 @@
 import React from "react";
 import { useLogin } from "../Hooks/useLogin";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const LoginPage = () => {
   const { state, handleChange, handleSubmit } = useLogin();
   const { email, password, loading, error } = state;
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -13,15 +15,15 @@ const LoginPage = () => {
         <div className="card login-card p-4">
           <div className="text-center mb-4">
             <i className="bi bi-person-circle fs-1 text-success"></i>
-            <h3 className="fw-bold mt-2 text-agri">AgriConnect Login</h3>
-            <p className="text-muted">Welcome back! Please login to continue</p>
+            <h3 className="fw-bold mt-2 text-agri">{t("login.title")}</h3>
+            <p className="text-muted">{t("login.subtitle")}</p>
           </div>
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label fw-semibold">
                 <i className="bi bi-envelope-fill me-2 text-success"></i>
-                Email
+                {t("login.email")}
               </label>
               <input
                 type="email"
@@ -29,7 +31,7 @@ const LoginPage = () => {
                 value={email ?? ""}
                 onChange={handleChange}
                 className="form-control shadow-sm"
-                placeholder="Enter your email"
+                placeholder={t("login.emailPlaceholder")}
                 required
               />
             </div>
@@ -37,7 +39,7 @@ const LoginPage = () => {
             <div className="mb-3">
               <label className="form-label fw-semibold">
                 <i className="bi bi-lock-fill me-2 text-success"></i>
-                Password
+                {t("login.emailPlaceholder")}
               </label>
               <input
                 type="password"
@@ -45,7 +47,7 @@ const LoginPage = () => {
                 value={password ?? ""}
                 onChange={handleChange}
                 className="form-control shadow-sm"
-                placeholder="Enter your password"
+                placeholder={t("login.passwordPlaceholder")}
                 required
               />
             </div>
@@ -61,12 +63,12 @@ const LoginPage = () => {
                 {loading ? (
                   <>
                     <span className="spinner-border spinner-border-sm me-2"></span>
-                    Logging in...
+                     {t("login.loggingIn")}
                   </>
                 ) : (
                   <>
                     <i className="bi bi-person-check-fill me-2"></i>
-                    Login
+                    {t("login.loginButton")}
                   </>
                 )}
               </button>
@@ -77,17 +79,17 @@ const LoginPage = () => {
                 onClick={() => navigate("/")}
               >
                 <i className="bi bi-arrow-left-circle me-2"></i>
-                Back
+                {t("login.backButton")}
               </button>
             </div>
 
             <p className="mt-3 text-center">
-              Don't have an account?
+              {t("login.noAccount")}
               <span
                 className="register-link ms-1"
                 onClick={() => navigate("/RegisterPage")}
               >
-                Register here
+                {t("login.registerHere")}
               </span>
             </p>
           </form>

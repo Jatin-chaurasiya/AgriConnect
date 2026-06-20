@@ -14,6 +14,8 @@ import enPartners from "./locales/en/partners.json";
 import enNewsletter from "./locales/en/newsletter.json";
 import enFooter from "./locales/en/footer.json";
 import enCropRecommendation from "./locales/en/cropRecommendation.json";
+import enLogin from "./locales/en/login.json";
+import enRegister from "./locales/en/register.json";
 
 import hiNavbar from "./locales/hi/navbar.json";
 import hiDashboard from "./locales/hi/dashboard.json";
@@ -28,6 +30,8 @@ import hiPartners from "./locales/hi/partners.json";
 import hiNewsletter from "./locales/hi/newsletter.json";
 import hiFooter from "./locales/hi/footer.json";
 import hiCropRecommendation from "./locales/hi/cropRecommendation.json";
+import hiLogin from "./locales/hi/login.json";
+import hiRegister from "./locales/hi/register.json";
 
 import paNavbar from "./locales/pa/navbar.json";
 import paDashboard from "./locales/pa/dashboard.json";
@@ -42,6 +46,8 @@ import paPartners from "./locales/pa/partners.json";
 import paNewsletter from "./locales/pa/newsletter.json";
 import paFooter from "./locales/pa/footer.json";
 import paCropRecommendation from "./locales/pa/cropRecommendation.json";
+import paLogin from "./locales/pa/login.json";
+import paRegister from "./locales/pa/register.json";
 
 const savedLanguage =
   localStorage.getItem("language") || "en";
@@ -64,7 +70,9 @@ i18n
           ...enPartners,
           ...enNewsletter,
           ...enFooter,
-          ...enCropRecommendation
+          ...enCropRecommendation,
+          ...enLogin,
+          ...enRegister
         }
       },
 
@@ -82,7 +90,9 @@ i18n
           ...hiPartners,
           ...hiNewsletter,
           ...hiFooter,
-          ...hiCropRecommendation
+          ...hiCropRecommendation,
+          ...hiLogin,
+          ...hiRegister
         }
       },
 
@@ -100,7 +110,9 @@ i18n
           ...paPartners,
           ...paNewsletter,
           ...paFooter,
-          ...paCropRecommendation
+          ...paCropRecommendation,
+          ...paLogin,
+          ...paRegister
         }
       }
     },

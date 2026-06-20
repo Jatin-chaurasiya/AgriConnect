@@ -1,0 +1,20 @@
+{
+  "login": {
+    "title": "एग्रीकनेक्ट लॉगिन",
+    "subtitle": "वापसी पर स्वागत है! जारी रखने के लिए लॉगिन करें",
+
+    "email": "ईमेल",
+    "emailPlaceholder": "अपना ईमेल दर्ज करें",
+
+    "password": "पासवर्ड",
+    "passwordPlaceholder": "अपना पासवर्ड दर्ज करें",
+
+    "loginButton": "लॉगिन करें",
+    "loggingIn": "लॉगिन हो रहा है...",
+
+    "backButton": "वापस जाएं",
+
+    "noAccount": "क्या आपका खाता नहीं है?",
+    "registerHere": "यहाँ पंजीकरण करें"
+  }
+}

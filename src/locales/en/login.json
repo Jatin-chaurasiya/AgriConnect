@@ -1,0 +1,20 @@
+{
+  "login": {
+    "title": "AgriConnect Login",
+    "subtitle": "Welcome back! Please login to continue",
+
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+
+    "backButton": "Back",
+
+    "noAccount": "Don't have an account?",
+    "registerHere": "Register here"
+  }
+}

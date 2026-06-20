@@ -1,0 +1,20 @@
+{
+  "login": {
+    "title": "ਐਗਰੀਕਨੈਕਟ ਲੌਗਇਨ",
+    "subtitle": "ਮੁੜ ਸੁਆਗਤ ਹੈ! ਜਾਰੀ ਰੱਖਣ ਲਈ ਲੌਗਇਨ ਕਰੋ",
+
+    "email": "ਈਮੇਲ",
+    "emailPlaceholder": "ਆਪਣਾ ਈਮੇਲ ਦਰਜ ਕਰੋ",
+
+    "password": "ਪਾਸਵਰਡ",
+    "passwordPlaceholder": "ਆਪਣਾ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ",
+
+    "loginButton": "ਲੌਗਇਨ ਕਰੋ",
+    "loggingIn": "ਲੌਗਇਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
+
+    "backButton": "ਵਾਪਸ ਜਾਓ",
+
+    "noAccount": "ਕੀ ਤੁਹਾਡਾ ਖਾਤਾ ਨਹੀਂ ਹੈ?",
+    "registerHere": "ਇੱਥੇ ਰਜਿਸਟਰ ਕਰੋ"
+  }
+}

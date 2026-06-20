@@ -1,0 +1,33 @@
+{
+  "register": {
+    "title": "AgriConnect Register",
+    "subtitle": "Join us and grow with AgriConnect 🌱",
+
+    "profilePhoto": "Profile Photo",
+
+    "username": "Username",
+    "usernamePlaceholder": "Enter your username",
+
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+
+    "language": "Language",
+
+    "english": "English",
+    "hindi": "Hindi",
+    "punjabi": "Punjabi",
+
+    "serviceProvider": "Are you a service provider?",
+    "yes": "Yes",
+    "no": "No",
+
+    "registerButton": "Register",
+    "registering": "Registering...",
+
+    "alreadyAccount": "Already have an account?",
+    "loginHere": "Login here"
+  }
+}
