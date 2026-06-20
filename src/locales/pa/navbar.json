@@ -1,5 +1,6 @@
 {
   "navbar": {
+    "appName": "AgriConnect",
     "dashboard": "ਡੈਸ਼ਬੋਰਡ",
     "weather": "ਮੌਸਮ ਅਤੇ ਜਲਵਾਯੂ",
     "cropRecommendation": "ਏਆਈ ਫਸਲ ਸਿਫਾਰਸ਼",
@@ -7,6 +8,7 @@
     "governmentSchemes": "ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ",
     "virtualAssistant": "ਵਰਚੁਅਲ ਸਹਾਇਕ",
     "login": "ਲੌਗਇਨ",
-    "register": "ਰਜਿਸਟਰ"
+    "register": "ਰਜਿਸਟਰ",
+    "logout": "ਲੌਗਆਉਟ"
   }
 }

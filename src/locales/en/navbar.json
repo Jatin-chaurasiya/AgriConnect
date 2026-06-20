@@ -1,5 +1,6 @@
 {
   "navbar": {
+    "appName": "AgriConnect",
     "dashboard": "Dashboard",
     "weather": "Weather & Climate",
     "cropRecommendation": "AI Crop Recommendation",
@@ -7,6 +8,7 @@
     "governmentSchemes": "Government Schemes",
     "virtualAssistant": "Virtual Assistant",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+     "logout": "Logout"
   }
 }

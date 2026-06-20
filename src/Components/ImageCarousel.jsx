@@ -3,36 +3,34 @@ import image4 from "../assets/images/image4.jpg";
 import image3 from "../assets/images/images3.jpg";
 import image2 from "../assets/images/images2.jpg";
 import image1 from "../assets/images/images1.jpg";
+import { useTranslation } from "react-i18next";
 
-const slides = [
-  {
-    image: image4,
-    title: "Empowering Indian Farmers",
-    description:
-      "Access technology, markets, and knowledge to maximize your agricultural potential",
-  },
-  {
-    image: image3,
-    title: "Smart Farming Solutions",
-    description:
-      "Leverage AI and technology for better crop yield and sustainable farming",
-  },
-  {
-    image: image2,
-    title: "Market Access & Fair Prices",
-    description:
-      "Connect directly with buyers and get the best prices for your produce",
-  },
-  {
-    image: image1,
-    title: "Government Scheme Awareness",
-    description:
-      "Stay informed about subsidies, schemes, and support programs",
-  },
-];
 
 const ImageCarousel = () => {
   const carouselRef = useRef(null);
+  const { t } = useTranslation();
+  const slides = [
+    {
+      image: image4,
+      title: t("dashboard.heroTitle"),
+      description: t("dashboard.heroDescription"),
+    },
+    {
+      image: image3,
+      title: t("dashboard.smartFarmingTitle"),
+      description: t("dashboard.smartFarmingDescription"),
+    },
+    {
+      image: image2,
+      title: t("dashboard.marketAccessTitle"),
+      description: t("dashboard.marketAccessDescription"),
+    },
+    {
+      image: image1,
+      title: t("dashboard.governmentSchemesTitle"),
+      description: t("dashboard.governmentSchemesDescription"),
+    },
+  ];
 
   useEffect(() => {
     let carousel = null;
@@ -99,7 +97,7 @@ const ImageCarousel = () => {
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true" />
-        <span className="visually-hidden">Previous</span>
+        <span className="visually-hidden">{t("dashboard.previous")}</span>
       </button>
       <button
         className="carousel-control-next"
@@ -108,7 +106,7 @@ const ImageCarousel = () => {
         data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true" />
-        <span className="visually-hidden">Next</span>
+        <span className="visually-hidden">{t("dashboard.next")}</span>
       </button>
     </div>
   );

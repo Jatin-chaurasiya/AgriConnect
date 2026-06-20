@@ -1,19 +1,26 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../Context/AppContext";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
-
   const { user, clearUser } = useContext(AppContext);
-  const [userLanguage, setUserLanguage] = useState("en");
+  const { i18n, t } = useTranslation();
   const navigate = useNavigate();
+  const currentLanguage = i18n.language;
+  const languages = [
+    { label: "English", code: "en" },
+    { label: "हिन्दी", code: "hi" },
+    { label: "ਪੰਜਾਬੀ", code: "pa" },
+  ];
 
   const handleLanguageChange = (lang) => {
-    setUserLanguage(lang);
+    i18n.changeLanguage(lang);
+    localStorage.setItem("language", lang);
   };
 
   const handleLogout = () => {
-    clearUser();   
+    clearUser();
     navigate("/LoginPage");
   };
 
@@ -24,7 +31,6 @@ const Header = () => {
         style={{ backgroundColor: "#1B2D12" }}
       >
         <div className="container d-flex justify-content-between align-items-center">
-
           {/* Logo */}
           <div
             className="d-flex align-items-center"
@@ -36,22 +42,22 @@ const Header = () => {
               style={{ color: "#fbc02d", fontSize: "1.4rem" }}
             ></i>
             <span className="fw-bold fs-5 text-white">
-              AgriConnect
+              {t("navbar.appName")}
             </span>
           </div>
 
           {/* Language */}
           <div className="d-flex align-items-center">
-            {["English", "Hindi", "Tamil", "Punjabi"].map((lang) => (
+            {languages.map((lang) => (
               <div
-                key={lang}
+                key={lang.code}
                 className={`language-option px-3 py-1 me-2 rounded ${
-                  userLanguage === lang ? "active" : ""
+                  currentLanguage === lang.code ? "active" : ""
                 }`}
-                onClick={() => handleLanguageChange(lang)}
+                onClick={() => handleLanguageChange(lang.code)}
               >
                 <i className="fas fa-language me-1"></i>
-                {lang.toUpperCase()}
+                {lang.label}
               </div>
             ))}
           </div>
@@ -60,7 +66,6 @@ const Header = () => {
           <div className="d-flex align-items-center">
             {user ? (
               <div className="d-flex align-items-center">
-
                 {/* Profile */}
                 <Link
                   to="/profile"
@@ -78,7 +83,7 @@ const Header = () => {
                     style={{ objectFit: "cover" }}
                   />
                   <span className="text-white fw-semibold">
-                    {user.username}
+                    {user?.username || "User"}
                   </span>
                 </Link>
 
@@ -86,7 +91,7 @@ const Header = () => {
                   onClick={handleLogout}
                   className="btn btn-danger btn-sm ms-3 shadow-sm fw-semibold"
                 >
-                  Logout
+                  {t("navbar.logout")}
                 </button>
               </div>
             ) : (
@@ -95,13 +100,14 @@ const Header = () => {
                   to="/LoginPage"
                   className="btn btn-warning btn-sm me-2 shadow-sm fw-semibold"
                 >
-                  Login
+                  {t("navbar.login")}
                 </Link>
+
                 <Link
                   to="/RegisterPage"
                   className="btn btn-warning btn-sm shadow-sm fw-semibold"
                 >
-                  Register
+                  {t("navbar.register")}
                 </Link>
               </div>
             )}

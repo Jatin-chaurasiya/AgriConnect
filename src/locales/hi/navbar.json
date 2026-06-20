@@ -1,5 +1,6 @@
 {
   "navbar": {
+    "appName": "एग्रीकनेक्ट",
     "dashboard": "डैशबोर्ड",
     "weather": "मौसम और जलवायु",
     "cropRecommendation": "एआई फसल अनुशंसा",
@@ -7,6 +8,7 @@
     "governmentSchemes": "सरकारी योजनाएं",
     "virtualAssistant": "वर्चुअल सहायक",
     "login": "लॉगिन",
-    "register": "पंजीकरण"
+    "register": "पंजीकरण",
+    "logout": "लॉगआउट"
   }
 }

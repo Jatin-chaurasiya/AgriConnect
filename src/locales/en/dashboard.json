@@ -1,7 +1,7 @@
 {
   "dashboard": {
-    "heroTitle": "Welcome to AgriConnect Farmer Dashboard",
-    "heroDescription": "Your one-stop platform for modern farming solutions, market access, and agricultural knowledge.",
+    "heroTitle": "Empowering Indian Farmers",
+    "heroDescription": "Access technology, markets, and knowledge to maximize your agricultural potential",
 
     "smartFarmingTitle": "Smart Farming Solutions",
     "smartFarmingDescription": "Leverage AI and technology for better crop yield and sustainable farming",
@@ -10,6 +10,10 @@
     "marketAccessDescription": "Connect directly with buyers and get the best prices for your produce",
 
     "governmentSchemesTitle": "Government Scheme Awareness",
-    "governmentSchemesDescription": "Stay informed about subsidies, schemes, and support programs"
+    "governmentSchemesDescription": "Stay informed about subsidies, schemes, and support programs",
+    "previous": "Previous",
+    "next": "Next",
+    "welcomeTitle": "Welcome to AgriConnect Farmer Dashboard",
+    "welcomeDescription": "Your one-stop platform for modern farming solutions, market access, and agricultural knowledge. Empowering farmers across India with technology and information."
   }
 }

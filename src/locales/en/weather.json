@@ -9,6 +9,8 @@
     "selectCity": "Select City",
     "village": "Village (Optional)",
     "getWeather": "Get Weather Data",
-    "clear": "Clear"
+    "clear": "Clear",
+    "detectingLocation": "Detecting location...",
+    "permissionDenied": "Location permission denied"
   }
 }

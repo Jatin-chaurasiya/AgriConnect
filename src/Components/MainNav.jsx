@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const MainNav = () => {
   const location = useLocation();
   const navRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Restore scroll position after navigation
-    const savedScroll = sessionStorage.getItem('leafNavScroll');
+    const savedScroll = sessionStorage.getItem("leafNavScroll");
     if (savedScroll && navRef.current) {
       navRef.current.scrollLeft = parseInt(savedScroll, 10);
     }
@@ -15,7 +17,7 @@ const MainNav = () => {
 
   const handleNavClick = () => {
     if (navRef.current) {
-      sessionStorage.setItem('leafNavScroll', navRef.current.scrollLeft);
+      sessionStorage.setItem("leafNavScroll", navRef.current.scrollLeft);
     }
   };
 
@@ -24,12 +26,36 @@ const MainNav = () => {
   };
 
   const navItems = [
-    { path: '/', icon: 'fa-cloud-sun', label: 'Dashboard' },
-    { path: '/Locationweather', icon: 'fa-cloud-sun', label: 'Weather & Climate' },
-    { path: '/Croprecommendation', icon: 'fa-robot', label: 'AI Crop Recommendation' },
-    { path: '/knowledgehub', icon: 'fa-book', label: 'Knowledge Hub' },
-    { path: '/GovernmentSchemes', icon: 'fa-seedling', label: 'Government Schemes' },
-    { path: '/VirtualAssistant', icon: 'fa-seedling', label: 'Virtual Assistant' }
+    {
+      path: "/",
+      icon: "fa-cloud-sun",
+      translationKey: "navbar.dashboard",
+    },
+    {
+      path: "/Locationweather",
+      icon: "fa-cloud-sun",
+      translationKey: "navbar.weather",
+    },
+    {
+      path: "/Croprecommendation",
+      icon: "fa-robot",
+      translationKey: "navbar.cropRecommendation",
+    },
+    {
+      path: "/knowledgehub",
+      icon: "fa-book",
+      translationKey: "navbar.knowledgeHub",
+    },
+    {
+      path: "/GovernmentSchemes",
+      icon: "fa-seedling",
+      translationKey: "navbar.governmentSchemes",
+    },
+    {
+      path: "/VirtualAssistant",
+      icon: "fa-seedling",
+      translationKey: "navbar.virtualAssistant",
+    },
   ];
 
   return (
@@ -41,10 +67,13 @@ const MainNav = () => {
               <Link
                 key={index}
                 to={item.path}
-                className={`leaf-nav-item ${isActive(item.path) ? 'active' : ''}`}
+                className={`leaf-nav-item ${
+                  isActive(item.path) ? "active" : ""
+                }`}
                 onClick={handleNavClick}
               >
-                <i className={`fas ${item.icon}`}></i> {item.label}
+                <i className={`fas ${item.icon}`}></i>
+                {t(item.translationKey)}
               </Link>
             ))}
           </div>

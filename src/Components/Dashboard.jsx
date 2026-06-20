@@ -5,42 +5,39 @@ import { GiPlantSeed } from "react-icons/gi";
 import { HiOutlineBookOpen } from "react-icons/hi";
 import { FaLandmark, FaRobot, FaVolumeUp } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const services = [
     {
       icon: <WiDaySunny size={55} color="#2D7BEA" />,
-      title: "Weather Forecast",
-      description:
-        "Get accurate weather predictions for your region to plan farming activities effectively.",
+      title: t("services.weatherTitle"),
+      description: t("services.weatherDesc"),
       link: "/Locationweather",
     },
     {
       icon: <GiPlantSeed size={50} color="#2E7D32" />,
-      title: "Crop Recommendation",
-      description:
-        "AI-powered suggestions for the best crops to grow based on soil and climate conditions.",
+      title: t("services.cropTitle"),
+      description: t("services.cropDesc"),
       link: "/Croprecommendation",
     },
     {
       icon: <HiOutlineBookOpen size={50} color="#F57C00" />,
-      title: "Knowledge Hub",
-      description:
-        "Access farming techniques, pest control methods, and best practices for various crops.",
+      title: t("services.knowledgeTitle"),
+      description: t("services.knowledgeDesc"),
       link: "/knowledgehub",
     },
     {
       icon: <FaLandmark size={45} color="#2D7BEA" />,
-      title: "Government Schemes",
-      description:
-        "Stay updated on subsidies, loans, and government programs for farmers.",
+      title: t("services.schemeTitle"),
+      description: t("services.schemeDesc"),
       link: "/GovernmentSchemes",
     },
     {
       icon: <FaRobot size={45} color="#2E7D32" />,
-      title: "Virtual Assistant",
-      description:
-        "Get instant answers to your farming questions with our AI-powered assistant.",
+      title: t("services.assistantTitle"),
+      description: t("services.assistantDesc"),
       link: "/VirtualAssistant",
     },
   ];
@@ -59,18 +56,13 @@ const Dashboard = () => {
     <>
       {/* HERO */}
       <section className="hero-section text-center text-white py-5">
-        <h1 className="fw-bold">Welcome to AgriConnect Farmer Dashboard</h1>
-        <p className="lead mt-3">
-          Your one-stop platform for modern farming solutions, market access,
-          and agricultural knowledge. Empowering farmers across India with
-          technology and information.
-        </p>
+        <h1 className="fw-bold">{t("dashboard.welcomeTitle")}</h1>
+        <p className="lead mt-3">{t("dashboard.welcomeDescription")}</p>
       </section>
 
       {/* CARDS */}
       <div className="container py-5">
-        <h3 className="section-title mb-4">Farmer Services</h3>
-
+        <h3 className="section-title mb-4">{t("services.title")}</h3>
         <div className="row g-4">
           {services.map((service, index) => (
             <div className="col-md-4" key={index}>
@@ -85,7 +77,7 @@ const Dashboard = () => {
                   <button
                     className="speaker-btn"
                     onClick={(e) => {
-                      e.stopPropagation(); 
+                      e.stopPropagation();
                       speak(`${service.title}. ${service.description}`);
                     }}
                   >
