@@ -3,35 +3,36 @@ import image1 from '../assets/images/ministryfarmer.jpg';
 import image2 from '../assets/images/nabard.jpeg';
 import image3 from '../assets/images/icar.jpeg';
 import image4 from '../assets/images/fpo.jpeg';
+import { useTranslation } from "react-i18next";
 
 const Partners = () => {
+  const { t } = useTranslation();
   const partners = [
-    {
-      logo: image1,
-      name: "Ministry of Agriculture",
-      url: "https://www.india.gov.in/",
-      description: "Government initiatives and support programs for farmers across India."
-    },
-    {
-      logo: image2,
-      name: "NABARD",
-      url: "https://www.nabard.org/Hindi/Default.aspx",
-      description: "Financial support and banking services tailored for agricultural needs."
-    },
-    {
-      logo: image3,
-      name: "ICAR",
-      url: "https://icar.org.in/",
-      description: "Agricultural research and innovation for improved farming techniques."
-    },
-    {
-      logo:image4,
-      name: "FPO Network",
-      url: "https://fpoindia.com/index.jsp",
-      description: "Farmer Producer Organizations for collective bargaining and marketing."
-    }
-  ];
-
+  {
+    logo: image1,
+    name: t("partners.ministryName"),
+    url: "https://www.india.gov.in/",
+    description: t("partners.ministryDescription")
+  },
+  {
+    logo: image2,
+    name: t("partners.nabardName"),
+    url: "https://www.nabard.org/Hindi/Default.aspx",
+    description: t("partners.nabardDescription")
+  },
+  {
+    logo: image3,
+    name: t("partners.icarName"),
+    url: "https://icar.org.in/",
+    description: t("partners.icarDescription")
+  },
+  {
+    logo: image4,
+    name: t("partners.fpoName"),
+    url: "https://fpoindia.com/index.jsp",
+    description: t("partners.fpoDescription")
+  }
+];
   return (
     <>
       <style>{`
@@ -130,7 +131,7 @@ const Partners = () => {
 
       <section className="partners-section">
         <div className="container">
-          <h2 className="section-title">Our Partners</h2>
+          <h2 className="section-title">{t("partners.title")}</h2>
           <div className="partners-grid">
             {partners.map((partner, index) => (
               <div key={index} className="partner-card">

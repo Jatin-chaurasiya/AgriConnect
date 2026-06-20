@@ -1,18 +1,20 @@
 import React from "react";
 import CalculatorCard from "./CalculatorCard";
 import { useFarmCalculators } from "../Hooks/useFarmCalculators";
+import { useTranslation } from "react-i18next";
 
 const FarmingCalculators = () => {
+  const { t } = useTranslation();
   const { state, updateField, calculate } = useFarmCalculators();
 
   return (
     <>
       <section className="container py-5">
-        <h2 className="section-title">Farming Calculators</h2>
+        <h2 className="section-title">{t("calculators.title")}</h2>
 
         <div className="row g-4">
           <CalculatorCard
-            title="Fertilizer Calculator"
+            title={t("calculators.fertilizer")}
             type="fertilizer"
             data={state.fertilizer}
             updateField={updateField}
@@ -20,7 +22,7 @@ const FarmingCalculators = () => {
           />
 
           <CalculatorCard
-            title="Seed Calculator"
+            title={t("calculators.seed")}
             type="seed"
             data={state.seed}
             updateField={updateField}
@@ -28,7 +30,7 @@ const FarmingCalculators = () => {
           />
 
           <CalculatorCard
-            title="Irrigation Calculator"
+            title={t("calculators.irrigation")}
             type="irrigation"
             data={state.irrigation}
             updateField={updateField}

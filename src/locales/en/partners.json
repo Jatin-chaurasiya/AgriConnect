@@ -1,9 +1,17 @@
 {
   "partners": {
     "title": "Our Partners",
-    "ministry": "Ministry of Agriculture",
-    "nabard": "NABARD",
-    "icar": "ICAR",
-    "fpo": "FPO Network"
+
+    "ministryName": "Ministry of Agriculture",
+    "ministryDescription": "Government initiatives and support programs for farmers across India.",
+
+    "nabardName": "NABARD",
+    "nabardDescription": "Financial support and banking services tailored for agricultural needs.",
+
+    "icarName": "ICAR",
+    "icarDescription": "Agricultural research and innovation for improved farming techniques.",
+
+    "fpoName": "FPO Network",
+    "fpoDescription": "Farmer Producer Organizations for collective bargaining and marketing."
   }
 }

@@ -14,6 +14,20 @@
     "soilType": "Soil Type",
     "selectSoil": "Select Soil",
 
-    "calculate": "Calculate"
+    "calculate": "Calculate",
+    "result": "Result",
+    "water": "Water",
+    "fertilizerRequired": "Fertilizer Required",
+    "seedRequired": "Seed Required",
+    "wheat": "Wheat",
+    "rice": "Rice",
+    "maize": "Maize",
+    "cotton": "Cotton",
+    "pulses": "Pulses",
+
+    "sandy": "Sandy",
+    "loamy": "Loamy",
+    "clay": "Clay",
+    "silt": "Silt"
   }
 }

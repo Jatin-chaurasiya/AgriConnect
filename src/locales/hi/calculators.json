@@ -15,6 +15,20 @@
     "soilType": "मिट्टी का प्रकार",
     "selectSoil": "मिट्टी चुनें",
 
-    "calculate": "गणना करें"
+    "calculate": "गणना करें",
+    "result": "परिणाम",
+    "water": "पानी",
+    "fertilizerRequired": "आवश्यक उर्वरक",
+    "seedRequired": "आवश्यक बीज",
+    "wheat": "गेहूं",
+    "rice": "धान",
+    "maize": "मक्का",
+    "cotton": "कपास",
+    "pulses": "दलहन",
+
+    "sandy": "बलुई मिट्टी",
+    "loamy": "दोमट मिट्टी",
+    "clay": "चिकनी मिट्टी",
+    "silt": "गादयुक्त मिट्टी"
   }
 }

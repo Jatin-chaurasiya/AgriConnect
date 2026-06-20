@@ -15,6 +15,20 @@
     "soilType": "ਮਿੱਟੀ ਦੀ ਕਿਸਮ",
     "selectSoil": "ਮਿੱਟੀ ਚੁਣੋ",
 
-    "calculate": "ਗਣਨਾ ਕਰੋ"
+    "calculate": "ਗਣਨਾ ਕਰੋ",
+    "result": "ਨਤੀਜਾ",
+    "water": "ਪਾਣੀ",
+    "fertilizerRequired": "ਲੋੜੀਂਦੀ ਖਾਦ",
+    "seedRequired": "ਲੋੜੀਂਦਾ ਬੀਜ",
+     "wheat": "ਗੈਂਹੂ",
+    "rice": "ਧਾਨ",
+    "maize": "ਮੱਕੀ",
+    "cotton": "ਕਪਾਹ",
+    "pulses": "ਦਾਲਾਂ",
+
+    "sandy": "ਰੇਤਲੀ ਮਿੱਟੀ",
+    "loamy": "ਦੋਮਟ ਮਿੱਟੀ",
+    "clay": "ਚਿਕਣੀ ਮਿੱਟੀ",
+    "silt": "ਗਾਦ ਵਾਲੀ ਮਿੱਟੀ"
   }
 }

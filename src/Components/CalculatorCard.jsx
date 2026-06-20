@@ -1,16 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
-const CalculatorCard = ({
-  title,
-  type,
-  data,
-  updateField,
-  calculate,
-}) => {
+const CalculatorCard = ({ title, type, data, updateField, calculate }) => {
+  const { t } = useTranslation();
   return (
     <div className="col-lg-4 col-md-6">
       <div className="calculator-card">
-
         <h4 className="card-title text-center">{title}</h4>
 
         <form
@@ -21,66 +16,66 @@ const CalculatorCard = ({
         >
           {/* Crop Select */}
           <div className="mb-3">
-            <label className="form-label">Crop Type</label>
+            <label className="form-label">{t("calculators.cropType")}</label>
             <select
               className="form-select"
               value={data.form.cropType}
-              onChange={(e) =>
-                updateField(type, "cropType", e.target.value)
-              }
+              onChange={(e) => updateField(type, "cropType", e.target.value)}
             >
-              <option value="">Select crop</option>
-              <option value="wheat">Wheat</option>
-              <option value="rice">Rice</option>
-              <option value="maize">Maize</option>
-              <option value="cotton">Cotton</option>
-              <option value="pulses">Pulses</option>
+              <option value="wheat">{t("calculators.wheat")}</option>
+
+              <option value="rice">{t("calculators.rice")}</option>
+
+              <option value="maize">{t("calculators.maize")}</option>
+
+              <option value="cotton">{t("calculators.cotton")}</option>
+
+              <option value="pulses">{t("calculators.pulses")}</option>
             </select>
           </div>
 
           {/* Area Input */}
           <div className="mb-3">
-            <label className="form-label">Area (acres)</label>
+            <label className="form-label">{t("calculators.area")}</label>
             <input
               type="number"
               className="form-control"
-              placeholder="Enter area"
+              placeholder={t("calculators.enterArea")}
               min="0.1"
               step="0.1"
               value={data.form.area}
-              onChange={(e) =>
-                updateField(type, "area", e.target.value)
-              }
+              onChange={(e) => updateField(type, "area", e.target.value)}
             />
           </div>
 
           {/* Soil Select */}
           <div className="mb-3">
-            <label className="form-label">Soil Type</label>
+            <label className="form-label">{t("calculators.soilType")}</label>
             <select
               className="form-select"
               value={data.form.soilType}
-              onChange={(e) =>
-                updateField(type, "soilType", e.target.value)
-              }
+              onChange={(e) => updateField(type, "soilType", e.target.value)}
             >
-              <option value="">Select soil</option>
-              <option value="sandy">Sandy</option>
-              <option value="loamy">Loamy</option>
-              <option value="clay">Clay</option>
-              <option value="silt">Silt</option>
+              <option value="">{t("calculators.selectSoil")}</option>
+              <option value="sandy">{t("calculators.sandy")}</option>
+
+              <option value="loamy">{t("calculators.loamy")}</option>
+
+              <option value="clay">{t("calculators.clay")}</option>
+
+              <option value="silt">{t("calculators.silt")}</option>
             </select>
           </div>
 
           <button type="submit" className="btn btn-calc">
-            Calculate
+            {t("calculators.calculate")}
           </button>
         </form>
 
         {/* Result Section */}
         {data.result && (
           <div className="result-box">
-            <div className="result-title">Result:</div>
+            <div className="result-title">{t("calculators.result")}:</div>
 
             {typeof data.result === "string" ? (
               <div className="text-danger">{data.result}</div>
@@ -96,7 +91,6 @@ const CalculatorCard = ({
             )}
           </div>
         )}
-
       </div>
 
       {/* Styles */}

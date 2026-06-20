@@ -1,34 +1,31 @@
 import React, { useState } from "react";
-
-const faqs = [
-  {
-    id: "One",
-    question: "How do I register for government schemes?",
-    answer:
-      'You can register for government schemes through the "Government Schemes" section on this platform. We have simplified the process with step-by-step guidance. Alternatively, you can visit your nearest Common Service Center (CSC) or agricultural office with necessary documents including your Aadhaar card, land ownership papers, and bank account details.',
-  },
-  {
-    id: "Two",
-    question: "What documents are needed for agricultural loans?",
-    answer:
-      "Typically, you'll need your Aadhaar card, proof of land ownership (or lease agreement), bank statements from the last 6 months, credit history (if available), and a detailed project report outlining how you plan to use the loan funds. Some banks may require additional documentation based on the loan amount and type.",
-  },
-  {
-    id: "Three",
-    question: "How does the AI crop recommendation work?",
-    answer:
-      "Our AI crop recommendation system analyzes multiple factors including soil type, historical weather patterns, water availability, market demand trends, and your specific requirements. The system then suggests the most suitable crops with expected yield and market value projections.",
-  },
-  {
-    id: "Four",
-    question: "Is there a fee for using this platform?",
-    answer:
-      "Basic access to the AgriConnect platform is completely free. Premium services like detailed soil analysis and advanced market analytics may have nominal fees which will be clearly communicated.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const FAQ = () => {
-  const [openId, setOpenId] = useState("One"); // default open
+  const { t } = useTranslation();
+  const [openId, setOpenId] = useState("One");
+  const faqs = [
+    {
+      id: "One",
+      question: t("faq.governmentSchemeRegistrationQuestion"),
+      answer: t("faq.governmentSchemeRegistrationAnswer"),
+    },
+    {
+      id: "Two",
+      question: t("faq.agriculturalLoanDocumentsQuestion"),
+      answer: t("faq.agriculturalLoanDocumentsAnswer"),
+    },
+    {
+      id: "Three",
+      question: t("faq.cropRecommendationQuestion"),
+      answer: t("faq.cropRecommendationAnswer"),
+    },
+    {
+      id: "Four",
+      question: t("faq.platformFeeQuestion"),
+      answer: t("faq.platformFeeAnswer"),
+    },
+  ];
 
   const toggle = (id) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -37,9 +34,7 @@ const FAQ = () => {
   return (
     <section className="faq-section py-5 bg-light">
       <div className="container">
-        <h2 className="section-title text-center mb-5">
-          Frequently Asked Questions
-        </h2>
+        <h2 className="section-title text-center mb-5">{t("faq.title")}</h2>
 
         <div className="accordion" id="faqAccordion">
           {faqs.map((faq) => {
