@@ -10,6 +10,23 @@
     "applyFilters": "Apply Filters",
     "reset": "Reset",
 
-    "noScheme": "No Scheme Available"
+    "allTypes": "All Types",
+    "allStates": "All States",
+    "allCategories": "All Categories",
+
+    "subsidy": "Subsidy",
+    "loan": "Loan",
+    "insurance": "Insurance",
+
+    "smallFarmer": "Small Farmer",
+    "marginalFarmer": "Marginal Farmer",
+
+    "validationMessage": "Please select at least one filter before applying.",
+
+    "noScheme": "No Scheme Available",
+    "noSchemeFilter": "NO SCHEME AVAILABLE ON THIS FILTER",
+
+    "searchInstruction": "Please select filters and click Apply Filters to view schemes.",
+    "changeFilterMessage": "Try changing filters and search again."
   }
 }

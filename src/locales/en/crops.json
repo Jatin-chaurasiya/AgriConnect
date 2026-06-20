@@ -1,0 +1,9 @@
+{
+  "crops": {
+    "rice": "Rice",
+    "wheat": "Wheat",
+    "maize": "Maize",
+    "cotton": "Cotton",
+    "pigeonpeas": "Pigeon Peas"
+  }
+}

@@ -1,19 +1,13 @@
 import React from "react";
 import { useCropRecommendation } from "../Hooks/useCropRecommendation";
+import { useTranslation } from "react-i18next";
 
 const CropRecommendation = () => {
-  const {
-    state,
-    dispatch,
-    handleSubmit,
-    handleReset,
-  } = useCropRecommendation();
+  const { t } = useTranslation();
+  const { state, dispatch, handleSubmit, handleReset } =
+    useCropRecommendation();
 
-  const {
-    formData,
-    loading,
-    recommendedCrop,
-  } = state;
+  const { formData, loading, recommendedCrop } = state;
 
   const handleChange = (e) => {
     dispatch({
@@ -25,53 +19,42 @@ const CropRecommendation = () => {
 
   return (
     <>
-      <section
-        className="hero-section"
-        style={{ backgroundColor: "#2D5016" }}
-      >
+      <section className="hero-section" style={{ backgroundColor: "#2D5016" }}>
         <div className="container text-center">
           <h1 className="display-4 fw-bold text-white mb-3">
-            AI-Powered Crop Recommendation
+            {t("cropRecommendation.title")}
           </h1>
 
-          <p className="lead text-white">
-            Get personalized crop suggestions
-            based on your soil and climate data.
-          </p>
+          <p className="lead text-white">{t("cropRecommendation.subtitle")}</p>
         </div>
       </section>
 
       <div className="container my-5">
         <div className="recommendation-form">
           <h2 className="text-center mb-4">
-            Tell Us About Your Farm
+            {t("cropRecommendation.farmDetails")}
           </h2>
 
           <form onSubmit={handleSubmit}>
             <div className="row">
-              {Object.keys(formData).map(
-                (field) => (
-                  <div
-                    key={field}
-                    className="col-md-4 mb-3"
-                  >
-                    <label className="form-label text-capitalize">
-                      {field}
-                    </label>
+              {Object.keys(formData).map((field) => (
+                <div key={field} className="col-md-4 mb-3">
+                  <label className="form-label text-capitalize">
+                    {t(`cropRecommendation.${field}`)}
+                  </label>
 
-                    <input
-                      type="number"
-                      name={field}
-                      value={formData[field]}
-                      onChange={handleChange}
-                      className="form-control"
-                      required
-                    />
-                  </div>
-                )
-              )}
+                  <input
+                    type="number"
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    className="form-control"
+                    placeholder={t(`cropRecommendation.${field}Placeholder`)}
+                    required
+                  />
+                </div>
+              ))}
             </div>
-
             <div className="text-center mt-4">
               <button
                 type="submit"
@@ -79,8 +62,8 @@ const CropRecommendation = () => {
                 disabled={loading}
               >
                 {loading
-                  ? "Processing..."
-                  : "Get Crop Recommendation"}
+                  ? t("cropRecommendation.processing")
+                  : t("cropRecommendation.getRecommendation")}
               </button>
             </div>
           </form>
@@ -89,29 +72,30 @@ const CropRecommendation = () => {
         {recommendedCrop && (
           <div className="result-section mt-5">
             <h2 className="text-center mb-4">
-              Recommended Crop
+              {t("cropRecommendation.recommendedCrop")}
             </h2>
 
             <div className="row justify-content-center">
               <div className="col-md-5">
                 <div className="crop-card text-center">
                   <h3 className="mb-3">
-                    🌱 {recommendedCrop.toUpperCase()}
+                    🌱{" "}
+                    {t(
+                      `crops.${recommendedCrop.toLowerCase()}`,
+                      recommendedCrop,
+                    )}
                   </h3>
 
                   <span className="badge bg-success fs-6">
-                    Highly Suitable
+                    {t("cropRecommendation.highlySuitable")}
                   </span>
                 </div>
               </div>
             </div>
 
             <div className="text-center mt-4">
-              <button
-                onClick={handleReset}
-                className="btn btn-success"
-              >
-                Start New Recommendation
+              <button onClick={handleReset} className="btn btn-success">
+                {t("cropRecommendation.startNewRecommendation")}
               </button>
             </div>
           </div>

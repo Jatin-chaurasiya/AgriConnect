@@ -11,6 +11,19 @@
     "getWeather": "Get Weather Data",
     "clear": "Clear",
     "detectingLocation": "Detecting location...",
-    "permissionDenied": "Location permission denied"
+    "permissionDenied": "Location permission denied",
+    "weatherFor": "Weather for",
+    "wind": "Wind",
+    "pressure": "Pressure",
+
+    "hourlyForecast": "Today's Hourly Forecast",
+    "fiveDayForecast": "5-Day Forecast",
+
+    "loading": "Loading weather data...",
+
+    "weatherDescription": "Weather Description",
+
+    "stateRequired": "Please select a state",
+    "cityRequired": "Please select a city"
   }
 }

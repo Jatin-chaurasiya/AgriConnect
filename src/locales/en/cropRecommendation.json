@@ -1,5 +1,5 @@
 {
-   "cropRecommendation": {
+  "cropRecommendation": {
     "title": "AI-Powered Crop Recommendation",
     "subtitle": "Get personalized crop suggestions based on your soil and climate data.",
 
@@ -11,6 +11,21 @@
     "temperature": "Temperature",
     "humidity": "Humidity",
     "ph": "pH",
-    "rainfall": "Rainfall"
+    "rainfall": "Rainfall",
+
+    "getRecommendation": "Get Crop Recommendation",
+    "processing": "Processing...",
+
+    "recommendedCrop": "Recommended Crop",
+    "highlySuitable": "Highly Suitable",
+
+    "startNewRecommendation": "Start New Recommendation",
+    "nitrogenPlaceholder": "Enter nitrogen value",
+    "phosphorusPlaceholder": "Enter phosphorus value",
+    "potassiumPlaceholder": "Enter potassium value",
+    "temperaturePlaceholder": "Enter temperature",
+    "humidityPlaceholder": "Enter humidity",
+    "phPlaceholder": "Enter pH value",
+    "rainfallPlaceholder": "Enter rainfall amount"
   }
 }

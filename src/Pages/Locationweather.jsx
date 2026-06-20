@@ -1,8 +1,10 @@
 import React from "react";
 import { useLocationWeather } from "../Hooks/useLocationWeather";
+import { useTranslation } from "react-i18next";
 
 const LocationWeather = () => {
   const { state, dispatch, handleStateChange, fetchWeather } = useLocationWeather();
+  const { t } = useTranslation();
 
   const {
     statesData, selectedState, selectedCity,
@@ -17,7 +19,7 @@ const LocationWeather = () => {
         <div className="card shadow-sm border-0 rounded-3">
 
           <div className="card-header text-center fw-semibold">
-            🌍 Get Location-Specific Weather Data
+            🌍 {t("weather.title")}
           </div>
 
           <div className="card-body">
@@ -32,7 +34,7 @@ const LocationWeather = () => {
                     onChange={(e) => handleStateChange(e.target.value)}
                     required
                   >
-                    <option value="">Select State</option>
+                    <option value="">{t("weather.selectState")}</option>
                     {statesData.map((s) => (
                       <option key={s.name}>{s.name}</option>
                     ))}
@@ -47,7 +49,7 @@ const LocationWeather = () => {
                     disabled={!selectedState}
                     required
                   >
-                    <option value="">Select City</option>
+                    <option value="">{t("weather.selectCity")}</option>
                     {cities.map((city) => (
                       <option key={city}>{city}</option>
                     ))}
@@ -58,7 +60,7 @@ const LocationWeather = () => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Village (Optional)"
+                    placeholder={t("weather.village")}
                     value={village}
                     onChange={(e) => dispatch({ type: "SET_VILLAGE", payload: e.target.value })}
                   />
@@ -71,14 +73,14 @@ const LocationWeather = () => {
                   className="btn text-white px-4"
                   style={{ backgroundColor: "#2D5016" }}
                 >
-                  ☁️ Get Weather Data
+                  ☁️ {t("weather.getWeather")}
                 </button>
                 <button
                   type="button"
                   className="btn btn-outline-danger ms-2"
                   onClick={handleClear}
                 >
-                  ✏️ Clear
+                  ✏️ {t("weather.clear")}
                 </button>
               </div>
             </form>
@@ -96,7 +98,7 @@ const LocationWeather = () => {
 
                 {/* Title */}
                 <h5 className="text-center fw-bold" style={{ color: "#2D5016" }}>
-                  Weather for {weatherData.location}
+                  {t("weather.weatherFor")} {weatherData.location}
                 </h5>
 
                 <p className="text-center text-muted">
@@ -108,17 +110,17 @@ const LocationWeather = () => {
                   <div className="card-body p-0">
 
                     <div className="d-flex justify-content-between align-items-center px-4 py-2 border-bottom">
-                      <span>🌬️ Wind</span>
+                      <span>🌬️ {t("weather.wind")}</span>
                       <span className="fw-semibold">{weatherData.windSpeed} km/h</span>
                     </div>
 
                     <div className="d-flex justify-content-between align-items-center px-4 py-2 border-bottom">
-                      <span>💧 Humidity</span>
+                      <span>💧 {t("weather.humidity")}</span>
                       <span className="fw-semibold">{weatherData.humidity}%</span>
                     </div>
 
                     <div className="d-flex justify-content-between align-items-center px-4 py-2">
-                      <span>⏱ Pressure</span>
+                      <span>⏱ {t("weather.pressure")}</span>
                       <span className="fw-semibold">{weatherData.pressure} hPa</span>
                     </div>
 
@@ -129,7 +131,7 @@ const LocationWeather = () => {
                 {weatherData.hourlyForecast?.length > 0 && (
                   <div className="mb-3">
                     <h6 className="text-center fw-semibold" style={{ color: "#1565C0" }}>
-                      Today's Hourly Forecast
+                      {t("weather.hourlyForecast")}
                     </h6>
                     <div className="d-flex overflow-auto gap-2 pb-1">
                       {weatherData.hourlyForecast.map((h, i) => (
@@ -147,7 +149,7 @@ const LocationWeather = () => {
                 {weatherData.fiveDayForecast?.length > 0 && (
                   <div>
                     <h6 className="text-center fw-semibold" style={{ color: "#1565C0" }}>
-                      5-Day Forecast
+                      {t("weather.fiveDayForecast")}
                     </h6>
                     <div className="d-flex overflow-auto gap-2 pb-1">
                       {weatherData.fiveDayForecast.map((d, i) => (

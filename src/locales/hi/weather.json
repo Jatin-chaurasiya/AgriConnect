@@ -14,6 +14,19 @@
     "getWeather": "मौसम जानकारी प्राप्त करें",
     "clear": "साफ़ करें",
     "detectingLocation": "स्थान पता लगाया जा रहा है...",
-    "permissionDenied": "स्थान अनुमति अस्वीकृत"
+    "permissionDenied": "स्थान अनुमति अस्वीकृत",
+    "weatherFor": "मौसम जानकारी",
+    "wind": "हवा",
+    "pressure": "वायुदाब",
+
+    "hourlyForecast": "आज का प्रति घंटा मौसम पूर्वानुमान",
+    "fiveDayForecast": "5 दिनों का मौसम पूर्वानुमान",
+
+    "loading": "मौसम जानकारी लोड हो रही है...",
+
+    "weatherDescription": "मौसम विवरण",
+
+    "stateRequired": "कृपया राज्य चुनें",
+    "cityRequired": "कृपया शहर चुनें"
   }
 }

@@ -1,8 +1,12 @@
 {
   "newsletter": {
     "title": "Stay Updated",
-    "description": "Subscribe to our newsletter for latest agricultural updates.",
+    "description": "Subscribe to our newsletter to receive the latest updates on agricultural schemes, market prices, and farming techniques.",
     "placeholder": "Enter your email address",
-    "button": "Subscribe"
+    "button": "Subscribe",
+
+    "emailRequired": "Please enter your email address",
+    "subscribeSuccess": "Successfully subscribed to newsletter!",
+    "subscribeFailed": "Failed to subscribe. Please try again."
   }
 }

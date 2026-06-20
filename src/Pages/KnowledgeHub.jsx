@@ -5,82 +5,84 @@ import image3 from '../assets/images/organicmethod.avif';
 import video1 from '../assets/images/soilhealth.jpg';
 import video2 from '../assets/images/pestmgnt.webp';
 import video3 from '../assets/images/croprotation.webp';
+import { useTranslation } from 'react-i18next';
 
 const KnowledgeHub = () => {
+  const { t } = useTranslation();
   const articles = [
-    {
-      image: image1,
-      tag: 'Crop Tips',
-      title: 'Improving Wheat Yield',
-      description: 'Simple methods to boost wheat production for small and large farms.',
-      link: 'https://www.nature.com/articles/s41598-023-44879-w'
-    },
-    {
-      image: image2,
-      tag: 'Irrigation',
-      title: 'Smart Irrigation Techniques',
-      description: 'Learn modern irrigation methods that save water and increase productivity.',
-      link: 'https://www.sciencedirect.com/science/article/abs/pii/S0168169925011147'
-    },
-    {
-      image:image3,
-      tag: 'Organic Farming',
-      title: 'Transitioning to Organic Methods',
-      description: "A beginner's guide to implementing organic farming practices.",
-      link: 'https://krishijagran.com/news/mission-2047-transforming-india-into-an-organic-natural-and-profitable-agricultural-hub/#:~:text=MIONP%2C%20an%20initiative%20by%20Krishi%20Jagran%20in%20collaboration,India%20to%20organic%20and%20natural%20farming%20by%202047.'
-    }
-  ];
+  {
+    image: image1,
+    tag: t("knowledgeHub.cropTips"),
+    title: t("knowledgeHub.improvingWheatYield"),
+    description: t("knowledgeHub.improvingWheatYieldDesc"),
+    link: "https://www.nature.com/articles/s41598-023-44879-w"
+  },
+  {
+    image: image2,
+    tag: t("knowledgeHub.irrigation"),
+    title: t("knowledgeHub.smartIrrigationTechniques"),
+    description: t("knowledgeHub.smartIrrigationTechniquesDesc"),
+    link: "https://www.sciencedirect.com/science/article/abs/pii/S0168169925011147"
+  },
+  {
+    image: image3,
+    tag: t("knowledgeHub.organicFarming"),
+    title: t("knowledgeHub.transitioningToOrganicMethods"),
+    description: t("knowledgeHub.transitioningToOrganicMethodsDesc"),
+    link: "https://krishijagran.com/..."
+  }
+];
 
-  const videos = [
-    {
-      thumbnail: video1,
-      duration: '12:30',
-      title: 'Soil Health Basics',
-      description: 'Understanding soil types and nutrients for better crop growth.',
-      link: 'https://youtu.be/x3L1IAwUZK0?feature=shared'
-    },
-    {
-      thumbnail: video2,
-      duration: '15:00',
-      title: 'Pest Management Tips',
-      description: 'Effective ways to manage pests without harming crops or soil.',
-      link: 'https://youtu.be/Uo05345F1C8?feature=shared'
-    },
-    {
-      thumbnail: video3,
-      duration: '18:45',
-      title: 'Crop Rotation Strategies',
-      description: 'Maximize soil health and yield with effective crop rotation techniques.',
-      link: 'https://youtu.be/Nk83ASvbNKk?feature=shared'
-    }
-  ];
+ const videos = [
+  {
+    thumbnail: video1,
+    duration: "12:30",
+    title: t("knowledgeHub.soilHealthBasics"),
+    description: t("knowledgeHub.soilHealthBasicsDesc"),
+    link: "https://youtu.be/x3L1IAwUZK0"
+  },
+  {
+    thumbnail: video2,
+    duration: "15:00",
+    title: t("knowledgeHub.pestManagementTips"),
+    description: t("knowledgeHub.pestManagementTipsDesc"),
+    link: "https://youtu.be/Uo05345F1C8"
+  },
+  {
+    thumbnail: video3,
+    duration: "18:45",
+    title: t("knowledgeHub.cropRotationStrategies"),
+    description: t("knowledgeHub.cropRotationStrategiesDesc"),
+    link: "https://youtu.be/Nk83ASvbNKk"
+  }
+];
 
   const tools = [
-    {
-      title: 'Hand Trowel',
-      description: 'Perfect for planting seedlings and small-scale gardening tasks.',
-      link: '#'
-    },
-    {
-      title: 'Sprinkler Irrigation',
-      description: 'Modern irrigation solution to cover large areas efficiently.',
-      link: '#'
-    },
-    {
-      title: 'Soil Moisture Meter',
-      description: 'Monitor soil moisture levels for optimal irrigation planning.',
-      link: '#'
-    }
-  ];
+  {
+    title: t("knowledgeHub.handTrowel"),
+    description: t("knowledgeHub.handTrowelDesc"),
+    link: "#"
+  },
+  {
+    title: t("knowledgeHub.sprinklerIrrigation"),
+    description: t("knowledgeHub.sprinklerIrrigationDesc"),
+    link: "#"
+  },
+  {
+    title: t("knowledgeHub.soilMoistureMeter"),
+    description: t("knowledgeHub.soilMoistureMeterDesc"),
+    link: "#"
+  }
+];
 
   return (
     <>
       {/* Hero Section */}
       <section className="py-5" style={{ backgroundColor: '#2D5016' }}>
         <div className="container text-center text-white">
-          <h1 className="display-5 fw-bold mb-3">Knowledge Hub</h1>
+          <h1 className="display-5 fw-bold mb-3">{t("knowledgeHub.title")}</h1>
           <p className="lead mb-4">
-            Your comprehensive resource for modern farming techniques, expert advice, and practical tools to enhance your agricultural productivity.
+            {t("knowledgeHub.heroDescription")}
           </p>
         </div>
       </section>
@@ -88,7 +90,7 @@ const KnowledgeHub = () => {
       <div className="container py-5">
         {/* Expert Articles Section */}
         <section className="mb-5">
-          <h2 className="section-title">Expert Articles</h2>
+          <h2 className="section-title">{t("knowledgeHub.expertArticles")}</h2>
           <div className="row justify-content-center">
             {articles.map((article, index) => (
               <div key={index} className="col-lg-4 col-md-6 mb-4">
@@ -110,7 +112,7 @@ const KnowledgeHub = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Read More
+                        {t("knowledgeHub.readMore")}
                       </a>
                     </div>
                   </div>
@@ -122,7 +124,7 @@ const KnowledgeHub = () => {
 
         {/* Educational Videos Section */}
         <section className="mb-5">
-          <h2 className="section-title">Educational Videos</h2>
+          <h2 className="section-title">{t("knowledgeHub.educationalVideos")}</h2>
           <div className="row justify-content-center">
             {videos.map((video, index) => (
               <div key={index} className="col-lg-4 col-md-6 mb-4">
@@ -149,7 +151,7 @@ const KnowledgeHub = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Watch Video
+                        {t("knowledgeHub.watchVideo")}
                       </a>
                     </div>
                   </div>
@@ -161,7 +163,7 @@ const KnowledgeHub = () => {
 
         {/* Farming Tools Section */}
         <section className="mb-5">
-          <h2 className="section-title">Farming Tools & Equipment</h2>
+          <h2 className="section-title">{t("knowledgeHub.tools")}</h2>
           <div className="row justify-content-center">
             {tools.map((tool, index) => (
               <div key={index} className="col-lg-4 col-md-6 mb-4">
@@ -170,7 +172,7 @@ const KnowledgeHub = () => {
                   <p className="flex-grow-1">{tool.description}</p>
                   <div className="mt-auto">
                     <a href={tool.link} className="btn btn-sm btn-outline-success">
-                      Learn More
+                      {t("knowledgeHub.learnMore")}
                     </a>
                   </div>
                 </div>

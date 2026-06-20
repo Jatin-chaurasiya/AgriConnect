@@ -1,11 +1,23 @@
 {
   "footer": {
     "aboutTitle": "About AgriConnect",
-    "aboutDesc": "Empowering farmers across India with technology and knowledge.",
+    "aboutDescription": "Empowering farmers across India with technology, knowledge, and market access to transform agricultural practices and improve livelihoods.",
 
     "quickLinks": "Quick Links",
+    "weatherLink": "Weather Forecast",
+    "cropRecommendationLink": "Crop Recommendation",
+    "governmentSchemesLink": "Government Schemes",
+    "knowledgeHubLink": "Knowledge Hub",
+
     "contactUs": "Contact Us",
+    "location": "New Delhi, India",
+
     "followUs": "Follow Us",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "youtube": "YouTube",
+    "whatsapp": "WhatsApp Channel",
 
     "copyright": "© 2026 AgriConnect. All rights reserved."
   }

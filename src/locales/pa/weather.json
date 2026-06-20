@@ -14,6 +14,19 @@
     "getWeather": "ਮੌਸਮ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰੋ",
     "clear": "ਸਾਫ਼ ਕਰੋ",
     "detectingLocation": "ਸਥਾਨ ਦੀ ਪਛਾਣ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...",
-    "permissionDenied": "ਸਥਾਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਮਿਲੀ"
+    "permissionDenied": "ਸਥਾਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਮਿਲੀ",
+    "weatherFor": "ਮੌਸਮ ਜਾਣਕਾਰੀ",
+    "wind": "ਹਵਾ",
+    "pressure": "ਹਵਾਈ ਦਬਾਅ",
+
+    "hourlyForecast": "ਅੱਜ ਦਾ ਘੰਟਾਵਾਰ ਮੌਸਮ ਪੂਰਵ ਅਨੁਮਾਨ",
+    "fiveDayForecast": "5 ਦਿਨਾਂ ਦਾ ਮੌਸਮ ਪੂਰਵ ਅਨੁਮਾਨ",
+
+    "loading": "ਮੌਸਮ ਜਾਣਕਾਰੀ ਲੋਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...",
+
+    "weatherDescription": "ਮੌਸਮ ਵੇਰਵਾ",
+
+    "stateRequired": "ਕਿਰਪਾ ਕਰਕੇ ਰਾਜ ਚੁਣੋ",
+    "cityRequired": "ਕਿਰਪਾ ਕਰਕੇ ਸ਼ਹਿਰ ਚੁਣੋ"
   }
 }

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <>
       <footer>
@@ -9,30 +11,30 @@ const Footer = () => {
           <div className="footer-content">
             {/* About Section */}
             <div className="footer-section">
-              <h3>About AgriConnect</h3>
-              <p>Empowering farmers across India with technology, knowledge, and market access to transform agricultural practices and improve livelihoods.</p>
+              <h3>{t("footer.aboutTitle")}</h3>
+              <p>{t("footer.aboutDescription")}</p>
             </div>
 
             {/* Quick Links */}
             <div className="footer-section">
-              <h3>Quick Links</h3>
+              <h3>{t("footer.quickLinks")}</h3>
               <Link to="/Locationweather">
-                <i className="fas fa-chevron-right"></i> Weather Forecast
+                <i className="fas fa-chevron-right"></i>{t("footer.weatherLink")}
               </Link>
               <Link to="/Croprecommendation">
-                <i className="fas fa-chevron-right"></i> Crop Recommendation
+                <i className="fas fa-chevron-right"></i>{t("footer.cropRecommendationLink")}
               </Link>
               <Link to="/GovernmentSchemes">
-                <i className="fas fa-chevron-right"></i> Government Schemes
+                <i className="fas fa-chevron-right"></i>{t("footer.governmentSchemesLink")}
               </Link>
               <Link to="/knowledgehub">
-                <i className="fas fa-chevron-right"></i> Knowledge Hub
+                <i className="fas fa-chevron-right"></i>{t("footer.knowledgeHubLink")}
               </Link>
             </div>
 
             {/* Contact Section */}
             <div className="footer-section">
-              <h3>Contact Us</h3>
+              <h3>{t("footer.contactUs")}</h3>
               <a href="tel:+9118001234567">
                 <i className="fas fa-phone"></i> +91 1800-123-4567
               </a>
@@ -40,34 +42,34 @@ const Footer = () => {
                 <i className="fas fa-envelope"></i> support@agriconnect.in
               </a>
               <a href="#">
-                <i className="fas fa-map-marker-alt"></i> New Delhi, India
+                <i className="fas fa-map-marker-alt"></i>{t("footer.location")}
               </a>
             </div>
 
             {/* Social Media */}
             <div className="footer-section">
-              <h3>Follow Us</h3>
+              <h3>{t("footer.followUs")}</h3>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook"></i> Facebook
+                <i className="fab fa-facebook"></i>{t("footer.facebook")}
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter"></i> Twitter
+                <i className="fab fa-twitter"></i>{t("footer.twitter")}
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-instagram"></i> Instagram
+                <i className="fab fa-instagram"></i>{t("footer.instagram")}
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-youtube"></i> YouTube
+                <i className="fab fa-youtube"></i>{t("footer.youtube")}
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-whatsapp"></i> WhatsApp Channel
+                <i className="fab fa-whatsapp"></i>{t("footer.whatsapp")}
               </a>
             </div>
           </div>
 
           {/* Copyright */}
           <div className="copyright">
-            &copy; 2023 AgriConnect. All rights reserved.
+            {t("footer.copyright")}
           </div>
         </div>
       </footer>

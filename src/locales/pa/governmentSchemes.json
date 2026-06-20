@@ -1,6 +1,6 @@
 {
   "governmentSchemes": {
-    "title": "ਕਿਸਾਨਾਂ ਲਈ ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ",
+    "title": "Government Schemes for Farmers",
     "subtitle": "ਵੱਖ-ਵੱਖ ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ ਬਾਰੇ ਜਾਣੋ ਅਤੇ ਅਰਜ਼ੀ ਦਿਓ।",
 
     "selectType": "ਕਿਸਮ ਚੁਣੋ",
@@ -10,6 +10,24 @@
     "applyFilters": "ਫਿਲਟਰ ਲਾਗੂ ਕਰੋ",
     "reset": "ਰੀਸੈਟ ਕਰੋ",
 
-    "noScheme": "ਕੋਈ ਯੋਜਨਾ ਉਪਲਬਧ ਨਹੀਂ ਹੈ"
+    "noScheme": "ਕੋਈ ਯੋਜਨਾ ਉਪਲਬਧ ਨਹੀਂ ਹੈ",
+    "allTypes": "ਸਾਰੀਆਂ ਕਿਸਮਾਂ",
+    "allStates": "ਸਾਰੇ ਰਾਜ",
+    "allCategories": "ਸਾਰੀਆਂ ਸ਼੍ਰੇਣੀਆਂ",
+
+    "subsidy": "ਸਬਸਿਡੀ",
+    "loan": "ਕਰਜ਼ਾ",
+    "insurance": "ਬੀਮਾ",
+
+    "smallFarmer": "ਛੋਟਾ ਕਿਸਾਨ",
+    "marginalFarmer": "ਸੀਮਾਂਤ ਕਿਸਾਨ",
+
+    "validationMessage": "ਕਿਰਪਾ ਕਰਕੇ ਫਿਲਟਰ ਲਾਗੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਵਿਕਲਪ ਚੁਣੋ।",
+
+    "noSchemeFilter": "ਇਸ ਫਿਲਟਰ ਲਈ ਕੋਈ ਯੋਜਨਾ ਉਪਲਬਧ ਨਹੀਂ ਹੈ",
+
+    "searchInstruction": "ਯੋਜਨਾਵਾਂ ਵੇਖਣ ਲਈ ਫਿਲਟਰ ਚੁਣੋ ਅਤੇ 'ਫਿਲਟਰ ਲਾਗੂ ਕਰੋ' 'ਤੇ ਕਲਿੱਕ ਕਰੋ।",
+
+    "changeFilterMessage": "ਫਿਲਟਰ ਬਦਲ ਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
   }
 }

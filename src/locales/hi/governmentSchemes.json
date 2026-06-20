@@ -1,6 +1,6 @@
 {
   "governmentSchemes": {
-    "title": "किसानों के लिए सरकारी योजनाएं",
+    "title": "Government Schemes for Farmers",
     "subtitle": "विभिन्न सरकारी योजनाओं की जानकारी प्राप्त करें और आवेदन करें।",
 
     "selectType": "प्रकार चुनें",
@@ -10,6 +10,24 @@
     "applyFilters": "फ़िल्टर लागू करें",
     "reset": "रीसेट करें",
 
-    "noScheme": "कोई योजना उपलब्ध नहीं है"
+    "noScheme": "कोई योजना उपलब्ध नहीं है",
+    "allTypes": "सभी प्रकार",
+    "allStates": "सभी राज्य",
+    "allCategories": "सभी श्रेणियां",
+
+    "subsidy": "सब्सिडी",
+    "loan": "ऋण",
+    "insurance": "बीमा",
+
+    "smallFarmer": "लघु किसान",
+    "marginalFarmer": "सीमांत किसान",
+
+    "validationMessage": "कृपया फ़िल्टर लागू करने से पहले कम से कम एक विकल्प चुनें।",
+
+    "noSchemeFilter": "इस फ़िल्टर के लिए कोई योजना उपलब्ध नहीं है",
+
+    "searchInstruction": "योजनाएं देखने के लिए फ़िल्टर चुनें और 'फ़िल्टर लागू करें' पर क्लिक करें।",
+
+    "changeFilterMessage": "फ़िल्टर बदलकर पुनः प्रयास करें।"
   }
 }

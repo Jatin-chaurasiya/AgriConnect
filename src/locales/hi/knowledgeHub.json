@@ -1,14 +1,36 @@
 {
   "knowledgeHub": {
-    "title": "ज्ञान केंद्र",
-    "subtitle": "आधुनिक कृषि तकनीकों और विशेषज्ञ सलाह के लिए आपका संपूर्ण संसाधन।",
+    "heroDescription": "आधुनिक खेती तकनीकों, विशेषज्ञ सलाह और उपयोगी कृषि उपकरणों का संपूर्ण ज्ञान केंद्र।",
 
-    "expertArticles": "विशेषज्ञ लेख",
-    "educationalVideos": "शैक्षिक वीडियो",
-    "tools": "कृषि उपकरण एवं साधन",
+    "cropTips": "फसल सुझाव",
+    "irrigation": "सिंचाई",
+    "organicFarming": "जैविक खेती",
 
-    "readMore": "और पढ़ें",
-    "watchVideo": "वीडियो देखें",
-    "learnMore": "अधिक जानें"
+    "improvingWheatYield": "गेहूं उत्पादन में सुधार",
+    "improvingWheatYieldDesc": "छोटे और बड़े किसानों के लिए गेहूं उत्पादन बढ़ाने के सरल तरीके।",
+
+    "smartIrrigationTechniques": "स्मार्ट सिंचाई तकनीकें",
+    "smartIrrigationTechniquesDesc": "ऐसी आधुनिक सिंचाई विधियां सीखें जो पानी बचाएं और उत्पादन बढ़ाएं।",
+
+    "transitioningToOrganicMethods": "जैविक खेती की ओर परिवर्तन",
+    "transitioningToOrganicMethodsDesc": "जैविक खेती अपनाने के लिए शुरुआती मार्गदर्शिका।",
+
+    "soilHealthBasics": "मिट्टी स्वास्थ्य की मूल बातें",
+    "soilHealthBasicsDesc": "बेहतर फसल विकास के लिए मिट्टी के प्रकार और पोषक तत्वों को समझें।",
+
+    "pestManagementTips": "कीट प्रबंधन सुझाव",
+    "pestManagementTipsDesc": "फसल और मिट्टी को नुकसान पहुंचाए बिना कीट नियंत्रण के प्रभावी तरीके।",
+
+    "cropRotationStrategies": "फसल चक्र रणनीतियां",
+    "cropRotationStrategiesDesc": "फसल चक्र तकनीकों से मिट्टी की गुणवत्ता और उत्पादन बढ़ाएं।",
+
+    "handTrowel": "हैंड ट्रॉवेल",
+    "handTrowelDesc": "पौध रोपण और छोटे बागवानी कार्यों के लिए उपयुक्त।",
+
+    "sprinklerIrrigation": "स्प्रिंकलर सिंचाई",
+    "sprinklerIrrigationDesc": "बड़े क्षेत्रों में प्रभावी सिंचाई के लिए आधुनिक समाधान।",
+
+    "soilMoistureMeter": "मिट्टी नमी मापक",
+    "soilMoistureMeterDesc": "सिंचाई योजना के लिए मिट्टी की नमी की निगरानी करें।"
   }
 }

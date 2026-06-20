@@ -1,6 +1,6 @@
 {
   "cropRecommendation": {
-    "title": "ਏਆਈ ਆਧਾਰਿਤ ਫਸਲ ਸਿਫਾਰਸ਼",
+    "title": "AI-Powered Crop Recommendation",
     "subtitle": "ਆਪਣੀ ਮਿੱਟੀ ਅਤੇ ਜਲਵਾਯੂ ਦੇ ਆਧਾਰ 'ਤੇ ਨਿੱਜੀ ਫਸਲ ਸਿਫਾਰਸ਼ਾਂ ਪ੍ਰਾਪਤ ਕਰੋ।",
 
     "farmDetails": "ਸਾਨੂੰ ਆਪਣੀ ਖੇਤੀ ਬਾਰੇ ਦੱਸੋ",
@@ -11,6 +11,20 @@
     "temperature": "ਤਾਪਮਾਨ",
     "humidity": "ਨਮੀ",
     "ph": "ਪੀਐਚ",
-    "rainfall": "ਵਰਖਾ"
+    "rainfall": "ਵਰਖਾ",
+    "getRecommendation": "ਫਸਲ ਸਿਫਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ",
+    "processing": "ਪ੍ਰਕਿਰਿਆ ਜਾਰੀ ਹੈ...",
+
+    "recommendedCrop": "ਸਿਫਾਰਸ਼ ਕੀਤੀ ਫਸਲ",
+    "highlySuitable": "ਬਹੁਤ ਹੀ ਉਚਿਤ",
+
+    "startNewRecommendation": "ਨਵੀਂ ਸਿਫਾਰਸ਼ ਸ਼ੁਰੂ ਕਰੋ",
+    "nitrogenPlaceholder": "ਨਾਈਟ੍ਰੋਜਨ ਦਾ ਮੁੱਲ ਦਰਜ ਕਰੋ",
+    "phosphorusPlaceholder": "ਫਾਸਫੋਰਸ ਦਾ ਮੁੱਲ ਦਰਜ ਕਰੋ",
+    "potassiumPlaceholder": "ਪੋਟਾਸ਼ੀਅਮ ਦਾ ਮੁੱਲ ਦਰਜ ਕਰੋ",
+    "temperaturePlaceholder": "ਤਾਪਮਾਨ ਦਰਜ ਕਰੋ",
+    "humidityPlaceholder": "ਨਮੀ ਦਰਜ ਕਰੋ",
+    "phPlaceholder": "pH ਮੁੱਲ ਦਰਜ ਕਰੋ",
+    "rainfallPlaceholder": "ਵਰਖਾ ਦੀ ਮਾਤਰਾ ਦਰਜ ਕਰੋ"
   }
 }

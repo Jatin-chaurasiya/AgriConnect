@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import SchemesGrid from "../Components/SchemesGrid";
 import { useGovernmentSchemes } from "../Hooks/useGovernmentSchemes";
 import { Outlet } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const GovernmentSchemes = () => {
+  const { t } = useTranslation();
   const { state, dispatch, applyFilters, hasSearched, resetFilters } =
     useGovernmentSchemes();
   const [showValidation, setShowValidation] = useState(false);
@@ -35,11 +37,13 @@ const GovernmentSchemes = () => {
       >
         <div className="container">
           <h1 className="display-4 fw-bold text-white mb-3">
-            Government Schemes for Farmers
+            {t("governmentSchemes.title")}
           </h1>
-          <p className="lead text-white mx-auto" style={{ maxWidth: "850px", opacity: 0.9 }}>
-            Discover and apply for various government initiatives designed to
-            support and empower farmers across India.
+          <p
+            className="lead text-white mx-auto"
+            style={{ maxWidth: "850px", opacity: 0.9 }}
+          >
+            {t("governmentSchemes.subtitle")}
           </p>
         </div>
       </section>
@@ -56,11 +60,18 @@ const GovernmentSchemes = () => {
                   value={state.filters.schemeType}
                   onChange={handleFilterChange}
                 >
-                  <option value="SELECT" disabled>Select Type</option>
-                  <option value="">All Types</option>
-                  <option value="SUBSIDY">Subsidy</option>
-                  <option value="LOAN">Loan</option>
-                  <option value="INSURANCE">Insurance</option>
+                  <option value="SELECT" disabled>
+                    {t("governmentSchemes.selectType")}
+                  </option>
+                  <option value="">{t("governmentSchemes.allTypes")}</option>
+                  <option value="SUBSIDY">
+                    {t("governmentSchemes.subsidy")}
+                  </option>
+                  <option value="LOAN">{t("governmentSchemes.loan")}</option>
+                  <option value="INSURANCE">
+                    {" "}
+                    {t("governmentSchemes.insurance")}
+                  </option>
                 </select>
               </div>
 
@@ -71,7 +82,9 @@ const GovernmentSchemes = () => {
                   value={state.filters.state}
                   onChange={handleFilterChange}
                 >
-                  <option value="SELECT" disabled>Select State</option>
+                  <option value="SELECT" disabled>
+                   {t("governmentSchemes.selectState")}
+                  </option>
                   <option value="">All States</option>
                   <option value="UP">Uttar Pradesh</option>
                   <option value="MH">Maharashtra</option>
@@ -87,26 +100,32 @@ const GovernmentSchemes = () => {
                   value={state.filters.category}
                   onChange={handleFilterChange}
                 >
-                  <option value="SELECT" disabled>Select Category</option>
+                  <option value="SELECT" disabled>
+                    {t("governmentSchemes.selectCategory")}
+                  </option>
                   <option value="">All Categories</option>
-                  <option value="SMALL_FARMER">Small Farmer</option>
-                  <option value="MARGINAL_FARMER">Marginal Farmer</option>
+                  <option value="SMALL_FARMER">{t("governmentSchemes.smallFarmer")}</option>
+                  <option value="MARGINAL_FARMER">{t("governmentSchemes.marginalFarmer")}</option>
                 </select>
               </div>
             </div>
 
             <div className="mt-4 d-flex gap-2">
               <button type="submit" className="btn-agri-primary">
-                Apply Filters
+                {t("governmentSchemes.applyFilters")}
               </button>
-              <button type="button" className="btn-agri-outline" onClick={resetFilters}>
-                Reset
+              <button
+                type="button"
+                className="btn-agri-outline"
+                onClick={resetFilters}
+              >
+                {t("governmentSchemes.reset")}
               </button>
             </div>
 
             {showValidation && (
               <p className="text-danger mt-2">
-                Please select at least one filter before applying.
+                {t("governmentSchemes.validationMessage")}
               </p>
             )}
           </form>
@@ -121,18 +140,18 @@ const GovernmentSchemes = () => {
               <div style={{ fontSize: "40px", color: "#adb5bd" }}>📄</div>
               {!hasSearched ? (
                 <>
-                  <h5 className="mt-3 mb-2">No Scheme Available</h5>
+                  <h5 className="mt-3 mb-2">{t("governmentSchemes.noScheme")}</h5>
                   <p style={{ color: "#6c757d", fontSize: "14px" }}>
-                    Please select filters and click <strong>Apply Filters</strong> to view schemes.
+                    {t("governmentSchemes.searchInstruction")}
                   </p>
                 </>
               ) : (
                 <>
                   <h5 className="mt-3 mb-2 text-danger">
-                    NO SCHEME AVAILABLE ON THIS FILTER
+                    {t("governmentSchemes.noSchemeFilter")}
                   </h5>
                   <p style={{ color: "#6c757d", fontSize: "14px" }}>
-                    Try changing filters and search again.
+                    {t("governmentSchemes.changeFilterMessage")}
                   </p>
                 </>
               )}

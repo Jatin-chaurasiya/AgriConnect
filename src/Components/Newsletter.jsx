@@ -10,7 +10,7 @@ const Newsletter = () => {
     e.preventDefault();
     
     if (!email) {
-      toast.error('Please enter your email address');
+      toast.error(t("newsletter.emailRequired"));
       return;
     }
 
@@ -24,11 +24,11 @@ const Newsletter = () => {
       // });
       
       // if (response.ok) {
-        toast.success('Successfully subscribed to newsletter!');
+        toast.success(t("newsletter.subscribeSuccess"));
         setEmail('');
       // }
     } catch (error) {
-      toast.error('Failed to subscribe. Please try again.');
+      toast.error(t("newsletter.subscribeFailed"));
     }
   };
 
@@ -36,19 +36,19 @@ const Newsletter = () => {
     <>
       <section className="stay-updated">
         <div className="container">
-          <h2 className="section-title">Stay Updated</h2>
-          <p>Subscribe to our newsletter to receive the latest updates on agricultural schemes, market prices, and farming techniques.</p>
+          <h2 className="section-title">{t("newsletter.title")}</h2>
+          <p>{t("newsletter.description")}</p>
           <form className="newsletter-form" onSubmit={handleSubmit}>
             <input 
               type="email" 
               name="email" 
               className="newsletter-input" 
-              placeholder="Enter your email address"
+              placeholder={t("newsletter.placeholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required 
             />
-            <button type="submit" className="newsletter-btn">Subscribe</button>
+            <button type="submit" className="newsletter-btn">{t("newsletter.button")}</button>
           </form>
         </div>
       </section>

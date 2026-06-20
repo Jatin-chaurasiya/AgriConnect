@@ -1,14 +1,36 @@
 {
   "knowledgeHub": {
-    "title": "ਗਿਆਨ ਕੇਂਦਰ",
-    "subtitle": "ਆਧੁਨਿਕ ਖੇਤੀਬਾੜੀ ਤਕਨੀਕਾਂ ਅਤੇ ਮਾਹਿਰ ਸਲਾਹ ਲਈ ਤੁਹਾਡਾ ਸੰਪੂਰਨ ਸਰੋਤ।",
+    "heroDescription": "ਆਧੁਨਿਕ ਖੇਤੀ ਤਕਨੀਕਾਂ, ਮਾਹਿਰ ਸਲਾਹ ਅਤੇ ਉਪਯੋਗੀ ਸੰਦਾਂ ਲਈ ਤੁਹਾਡਾ ਸੰਪੂਰਨ ਗਿਆਨ ਕੇਂਦਰ।",
 
-    "expertArticles": "ਮਾਹਿਰ ਲੇਖ",
-    "educationalVideos": "ਸਿੱਖਿਆਤਮਕ ਵੀਡੀਓ",
-    "tools": "ਖੇਤੀਬਾੜੀ ਉਪਕਰਣ ਅਤੇ ਸਾਜ਼ੋ-ਸਾਮਾਨ",
+    "cropTips": "ਫਸਲ ਸੁਝਾਅ",
+    "irrigation": "ਸਿੰਚਾਈ",
+    "organicFarming": "ਜੈਵਿਕ ਖੇਤੀ",
 
-    "readMore": "ਹੋਰ ਪੜ੍ਹੋ",
-    "watchVideo": "ਵੀਡੀਓ ਵੇਖੋ",
-    "learnMore": "ਹੋਰ ਜਾਣੋ"
+    "improvingWheatYield": "ਗੈਂਹੂ ਦੀ ਪੈਦਾਵਾਰ ਵਿੱਚ ਸੁਧਾਰ",
+    "improvingWheatYieldDesc": "ਛੋਟੇ ਅਤੇ ਵੱਡੇ ਕਿਸਾਨਾਂ ਲਈ ਗੈਂਹੂ ਉਤਪਾਦਨ ਵਧਾਉਣ ਦੇ ਆਸਾਨ ਤਰੀਕੇ।",
+
+    "smartIrrigationTechniques": "ਸਮਾਰਟ ਸਿੰਚਾਈ ਤਕਨੀਕਾਂ",
+    "smartIrrigationTechniquesDesc": "ਪਾਣੀ ਬਚਾਉਣ ਅਤੇ ਉਤਪਾਦਕਤਾ ਵਧਾਉਣ ਵਾਲੀਆਂ ਆਧੁਨਿਕ ਸਿੰਚਾਈ ਤਕਨੀਕਾਂ ਸਿੱਖੋ।",
+
+    "transitioningToOrganicMethods": "ਜੈਵਿਕ ਖੇਤੀ ਵੱਲ ਬਦਲਾਅ",
+    "transitioningToOrganicMethodsDesc": "ਜੈਵਿਕ ਖੇਤੀ ਅਪਣਾਉਣ ਲਈ ਸ਼ੁਰੂਆਤੀ ਮਾਰਗਦਰਸ਼ਨ।",
+
+    "soilHealthBasics": "ਮਿੱਟੀ ਦੀ ਸਿਹਤ ਦੀਆਂ ਬੁਨਿਆਦਾਂ",
+    "soilHealthBasicsDesc": "ਵਧੀਆ ਫਸਲ ਵਿਕਾਸ ਲਈ ਮਿੱਟੀ ਦੀਆਂ ਕਿਸਮਾਂ ਅਤੇ ਪੋਸ਼ਕ ਤੱਤਾਂ ਨੂੰ ਸਮਝੋ।",
+
+    "pestManagementTips": "ਕੀਟ ਪ੍ਰਬੰਧਨ ਸੁਝਾਅ",
+    "pestManagementTipsDesc": "ਫਸਲ ਅਤੇ ਮਿੱਟੀ ਨੂੰ ਨੁਕਸਾਨ ਪਹੁੰਚਾਏ ਬਿਨਾਂ ਕੀਟਾਂ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਨ ਦੇ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਤਰੀਕੇ।",
+
+    "cropRotationStrategies": "ਫਸਲ ਚੱਕਰ ਰਣਨੀਤੀਆਂ",
+    "cropRotationStrategiesDesc": "ਫਸਲ ਚੱਕਰ ਤਕਨੀਕਾਂ ਨਾਲ ਮਿੱਟੀ ਦੀ ਗੁਣਵੱਤਾ ਅਤੇ ਪੈਦਾਵਾਰ ਵਧਾਓ।",
+
+    "handTrowel": "ਹੈਂਡ ਟਰੌਵਲ",
+    "handTrowelDesc": "ਪੌਦੇ ਲਗਾਉਣ ਅਤੇ ਛੋਟੇ ਬਾਗਬਾਨੀ ਕੰਮਾਂ ਲਈ ਉਚਿਤ।",
+
+    "sprinklerIrrigation": "ਸਪ੍ਰਿੰਕਲਰ ਸਿੰਚਾਈ",
+    "sprinklerIrrigationDesc": "ਵੱਡੇ ਖੇਤਰਾਂ ਦੀ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਸਿੰਚਾਈ ਲਈ ਆਧੁਨਿਕ ਹੱਲ।",
+
+    "soilMoistureMeter": "ਮਿੱਟੀ ਨਮੀ ਮੀਟਰ",
+    "soilMoistureMeterDesc": "ਸਿੰਚਾਈ ਯੋਜਨਾ ਲਈ ਮਿੱਟੀ ਦੀ ਨਮੀ ਦੀ ਨਿਗਰਾਨੀ ਕਰੋ।"
   }
 }

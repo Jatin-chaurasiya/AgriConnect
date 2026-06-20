@@ -3,12 +3,45 @@
     "title": "Knowledge Hub",
     "subtitle": "Your comprehensive resource for modern farming techniques.",
 
+    "heroDescription": "Your comprehensive resource for modern farming techniques, expert advice, and practical tools to enhance your agricultural productivity.",
+
     "expertArticles": "Expert Articles",
     "educationalVideos": "Educational Videos",
     "tools": "Farming Tools & Equipment",
 
     "readMore": "Read More",
     "watchVideo": "Watch Video",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+
+    "cropTips": "Crop Tips",
+    "irrigation": "Irrigation",
+    "organicFarming": "Organic Farming",
+
+    "improvingWheatYield": "Improving Wheat Yield",
+    "improvingWheatYieldDesc": "Simple methods to boost wheat production for small and large farms.",
+
+    "smartIrrigationTechniques": "Smart Irrigation Techniques",
+    "smartIrrigationTechniquesDesc": "Learn modern irrigation methods that save water and increase productivity.",
+
+    "transitioningToOrganicMethods": "Transitioning to Organic Methods",
+    "transitioningToOrganicMethodsDesc": "A beginner's guide to implementing organic farming practices.",
+
+    "soilHealthBasics": "Soil Health Basics",
+    "soilHealthBasicsDesc": "Understanding soil types and nutrients for better crop growth.",
+
+    "pestManagementTips": "Pest Management Tips",
+    "pestManagementTipsDesc": "Effective ways to manage pests without harming crops or soil.",
+
+    "cropRotationStrategies": "Crop Rotation Strategies",
+    "cropRotationStrategiesDesc": "Maximize soil health and yield with effective crop rotation techniques.",
+
+    "handTrowel": "Hand Trowel",
+    "handTrowelDesc": "Perfect for planting seedlings and small-scale gardening tasks.",
+
+    "sprinklerIrrigation": "Sprinkler Irrigation",
+    "sprinklerIrrigationDesc": "Modern irrigation solution to cover large areas efficiently.",
+
+    "soilMoistureMeter": "Soil Moisture Meter",
+    "soilMoistureMeterDesc": "Monitor soil moisture levels for optimal irrigation planning."
   }
 }
