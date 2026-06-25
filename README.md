@@ -4,7 +4,7 @@ AgriConnect is a full-stack agriculture support platform designed to help farmer
 
 ## Live Demo
 
-**Deploy Url:** https://agri-connect-89.netlify.app/
+**Deploy Url:** https://agri-connect-89.netlify.app/ or https://agriconnect.jatindev.xyz/
 
 ## Features
 
