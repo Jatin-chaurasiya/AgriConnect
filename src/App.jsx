@@ -16,6 +16,7 @@ import Footer from "./Components/Footer.jsx";
 import Partners from "./Components/Partners.jsx";
 import ChatWidget from "./Components/ChatWidget.jsx";
 import ProtectedRoute from "./Components/ProtectedRoute.jsx";
+import AskModel from "./Components/AskModel";
 import LoginPage from "./Components/LoginPage.jsx";
 import RegisterPage from "./Components/RegisterPage.jsx";
 
@@ -52,8 +53,13 @@ function App() {
         />
 
         {/* Public Routes */}
-        <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/RegisterPage" element={<RegisterPage />} />
+        <Route path="/login/farmer" element={<LoginPage />} />
+        <Route path="/login/provider" element={<LoginPage />} />
+        <Route path="/login/admin" element={<LoginPage />} />
+        <Route path="/login" element={<AskModel type="login" />} />
+        <Route path="/register" element={<AskModel type="register" />} />
+        <Route path="/register/farmer" element={<RegisterPage />} />
+        <Route path="/register/provider" element={<RegisterPage />} />
         <Route path="/Locationweather" element={<Locationweather />} />
         <Route path="/knowledgehub" element={<KnowledgeHub />} />
         <Route path="/VirtualAssistant" element={<VirtualAssistant />} />
@@ -68,12 +74,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/Croprecommendation"
-          element={
-              <CropRecommendation />
-          }
-        />
+        <Route path="/Croprecommendation" element={<CropRecommendation />} />
 
         <Route
           path="/GovernmentSchemes"

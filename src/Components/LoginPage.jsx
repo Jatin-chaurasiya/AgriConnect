@@ -1,12 +1,29 @@
 import React from "react";
 import { useLogin } from "../Hooks/useLogin";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LoginPage = () => {
   const { state, handleChange, handleSubmit } = useLogin();
   const { email, password, loading, error } = state;
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isFarmer = location.pathname === "/login/farmer";
+  const isProvider = location.pathname === "/login/provider";
+  const isAdmin = location.pathname === "/login/admin";
+
+  const pageTitle = isFarmer
+    ? "Farmer Login"
+    : isProvider
+      ? "Service Provider Login"
+      : "Admin Login";
+
+  const pageSubtitle = isFarmer
+    ? "Login as Farmer"
+    : isProvider
+      ? "Login as Service Provider"
+      : "Login as Admin";
   const { t } = useTranslation();
 
   return (
@@ -15,8 +32,8 @@ const LoginPage = () => {
         <div className="card login-card p-4">
           <div className="text-center mb-4">
             <i className="bi bi-person-circle fs-1 text-success"></i>
-            <h3 className="fw-bold mt-2 text-agri">{t("login.title")}</h3>
-            <p className="text-muted">{t("login.subtitle")}</p>
+            <h3 className="fw-bold mt-2 text-agri">{pageTitle}</h3>
+            <p className="text-muted">{pageSubtitle}</p>
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -63,7 +80,7 @@ const LoginPage = () => {
                 {loading ? (
                   <>
                     <span className="spinner-border spinner-border-sm me-2"></span>
-                     {t("login.loggingIn")}
+                    {t("login.loggingIn")}
                   </>
                 ) : (
                   <>
@@ -87,7 +104,7 @@ const LoginPage = () => {
               {t("login.noAccount")}
               <span
                 className="register-link ms-1"
-                onClick={() => navigate("/RegisterPage")}
+                onClick={() => navigate("/register")}
               >
                 {t("login.registerHere")}
               </span>

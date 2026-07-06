@@ -1,11 +1,14 @@
 import React from "react";
 import { useRegister } from "../Hooks/useRegister";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const RegisterPage = () => {
   const { state, handleChange, handleSubmit } = useRegister();
   const navigate = useNavigate();
+  const location = useLocation();
+  const isFarmer = location.pathname === "/register/farmer";
+  const isProvider = location.pathname === "/register/provider";
   const { t } = useTranslation();
   const {
     username,
@@ -24,8 +27,17 @@ const RegisterPage = () => {
           {/* Title */}
           <div className="text-center mb-4">
             <i className="bi bi-person-plus-fill fs-1 text-success"></i>
-            <h3 className="fw-bold mt-2 text-agri">{t("register.title")}</h3>
-            <p className="text-muted">{t("register.subtitle")}</p>
+            <h3 className="fw-bold mt-2 text-agri">
+              {isFarmer
+                ? "Farmer Registration"
+                : "Service Provider Registration"}
+            </h3>
+
+            <p className="text-muted">
+              {isFarmer
+                ? "Create your farmer account"
+                : "Create your service provider account"}
+            </p>
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -74,8 +86,7 @@ const RegisterPage = () => {
                 required
               />
             </div>
-
-            {/* Email */}
+                        {/* Email */}
             <div className="mb-3">
               <label className="form-label fw-semibold">
                 <i className="bi bi-envelope-fill me-2 text-success"></i>
@@ -109,6 +120,65 @@ const RegisterPage = () => {
               />
             </div>
 
+            {/* Provider Only Fields */}
+            {isProvider && (
+              <>
+                {/* Business Name */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">
+                    <i className="bi bi-building me-2 text-success"></i>
+                    Business Name
+                  </label>
+                  <input
+                    type="text"
+                    name="businessName"
+                    onChange={handleChange}
+                    className="form-control shadow-sm"
+                    placeholder="Enter Business Name"
+                  />
+                </div>
+
+                {/* Phone */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">
+                    <i className="bi bi-telephone-fill me-2 text-success"></i>
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    onChange={handleChange}
+                    className="form-control shadow-sm"
+                    placeholder="Enter Phone Number"
+                  />
+                </div>
+
+                {/* Address */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">
+                    <i className="bi bi-geo-alt-fill me-2 text-success"></i>
+                    Village / City
+                  </label>
+                  <input
+                    type="text"
+                    name="address"
+                    onChange={handleChange}
+                    className="form-control shadow-sm"
+                    placeholder="Enter Village / City"
+                  />
+                </div>
+
+                {/* Service Type */}
+                <div className="mb-3">
+                  <label className="form-label fw-semibold">
+                    <i className="bi bi-tools me-2 text-success"></i>
+                    Service Type
+                  </label>
+
+                </div>
+              </>
+            )}
+
             {/* Language */}
             <div className="mb-3">
               <label className="form-label fw-semibold">
@@ -126,38 +196,6 @@ const RegisterPage = () => {
                 <option value="hi">{t("register.hindi")}</option>
                 <option value="pa">{t("register.punjabi")}</option>
               </select>
-            </div>
-
-            {/* Service Provider */}
-            <div className="mb-3">
-              <label className="form-label fw-semibold">
-                <i className="bi bi-briefcase-fill me-2 text-success"></i>
-                {t("register.serviceProvider")}
-              </label>
-
-              <div className="form-check">
-                <input
-                  type="radio"
-                  name="serviceProvider"
-                  value="Yes"
-                  checked={serviceProvider === "Yes"}
-                  onChange={handleChange}
-                  className="form-check-input"
-                />
-                <label className="form-check-label">{t("register.yes")}</label>
-              </div>
-
-              <div className="form-check">
-                <input
-                  type="radio"
-                  name="serviceProvider"
-                  value="No"
-                  checked={serviceProvider === "No"}
-                  onChange={handleChange}
-                  className="form-check-input"
-                />
-                <label className="form-check-label">{t("register.no")}</label>
-              </div>
             </div>
 
             {error && <div className="alert alert-danger">{error}</div>}
@@ -179,7 +217,7 @@ const RegisterPage = () => {
               {t("register.alreadyAccount")}
               <span
                 className="register-link ms-1"
-                onClick={() => navigate("/LoginPage")}
+                onClick={() => navigate("/login")}
               >
                 {t("register.loginHere")}
               </span>

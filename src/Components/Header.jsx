@@ -21,7 +21,7 @@ const Header = () => {
 
   const handleLogout = () => {
     clearUser();
-    navigate("/LoginPage");
+    navigate("/login");
   };
 
   return (
@@ -97,14 +97,14 @@ const Header = () => {
             ) : (
               <div>
                 <Link
-                  to="/LoginPage"
+                  to="/login"
                   className="btn btn-warning btn-sm me-2 shadow-sm fw-semibold"
                 >
                   {t("navbar.login")}
                 </Link>
 
                 <Link
-                  to="/RegisterPage"
+                  to="/register"
                   className="btn btn-warning btn-sm shadow-sm fw-semibold"
                 >
                   {t("navbar.register")}
