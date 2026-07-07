@@ -1,11 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import { AppContext } from "../Context/AppContext";
 
 const MainNav = () => {
   const location = useLocation();
   const navRef = useRef(null);
   const { t } = useTranslation();
+  const { user } = useContext(AppContext);
+  const role = user?.role || "FARMER";
 
   useEffect(() => {
     // Restore scroll position after navigation
@@ -25,10 +29,10 @@ const MainNav = () => {
     return location.pathname === path;
   };
 
-  const navItems = [
+  const farmerNav = [
     {
-      path: "/",
-      icon: "fa-cloud-sun",
+      path: "/dashboard",
+      icon: "fa-home",
       translationKey: "navbar.dashboard",
     },
     {
@@ -47,16 +51,82 @@ const MainNav = () => {
       translationKey: "navbar.knowledgeHub",
     },
     {
+      path: "/mybooking",
+      icon: "fa-comments",
+      translationKey: "navbar.mybooking",
+    },
+    {
       path: "/GovernmentSchemes",
-      icon: "fa-seedling",
+      icon: "fa-landmark",
       translationKey: "navbar.governmentSchemes",
     },
     {
       path: "/VirtualAssistant",
-      icon: "fa-seedling",
+      icon: "fa-comments",
       translationKey: "navbar.virtualAssistant",
     },
   ];
+
+  const providerNav = [
+    {
+      path: "/provider/dashboard",
+      icon: "fa-home",
+      translationKey: "Dashboard",
+    },
+    {
+      path: "/provider/add-service",
+      icon: "fa-plus-circle",
+      translationKey: "Add Service",
+    },
+    {
+      path: "/provider/my-services",
+      icon: "fa-briefcase",
+      translationKey: "My Services",
+    },
+    {
+      path: "/provider/bookings",
+      icon: "fa-calendar-check",
+      translationKey: "Bookings",
+    },
+  ];
+
+  const adminNav = [
+    {
+      path: "/admin/dashboard",
+      icon: "fa-home",
+      translationKey: "Dashboard",
+    },
+    {
+      path: "/admin/providers",
+      icon: "fa-user-check",
+      translationKey: "Providers",
+    },
+    {
+      path: "/admin/users",
+      icon: "fa-users",
+      translationKey: "Users",
+    },
+    {
+      path: "/admin/services",
+      icon: "fa-cogs",
+      translationKey: "Services",
+    },
+  ];
+
+  let navItems;
+
+  switch (role) {
+    case "PROVIDER":
+      navItems = providerNav;
+      break;
+
+    case "ADMIN":
+      navItems = adminNav;
+      break;
+
+    default:
+      navItems = farmerNav;
+  }
 
   return (
     <>

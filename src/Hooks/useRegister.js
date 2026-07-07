@@ -2,12 +2,11 @@ import { useReducer, useCallback } from "react";
 import { registerReducer, initialState } from "../reducers/registerReducer";
 import uploadProfileImage from "../Util/uploadProfileImage";
 import { BASE_URL, API_ENDPOINTS } from "../Util/apiEndPoints";
+import { useNavigate } from "react-router-dom";
 
 export const useRegister = () => {
-  const [state, dispatch] = useReducer(
-    registerReducer,
-    initialState
-  );
+  const [state, dispatch] = useReducer(registerReducer, initialState);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -45,9 +44,7 @@ export const useRegister = () => {
 
         // Upload image to Cloudinary first
         if (state.profileImage) {
-          imageUrl = await uploadProfileImage(
-            state.profileImage
-          );
+          imageUrl = await uploadProfileImage(state.profileImage);
         }
 
         const payload = {
@@ -55,33 +52,36 @@ export const useRegister = () => {
           email: state.email,
           password: state.password,
           language: state.language,
-          role: state.serviceProvider === "Yes" ? "SERVICE_PROVIDER" : "USER",
           profileImageUrl: imageUrl,
+          role: state.role,
         };
 
-        const response = await fetch(
-          `${BASE_URL}${API_ENDPOINTS.REGISTER}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
-          }
-        );
+        if (state.role === "PROVIDER") {
+          payload.businessName = state.businessName;
+          payload.phone = state.phone;
+          payload.address = state.address;
+        }
+
+        const response = await fetch(`${BASE_URL}${API_ENDPOINTS.REGISTER}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
 
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(
-            errorData?.message || "Registration failed"
-          );
+          throw new Error(errorData?.message || "Registration failed");
         }
 
         const data = await response.json();
         console.log("Register success:", data);
 
         dispatch({ type: "RESET" });
+        alert("Registration Successful");
 
+        navigate("/login");
       } catch (err) {
         console.error(err);
         dispatch({
@@ -95,7 +95,7 @@ export const useRegister = () => {
         });
       }
     },
-    [state]
+    [state],
   );
 
   return {

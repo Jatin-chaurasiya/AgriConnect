@@ -24,9 +24,10 @@ export const AppContextProvider = ({ children }) => {
   }, [user]);
 
   const clearUser = () => {
-    setUser(null);
-    localStorage.removeItem("token");
-  };
+  setUser(null);
+  localStorage.removeItem("token");
+  localStorage.removeItem("role");
+};
 
 
   return (

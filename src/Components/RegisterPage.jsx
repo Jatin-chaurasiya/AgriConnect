@@ -9,6 +9,14 @@ const RegisterPage = () => {
   const location = useLocation();
   const isFarmer = location.pathname === "/register/farmer";
   const isProvider = location.pathname === "/register/provider";
+  React.useEffect(() => {
+    handleChange({
+      target: {
+        name: "role",
+        value: isProvider ? "PROVIDER" : "FARMER",
+      },
+    });
+  }, [isProvider]);
   const { t } = useTranslation();
   const {
     username,
@@ -86,7 +94,7 @@ const RegisterPage = () => {
                 required
               />
             </div>
-                        {/* Email */}
+            {/* Email */}
             <div className="mb-3">
               <label className="form-label fw-semibold">
                 <i className="bi bi-envelope-fill me-2 text-success"></i>
@@ -132,9 +140,8 @@ const RegisterPage = () => {
                   <input
                     type="text"
                     name="businessName"
+                    value={state.businessName}
                     onChange={handleChange}
-                    className="form-control shadow-sm"
-                    placeholder="Enter Business Name"
                   />
                 </div>
 
@@ -145,11 +152,10 @@ const RegisterPage = () => {
                     Phone Number
                   </label>
                   <input
-                    type="tel"
+                    type="text"
                     name="phone"
+                    value={state.phone}
                     onChange={handleChange}
-                    className="form-control shadow-sm"
-                    placeholder="Enter Phone Number"
                   />
                 </div>
 
@@ -162,9 +168,8 @@ const RegisterPage = () => {
                   <input
                     type="text"
                     name="address"
+                    value={state.address}
                     onChange={handleChange}
-                    className="form-control shadow-sm"
-                    placeholder="Enter Village / City"
                   />
                 </div>
 
@@ -174,7 +179,6 @@ const RegisterPage = () => {
                     <i className="bi bi-tools me-2 text-success"></i>
                     Service Type
                   </label>
-
                 </div>
               </>
             )}

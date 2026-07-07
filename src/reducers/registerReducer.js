@@ -3,9 +3,16 @@ export const initialState = {
   email: "",
   password: "",
   language: "en",
-  serviceProvider: "",
+
+  role: "FARMER",
+
+  businessName: "",
+  phone: "",
+  address: "",
+
   profileImage: null,
   previewImage: null,
+
   loading: false,
   error: null,
 };

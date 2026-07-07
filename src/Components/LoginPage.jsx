@@ -93,7 +93,7 @@ const LoginPage = () => {
               <button
                 type="button"
                 className="btn btn-back w-100 shadow-sm"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/dashboard")}
               >
                 <i className="bi bi-arrow-left-circle me-2"></i>
                 {t("login.backButton")}
