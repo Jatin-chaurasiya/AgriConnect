@@ -12,7 +12,7 @@ const ProtectedRoute = ({ children }) => {
   useEffect(() => {
     if (!isAuthenticated) {
       const timer = setTimeout(() => {
-        navigate("/LoginPage", { replace: true });
+        navigate("/login", { replace: true });
       }, 2000);
 
       return () => clearTimeout(timer);

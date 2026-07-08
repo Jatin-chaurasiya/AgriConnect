@@ -54,7 +54,7 @@ const MyBooking = () => {
   if (confirmCancel) {
     toast.success("Booking Cancelled Successfully");
   }
-};
+}; 
 
   const filteredBookings = useMemo(() => {
     return bookings.filter((booking) => {
