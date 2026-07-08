@@ -31,7 +31,7 @@ const MainNav = () => {
 
   const farmerNav = [
     {
-      path: "/dashboard",
+      path: "/",
       icon: "fa-home",
       translationKey: "navbar.dashboard",
     },
@@ -51,7 +51,12 @@ const MainNav = () => {
       translationKey: "navbar.knowledgeHub",
     },
     {
-      path: "/mybooking",
+      path: "/BookService",
+      icon: "fa-comments",
+      translationKey: "navbar.bookService",
+    },
+    {
+      path: "/MyBooking",
       icon: "fa-comments",
       translationKey: "navbar.mybooking",
     },

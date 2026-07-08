@@ -11,6 +11,8 @@ import Newsletter from "../Components/Newsletter";
 import Locationweather from "../Pages/Locationweather";
 import CropRecommendation from "../Pages/Croprecommendation";
 import KnowledgeHub from "../Pages/KnowledgeHub";
+import BookService from "../Pages/BookService";
+import MyBooking from "../Pages/MyBooking";
 import GovernmentSchemes from "../Pages/GovernmentSchemes";
 import VirtualAssistant from "../Pages/VirtualAssistant";
 
@@ -21,7 +23,7 @@ import ProfilePage from "../Components/ProfilePage";
 const FarmerRoutes = () => (
   <>
     <Route
-      path="/dashboard"
+      path="/"
       element={
         <>
           <ImageCarousel />
@@ -40,7 +42,8 @@ const FarmerRoutes = () => (
     <Route path="/Croprecommendation" element={<CropRecommendation />} />
 
     <Route path="/knowledgehub" element={<KnowledgeHub />} />
-
+    <Route path="/BookService" element={<BookService />} />
+    <Route path="/MyBooking" element={<MyBooking />} />
     <Route path="/VirtualAssistant" element={<VirtualAssistant />} />
 
     <Route

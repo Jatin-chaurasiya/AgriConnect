@@ -170,3 +170,23 @@
   text-align: center;
   text-decoration: none;
 }
+.knowledge-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.knowledge-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tag {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #2d5016;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
