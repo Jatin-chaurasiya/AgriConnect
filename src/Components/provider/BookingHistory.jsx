@@ -1,6 +1,6 @@
 import React from "react";
 
-const Bookings = () => {
+const BookingRequest = () => {
   return (
     <div className="container py-5">
       <h2>Bookings</h2>
@@ -10,4 +10,4 @@ const Bookings = () => {
   );
 };
 
-export default Bookings;
+export default BookingRequest;

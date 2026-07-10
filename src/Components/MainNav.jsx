@@ -89,9 +89,14 @@ const MainNav = () => {
       translationKey: "My Services",
     },
     {
-      path: "/provider/bookings",
+      path: "/provider/BookingRequest",
       icon: "fa-calendar-check",
-      translationKey: "Bookings",
+      translationKey: "Booking Request",
+    },
+    {
+      path: "/provider/BookingHistory",
+      icon: "fa-calendar-check",
+      translationKey: "Booking History",
     },
   ];
 

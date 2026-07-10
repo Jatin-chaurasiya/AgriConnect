@@ -3,7 +3,8 @@ import { Route } from "react-router-dom";
 import ProviderDashboard from "../Components/provider/ProviderDashboard";
 import AddService from "../Components/provider/AddService";
 import MyServices from "../Components/provider/MyServices";
-import Bookings from "../Components/provider/Bookings";
+import BookingRequest from "../Components/provider/BookingRequest";
+import BookingHistory from "../Components/provider/BookingHistory";
 
 const ProviderRoutes = () => (
   <>
@@ -23,8 +24,12 @@ const ProviderRoutes = () => (
     />
 
     <Route
-      path="/provider/bookings"
-      element={<Bookings />}
+      path="/provider/BookingRequest"
+      element={<BookingRequest />}
+    />
+    <Route
+      path="/provider/BookingHistory"
+      element={<BookingHistory />}
     />
   </>
 );
