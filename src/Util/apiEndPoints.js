@@ -12,6 +12,18 @@ export const API_ENDPOINTS = {
     SCHEMES: "/schemes",
 
     CROP_RECOMMENDATION: "/api/crop/predict",
-    
+
+    // ================= Provider Service =================
+
+    ADD_SERVICE: "/provider/addService",
+
+    MY_SERVICES: "/provider/myServices",
+
+    UPDATE_SERVICE: "/provider/updateService",
+
+    DELETE_SERVICE: "/provider/deleteService",
+
+    // ====================================================
+
     UPLOAD_IMAGES: `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
-}
+};

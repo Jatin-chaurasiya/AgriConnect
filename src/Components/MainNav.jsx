@@ -84,11 +84,6 @@ const MainNav = () => {
       translationKey: "Add Service",
     },
     {
-      path: "/provider/my-services",
-      icon: "fa-briefcase",
-      translationKey: "My Services",
-    },
-    {
       path: "/provider/BookingRequest",
       icon: "fa-calendar-check",
       translationKey: "Booking Request",

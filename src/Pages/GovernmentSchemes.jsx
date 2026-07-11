@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import SchemesGrid from "../Components/SchemesGrid";
 import { useGovernmentSchemes } from "../Hooks/useGovernmentSchemes";
 import { Outlet } from "react-router-dom";
