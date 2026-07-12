@@ -28,7 +28,9 @@ const ServiceDetailsModal = ({
                 color: "white",
               }}
             >
-              <h4 className="modal-title">{service.title}</h4>
+              <h4 className="modal-title">
+                {service.serviceName || service.title}
+              </h4>
 
               <button
                 className="btn-close btn-close-white"
@@ -44,8 +46,8 @@ const ServiceDetailsModal = ({
 
                 <div className="col-md-5">
                   <img
-                    src={service.image}
-                    alt={service.title}
+                    src={service.image || service.imageUrl}
+                    alt={service.serviceName || service.title}
                     className="img-fluid rounded shadow"
                     style={{
                       height: "300px",
@@ -62,11 +64,15 @@ const ServiceDetailsModal = ({
                     {service.category}
                   </span>
 
-                  <h3 className="fw-bold">{service.title}</h3>
+                  <h3 className="fw-bold">
+                    {service.serviceName || service.title}
+                  </h3>
 
                   <div className="mb-3">
                     ⭐⭐⭐⭐⭐
-                    <small className="text-muted ms-2">4.8 (150 Reviews)</small>
+                    <small className="text-muted ms-2">
+                      4.8 (150 Reviews)
+                    </small>
                   </div>
 
                   <p>{service.description}</p>
@@ -74,7 +80,8 @@ const ServiceDetailsModal = ({
                   <hr />
 
                   <p>
-                    <strong>Provider :</strong> {service.provider}
+                    <strong>Provider :</strong>{" "}
+                    {service.providerName || service.provider}
                   </p>
 
                   <p>
@@ -86,11 +93,17 @@ const ServiceDetailsModal = ({
                   </p>
 
                   <p>
-                    <strong>Availability :</strong>
-                    Available Today
+                    <strong>Availability :</strong>{" "}
+                    {service.availability ? (
+                      <span className="text-success">Available</span>
+                    ) : (
+                      <span className="text-danger">Unavailable</span>
+                    )}
                   </p>
 
-                  <h3 className="text-success fw-bold">{service.price}</h3>
+                  <h3 className="text-success fw-bold">
+                    ₹{service.price} / {service.unit}
+                  </h3>
                 </div>
               </div>
 
@@ -103,13 +116,9 @@ const ServiceDetailsModal = ({
 
                 <ul>
                   <li>Experienced Service Provider</li>
-
                   <li>Modern Equipment</li>
-
                   <li>On-time Service</li>
-
                   <li>Safety Guidelines Followed</li>
-
                   <li>Customer Support</li>
                 </ul>
               </div>
@@ -121,7 +130,11 @@ const ServiceDetailsModal = ({
               <button className="btn btn-secondary" onClick={handleClose}>
                 Close
               </button>
-              <button className="btn btn-success" onClick={openBookingModal}>
+
+              <button
+                className="btn btn-success"
+                onClick={openBookingModal}
+              >
                 Book Service
               </button>
             </div>

@@ -3,13 +3,11 @@ export const initialState = {
   loading: false,
   error: null,
 
-  // Pagination
   currentPage: 0,
   pageSize: 3,
   totalPages: 0,
   totalElements: 0,
-
-  // Search
+ 
   keyword: "",
 };
 

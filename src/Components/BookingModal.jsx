@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-
+import { createOrder } from "../Hooks/useBooking";
 
 const BookingModal = ({ show, handleClose, service }) => {
-
   const [booking, setBooking] = useState({
     farmerName: "",
     mobile: "",
@@ -23,8 +22,7 @@ const BookingModal = ({ show, handleClose, service }) => {
     });
   };
 
-  const handleBooking = () => {
-
+  const handleBooking = async () => {
     if (
       !booking.farmerName ||
       !booking.mobile ||
@@ -37,21 +35,49 @@ const BookingModal = ({ show, handleClose, service }) => {
       return;
     }
 
-    // Dummy Booking
+    try {
+      const order = await createOrder(service.id);
 
-    const newBooking = {
-      id: Date.now(),
-      serviceName: service.title,
-      provider: service.provider,
-      district: service.district,
-      price: service.price,
-      status: "Pending",
-      ...booking,
-    };
+      const options = {
+        key: order.key,
 
-   toast.success("Payment Successful! Booking Created Successfully.");
+        amount: order.amount,
 
-    handleClose();
+        currency: order.currency,
+
+        name: "AgriConnect",
+
+        description: service.serviceName,
+
+        order_id: order.orderId,
+
+        handler: function (response) {
+          console.log(response);
+
+          toast.success("Payment Successful");
+
+          handleClose();
+        },
+
+        prefill: {
+          name: booking.farmerName,
+
+          contact: booking.mobile,
+        },
+
+        theme: {
+          color: "#2D5016",
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+
+      razorpay.open();
+    } catch (error) {
+      console.error(error);
+
+      toast.error("Payment Failed");
+    }
   };
 
   return (
@@ -64,9 +90,7 @@ const BookingModal = ({ show, handleClose, service }) => {
         }}
       >
         <div className="modal-dialog modal-lg modal-dialog-centered">
-
           <div className="modal-content">
-
             {/* Header */}
 
             <div
@@ -74,7 +98,7 @@ const BookingModal = ({ show, handleClose, service }) => {
               style={{ background: "#2D5016" }}
             >
               <h4 className="modal-title">
-                Book {service.title}
+                Book {service.serviceName || service.title}
               </h4>
 
               <button
@@ -86,42 +110,19 @@ const BookingModal = ({ show, handleClose, service }) => {
             {/* Body */}
 
             <div className="modal-body">
-
               <div className="alert alert-success">
-
-                <strong>Selected Service :</strong>
-
-                {" "}
-
-                {service.title}
-
+                <strong>Selected Service :</strong>{" "}
+                {service.serviceName || service.title}
                 <br />
-
-                <strong>Provider :</strong>
-
-                {" "}
-
-                {service.provider}
-
+                <strong>Provider :</strong>{" "}
+                {service.providerName || service.provider}
                 <br />
-
-                <strong>Price :</strong>
-
-                {" "}
-
-                {service.price}
-
+                <strong>Price :</strong> ₹{service.price} / {service.unit}
               </div>
 
               <div className="row">
-
                 <div className="col-md-6 mb-3">
-
-                  <label className="form-label">
-
-                    Farmer Name
-
-                  </label>
+                  <label className="form-label">Farmer Name</label>
 
                   <input
                     type="text"
@@ -130,16 +131,10 @@ const BookingModal = ({ show, handleClose, service }) => {
                     value={booking.farmerName}
                     onChange={handleChange}
                   />
-
                 </div>
 
                 <div className="col-md-6 mb-3">
-
-                  <label className="form-label">
-
-                    Mobile
-
-                  </label>
+                  <label className="form-label">Mobile</label>
 
                   <input
                     type="text"
@@ -148,20 +143,12 @@ const BookingModal = ({ show, handleClose, service }) => {
                     value={booking.mobile}
                     onChange={handleChange}
                   />
-
                 </div>
-
               </div>
 
               <div className="row">
-
                 <div className="col-md-6 mb-3">
-
-                  <label className="form-label">
-
-                    Village
-
-                  </label>
+                  <label className="form-label">Village</label>
 
                   <input
                     type="text"
@@ -170,16 +157,10 @@ const BookingModal = ({ show, handleClose, service }) => {
                     value={booking.village}
                     onChange={handleChange}
                   />
-
                 </div>
 
                 <div className="col-md-6 mb-3">
-
-                  <label className="form-label">
-
-                    Address
-
-                  </label>
+                  <label className="form-label">Address</label>
 
                   <input
                     type="text"
@@ -188,20 +169,12 @@ const BookingModal = ({ show, handleClose, service }) => {
                     value={booking.address}
                     onChange={handleChange}
                   />
-
                 </div>
-
               </div>
 
               <div className="row">
-
                 <div className="col-md-6 mb-3">
-
-                  <label className="form-label">
-
-                    Booking Date
-
-                  </label>
+                  <label className="form-label">Booking Date</label>
 
                   <input
                     type="date"
@@ -210,16 +183,10 @@ const BookingModal = ({ show, handleClose, service }) => {
                     value={booking.bookingDate}
                     onChange={handleChange}
                   />
-
                 </div>
 
                 <div className="col-md-6 mb-3">
-
-                  <label className="form-label">
-
-                    Booking Time
-
-                  </label>
+                  <label className="form-label">Booking Time</label>
 
                   <input
                     type="time"
@@ -228,18 +195,11 @@ const BookingModal = ({ show, handleClose, service }) => {
                     value={booking.bookingTime}
                     onChange={handleChange}
                   />
-
                 </div>
-
               </div>
 
               <div className="mb-3">
-
-                <label className="form-label">
-
-                  Special Instructions
-
-                </label>
+                <label className="form-label">Special Instructions</label>
 
                 <textarea
                   rows="3"
@@ -248,23 +208,17 @@ const BookingModal = ({ show, handleClose, service }) => {
                   value={booking.note}
                   onChange={handleChange}
                 ></textarea>
-
               </div>
-
             </div>
 
             {/* Footer */}
 
             <div className="modal-footer justify-content-between">
-
               <h5 className="text-success fw-bold">
-
-                {service.price}
-
+                ₹{service.price} / {service.unit}
               </h5>
 
               <div>
-
                 <button
                   className="btn btn-secondary me-2"
                   onClick={handleClose}
@@ -272,19 +226,12 @@ const BookingModal = ({ show, handleClose, service }) => {
                   Cancel
                 </button>
 
-                <button
-                  className="btn btn-success"
-                  onClick={handleBooking}
-                >
+                <button className="btn btn-success" onClick={handleBooking}>
                   Proceed Payment
                 </button>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
       </div>
     </>

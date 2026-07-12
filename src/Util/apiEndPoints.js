@@ -4,26 +4,32 @@ export const BASE_URL = "http://localhost:8080/api/v1.0";
 const CLOUDINARY_CLOUD_NAME = "dgiigrvhu";
 
 export const API_ENDPOINTS = {
-    LOGIN: "/auth/login",
-    REGISTER: "/auth/register",
-    PROFILE: "/profile/me",
-    WEATHER: "/weather",
-    CHATWIDGET: "/chat/send",
-    SCHEMES: "/schemes",
+  LOGIN: "/auth/login",
+  REGISTER: "/auth/register",
+  PROFILE: "/profile/me",
+  WEATHER: "/weather",
+  CHATWIDGET: "/chat/send",
+  SCHEMES: "/schemes",
 
-    CROP_RECOMMENDATION: "/api/crop/predict",
+  CROP_RECOMMENDATION: "/api/crop/predict",
 
-    // ================= Provider Service =================
+  // ================= Provider Service =================
 
-    ADD_SERVICE: "/provider/addService",
+  ADD_SERVICE: "/provider/addService",
 
-    MY_SERVICES: "/provider/myServices",
+  MY_SERVICES: "/provider/myServices",
 
-    UPDATE_SERVICE: "/provider/updateService",
+  UPDATE_SERVICE: "/provider/updateService",
 
-    DELETE_SERVICE: "/provider/deleteService",
+  DELETE_SERVICE: "/provider/deleteService",
 
-    // ====================================================
+  // ================= Farmer Service =================
 
-    UPLOAD_IMAGES: `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+  GET_ALL_SERVICES: "/services",
+
+  GET_SERVICE_BY_ID: "/services",
+ CREATE_ORDER: "/bookings/create-order",
+  // ====================================================
+
+  UPLOAD_IMAGES: `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
 };
