@@ -3,14 +3,18 @@ import React from "react";
 const ServiceCard = ({ service, mode, onViewDetails, onCancelBooking }) => {
   const getBadge = (status) => {
     switch (status) {
-      case "Pending":
+      case "PENDING":
         return "bg-warning text-dark";
-      case "Approved":
+
+      case "ACCEPTED":
         return "bg-primary";
-      case "Completed":
+
+      case "COMPLETED":
         return "bg-success";
-      case "Cancelled":
+
+      case "REJECTED":
         return "bg-danger";
+
       default:
         return "bg-secondary";
     }
@@ -57,7 +61,8 @@ const ServiceCard = ({ service, mode, onViewDetails, onCancelBooking }) => {
         {/* Common */}
 
         <p className="mb-2">
-          <strong>Provider :</strong>{service.provider || service.providerName}
+          <strong>Provider :</strong>
+          {service.provider || service.providerName}
         </p>
 
         <p className="mb-2">
@@ -72,7 +77,10 @@ const ServiceCard = ({ service, mode, onViewDetails, onCancelBooking }) => {
               <strong>Experience :</strong> {service.experience}
             </p>
 
-            <h5 className="text-success fw-bold">₹{service.price} {service.unit ? `/ ${service.unit}` : ""}</h5>
+            <h5 className="text-success fw-bold">
+              ₹{service.price}
+              {service.unit ? ` / ${service.unit}` : ""}
+            </h5>
           </>
         )}
 
@@ -104,7 +112,7 @@ const ServiceCard = ({ service, mode, onViewDetails, onCancelBooking }) => {
             </button>
           )}
 
-          {mode === "booking" && service.status === "Pending" && (
+          {mode === "booking" && service.status === "PENDING" && (
             <button
               className="btn btn-outline-danger w-100"
               onClick={() => onCancelBooking(service)}

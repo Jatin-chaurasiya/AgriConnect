@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { createOrder } from "../Hooks/useBooking";
+import { createOrder, verifyPayment } from "../Hooks/bookingApi";
 
 const BookingModal = ({ show, handleClose, service }) => {
   const [booking, setBooking] = useState({
@@ -51,12 +51,27 @@ const BookingModal = ({ show, handleClose, service }) => {
 
         order_id: order.orderId,
 
-        handler: function (response) {
-          console.log(response);
-
-          toast.success("Payment Successful");
-
-          handleClose();
+        handler: async function (response) {
+          try {
+            await verifyPayment({
+              serviceId: service.id,
+              razorpayOrderId: response.razorpay_order_id,
+              razorpayPaymentId: response.razorpay_payment_id,
+              razorpaySignature: response.razorpay_signature,
+              farmerName: booking.farmerName,
+              mobile: booking.mobile,
+              village: booking.village,
+              address: booking.address,
+              bookingDate: booking.bookingDate,
+              bookingTime: booking.bookingTime,
+              note: booking.note,
+            });
+            toast.success("Booking Created Successfully");
+            handleClose();
+          } catch (error) {
+            console.error(error);
+            toast.error("Payment Verification Failed");
+          }
         },
 
         prefill: {
@@ -92,7 +107,6 @@ const BookingModal = ({ show, handleClose, service }) => {
         <div className="modal-dialog modal-lg modal-dialog-centered">
           <div className="modal-content">
             {/* Header */}
-
             <div
               className="modal-header text-white"
               style={{ background: "#2D5016" }}

@@ -28,7 +28,10 @@ export const API_ENDPOINTS = {
   GET_ALL_SERVICES: "/services",
 
   GET_SERVICE_BY_ID: "/services",
- CREATE_ORDER: "/bookings/create-order",
+  CREATE_ORDER: "/bookings/create-order",
+  VERIFY_PAYMENT: "/bookings/verify-payment",
+  MY_BOOKINGS: "/bookings/myBookings",
+  CANCEL_BOOKING: "/bookings",
   // ====================================================
 
   UPLOAD_IMAGES: `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
