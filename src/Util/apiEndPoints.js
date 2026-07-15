@@ -32,7 +32,17 @@ export const API_ENDPOINTS = {
   VERIFY_PAYMENT: "/bookings/verify-payment",
   MY_BOOKINGS: "/bookings/myBookings",
   CANCEL_BOOKING: "/bookings",
-  // ====================================================
+  // ================= Provider Booking =================
+
+  PROVIDER_BOOKING_REQUESTS: "/bookings/provider/bookingRequests",
+
+  ACCEPT_BOOKING: "/bookings/provider/booking",
+
+  REJECT_BOOKING: "/bookings/provider/booking",
+
+  COMPLETE_BOOKING: "/bookings/provider/booking",
+  
+  PROVIDER_BOOKING_HISTORY: "/bookings/provider/bookingHistory",
 
   UPLOAD_IMAGES: `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
 };
