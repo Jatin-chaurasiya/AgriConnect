@@ -12,6 +12,7 @@ export const API_ENDPOINTS = {
   SCHEMES: "/schemes",
 
   CROP_RECOMMENDATION: "/api/crop/predict",
+  CROP_PLANNER: "/crop-planner",
 
   // ================= Provider Service =================
 

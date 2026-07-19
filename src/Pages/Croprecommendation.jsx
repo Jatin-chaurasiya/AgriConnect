@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCropRecommendation } from "../Hooks/useCropRecommendation";
 import { useTranslation } from "react-i18next";
+import CropPlannerSection from "../Components/CropPlannerSection";
+import CultivationGuide from "../Components/CultivationGuide";
 
 const CropRecommendation = () => {
   const { t } = useTranslation();
-  const { state, dispatch, handleSubmit, handleReset } =
-    useCropRecommendation();
 
-  const { formData, loading, recommendedCrop } = state;
+  const {
+    state,
+    dispatch,
+    handleSubmit,
+    handleCropPlanner,
+    handleReset,
+  } = useCropRecommendation();
+
+  const {
+    formData,
+    loading,
+    recommendedCrop,
+    plannerLoading,
+    cropPlanner,
+  } = state;
+
+  // planner | guide
+  const [activeView, setActiveView] = useState("planner");
 
   const handleChange = (e) => {
     dispatch({
@@ -19,17 +36,24 @@ const CropRecommendation = () => {
 
   return (
     <>
-      <section className="hero-section" style={{ backgroundColor: "#2D5016" }}>
+      <section
+        className="hero-section"
+        style={{ backgroundColor: "#2D5016" }}
+      >
         <div className="container text-center">
           <h1 className="display-4 fw-bold text-white mb-3">
             {t("cropRecommendation.title")}
           </h1>
 
-          <p className="lead text-white">{t("cropRecommendation.subtitle")}</p>
+          <p className="lead text-white">
+            {t("cropRecommendation.subtitle")}
+          </p>
         </div>
       </section>
 
       <div className="container my-5">
+        {/* ================= Form ================= */}
+
         <div className="recommendation-form">
           <h2 className="text-center mb-4">
             {t("cropRecommendation.farmDetails")}
@@ -49,12 +73,15 @@ const CropRecommendation = () => {
                     value={formData[field]}
                     onChange={handleChange}
                     className="form-control"
-                    placeholder={t(`cropRecommendation.${field}Placeholder`)}
+                    placeholder={t(
+                      `cropRecommendation.${field}Placeholder`
+                    )}
                     required
                   />
                 </div>
               ))}
             </div>
+
             <div className="text-center mt-4">
               <button
                 type="submit"
@@ -69,6 +96,8 @@ const CropRecommendation = () => {
           </form>
         </div>
 
+        {/* ================= Recommendation ================= */}
+
         {recommendedCrop && (
           <div className="result-section mt-5">
             <h2 className="text-center mb-4">
@@ -82,7 +111,7 @@ const CropRecommendation = () => {
                     🌱{" "}
                     {t(
                       `crops.${recommendedCrop.toLowerCase()}`,
-                      recommendedCrop,
+                      recommendedCrop
                     )}
                   </h3>
 
@@ -93,12 +122,50 @@ const CropRecommendation = () => {
               </div>
             </div>
 
+            {/* Buttons */}
+
             <div className="text-center mt-4">
-              <button onClick={handleReset} className="btn btn-success">
+
+              <button
+                className="btn btn-warning btn-lg me-3"
+                onClick={() => {
+                  setActiveView("planner");
+                  handleCropPlanner();
+                }}
+                disabled={plannerLoading}
+              >
+                {plannerLoading
+                  ? "Generating Crop Plan..."
+                  : "🌾 Get Crop Planner"}
+              </button>
+
+              <button
+                className="btn btn-primary btn-lg me-3"
+                onClick={() => setActiveView("guide")}
+                disabled={!cropPlanner}
+              >
+                📖 Cultivation Guide
+              </button>
+
+              <button
+                onClick={handleReset}
+                className="btn btn-success btn-lg"
+              >
                 {t("cropRecommendation.startNewRecommendation")}
               </button>
+
             </div>
           </div>
+        )}
+
+        {/* ================= Dynamic View ================= */}
+
+        {activeView === "planner" && cropPlanner && (
+          <CropPlannerSection cropPlanner={cropPlanner} />
+        )}
+
+        {activeView === "guide" && cropPlanner && (
+          <CultivationGuide cropPlanner={cropPlanner} />
         )}
       </div>
 

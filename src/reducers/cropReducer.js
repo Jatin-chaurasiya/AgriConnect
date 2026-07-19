@@ -10,6 +10,10 @@ export const initialState = {
   },
   loading: false,
   recommendedCrop: null,
+
+  plannerLoading: false,
+  cropPlanner: null,
+  plannerError: null,
 };
 
 export const cropReducer = (state, action) => {
@@ -35,6 +39,29 @@ export const cropReducer = (state, action) => {
         recommendedCrop: action.payload,
       };
 
+    case "PLANNER_REQUEST":
+      return {
+        ...state,
+        plannerLoading: true,
+        cropPlanner: null,
+        plannerError: null,
+      };
+
+    case "PLANNER_SUCCESS":
+      return {
+        ...state,
+        plannerLoading: false,
+        cropPlanner: action.payload,
+        plannerError: null,
+      };
+
+    case "PLANNER_FAILURE":
+      return {
+        ...state,
+        plannerLoading: false,
+        cropPlanner: null,
+        plannerError: action.payload,
+      };
     case "RESET":
       return initialState;
 
