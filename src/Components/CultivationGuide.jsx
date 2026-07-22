@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import FertilizerTimeline from "./Guide/FertilizerTimeline";
+import IrrigationTimeline from "./Guide/IrrigationTimeline";
+import DiseaseCards from "./Guide/DiseaseCards";
+import CropCalendar from "./Guide/CropCalendar";
 
 const CultivationGuide = ({ cropPlanner }) => {
   const [activeTab, setActiveTab] = useState("fertilizer");
@@ -10,14 +14,10 @@ const CultivationGuide = ({ cropPlanner }) => {
       </div>
 
       <div className="card-body">
-
         <div className="d-flex flex-wrap gap-2 mb-4">
-
           <button
             className={`btn ${
-              activeTab === "fertilizer"
-                ? "btn-success"
-                : "btn-outline-success"
+              activeTab === "fertilizer" ? "btn-success" : "btn-outline-success"
             }`}
             onClick={() => setActiveTab("fertilizer")}
           >
@@ -26,9 +26,7 @@ const CultivationGuide = ({ cropPlanner }) => {
 
           <button
             className={`btn ${
-              activeTab === "irrigation"
-                ? "btn-success"
-                : "btn-outline-success"
+              activeTab === "irrigation" ? "btn-success" : "btn-outline-success"
             }`}
             onClick={() => setActiveTab("irrigation")}
           >
@@ -37,9 +35,7 @@ const CultivationGuide = ({ cropPlanner }) => {
 
           <button
             className={`btn ${
-              activeTab === "disease"
-                ? "btn-success"
-                : "btn-outline-success"
+              activeTab === "disease" ? "btn-success" : "btn-outline-success"
             }`}
             onClick={() => setActiveTab("disease")}
           >
@@ -48,9 +44,7 @@ const CultivationGuide = ({ cropPlanner }) => {
 
           <button
             className={`btn ${
-              activeTab === "calendar"
-                ? "btn-success"
-                : "btn-outline-success"
+              activeTab === "calendar" ? "btn-success" : "btn-outline-success"
             }`}
             onClick={() => setActiveTab("calendar")}
           >
@@ -59,39 +53,35 @@ const CultivationGuide = ({ cropPlanner }) => {
 
           <button
             className={`btn ${
-              activeTab === "tips"
-                ? "btn-success"
-                : "btn-outline-success"
+              activeTab === "tips" ? "btn-success" : "btn-outline-success"
             }`}
             onClick={() => setActiveTab("tips")}
           >
             🤖 AI Tips
           </button>
-
         </div>
 
         <hr />
 
         {activeTab === "fertilizer" && (
-          <h5>🌱 Fertilizer Timeline Here...</h5>
+          <FertilizerTimeline fertilizers={cropPlanner?.fertilizers || []} />
         )}
 
         {activeTab === "irrigation" && (
-          <h5>💧 Irrigation Timeline Here...</h5>
+          <IrrigationTimeline irrigations={cropPlanner?.irrigations || []} />
         )}
 
         {activeTab === "disease" && (
-          <h5>🦠 Disease Cards Here...</h5>
+          <DiseaseCards diseases={cropPlanner?.diseases || []} />
         )}
 
         {activeTab === "calendar" && (
-          <h5>📅 Crop Calendar Here...</h5>
+          <CropCalendar
+            calendarActivities={cropPlanner?.calendarActivities || []}
+          />
         )}
 
-        {activeTab === "tips" && (
-          <h5>🤖 AI Suggestions Here...</h5>
-        )}
-
+        {activeTab === "tips" && <h5>🤖 AI Suggestions Here...</h5>}
       </div>
     </div>
   );
