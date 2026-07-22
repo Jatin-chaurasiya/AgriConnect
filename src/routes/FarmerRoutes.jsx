@@ -15,7 +15,6 @@ import BookService from "../Pages/BookService";
 import MyBooking from "../Pages/MyBooking";
 import BookingModal from "../Components/BookingModal";
 import GovernmentSchemes from "../Pages/GovernmentSchemes";
-import VirtualAssistant from "../Pages/VirtualAssistant";
 
 import ProtectedRoute from "../Components/ProtectedRoute";
 import SchemeDetailsModal from "../Components/SchemeDetailsModal";
@@ -43,7 +42,6 @@ const FarmerRoutes = () => (
     <Route path="/Croprecommendation" element={<CropRecommendation />} />
 
     <Route path="/knowledgehub" element={<KnowledgeHub />} />
-    <Route path="/VirtualAssistant" element={<VirtualAssistant />} />
 
     <Route
       path="/GovernmentSchemes"

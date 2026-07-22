@@ -65,11 +65,6 @@ const MainNav = () => {
       icon: "fa-landmark",
       translationKey: "navbar.governmentSchemes",
     },
-    {
-      path: "/VirtualAssistant",
-      icon: "fa-comments",
-      translationKey: "navbar.virtualAssistant",
-    },
   ];
 
   const providerNav = [
